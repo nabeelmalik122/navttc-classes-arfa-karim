@@ -19,7 +19,7 @@ p {
   font-family: "Nabeel";
   margin: 30px 20px;
 } */
-h1 {
+/* h1 {
   margin: 30px 20px;
   font-size: 30px;
   font-weight: 900;
@@ -32,4 +32,27 @@ p {
   text-indent: 250px;
   text-decoration: underline;
   text-align: center;
+} */
+
+h1 {
+  margin: 30px 20px;
+  letter-spacing: 5px;
+  word-spacing: 4px;
+  text-shadow: 10px 10px 10px red;
+}
+
+p {
+  margin: 30px 20px;
+  line-height: 70px;
+  letter-spacing: 10px;
+  word-spacing: 4px;
+}
+h1::first-letter {
+  color: rgb(8, 0, 255);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 70px;
+}
+p::first-line {
+  background-color: aqua;
+  font-size: 20px;
 }
