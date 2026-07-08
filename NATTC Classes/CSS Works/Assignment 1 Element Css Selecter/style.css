@@ -1,0 +1,66 @@
+/* * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+} */
+h1 {
+  color: red;
+}
+p {
+  font-size: 20px;
+  background-color: aquamarine;
+  padding: 10px;
+}
+button {
+  background-color: red;
+  color: #fff;
+  font-size: 15px;
+}
+*/ div {
+  font-family: sans-serif;
+  border: 2px solid blue;
+  padding: 10px;
+  margin: 5px;
+}
+.para1 {
+  background-color: yellow;
+  border: 2px solid red;
+  color: purple;
+}
+.para2 {
+  background-color: chartreuse;
+  color: red;
+}
+.para3 {
+  background-color: rgb(155, 0, 0);
+  color: #fff;
+}
+#uni {
+  color: red;
+  font-size: large;
+  background-color: turquoise;
+  padding: 5px;
+  border: 2px solid royalblue;
+  text-align: center;
+}
+
+div p {
+  background-color: goldenrod;
+  padding: 5px;
+}
+
+li > span {
+  color: #fff;
+  background-color: rebeccapurple;
+  font-size: 15px;
+}
+h3 + p {
+  background-color: aqua;
+  padding: 10px;
+  color: rgb(17, 0, 255);
+}
+
+h3 ~ p {
+  background-color: aquamarine;
+  border: 2px solid rgb(17, 0, 255);
+}
