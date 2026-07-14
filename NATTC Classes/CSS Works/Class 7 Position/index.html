@@ -7,29 +7,91 @@
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body> -->
-    <!-- <div class="container">
+<!-- <div class="container">
       <div class="item1">Botton1</div>
       <div class="item2">Button2</div>
       <div class="item3">Button3</div>
     </div> -->
-    <!--  -->
-    <!-- Postion Relative -->
-    <!-- <div class="container" style="position: relative">
+<!--  -->
+<!-- Postion Relative -->
+<!-- <div class="container" style="position: relative">
       <div class="box">Box 1</div>
       <div class="box absolute-box">Box 2</div>
       <div class="box">Box 3</div>
     </div> -->
 
-    <!--Position Absoulte  -->
-    <!-- <div class="container">
+<!--Position Absoulte  -->
+<!-- <div class="container">
       <div class="box">Box 1</div>
       <div class="box absolute-box">Box 2</div>
       <div class="box">Box 3</div>
     </div> -->
 
-    <!-- <div class="parent">
+<!-- <div class="parent">
       <div class="child">Absolute Box</div>
       Normal text yahan hai
     </div> -->
-  <!-- </body>
+<!-- </body>
 </html> -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fixed, Sticky & Z-Index Demo</title>
+    <!-- CSS File ka Link -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- FIXED NAVBAR: Hamesha screen ke top par lock rahegi -->
+    <div class="navbar">
+      <h2>Nabeel Muhammad | Logo</h2>
+    </div>
+
+    <div class="container">
+      <!-- Main Content Area -->
+      <div class="main-content">
+        <h1>Main Tutorial Area</h1>
+        <p class="intro-text">
+          Jab aap is page ko niche scroll karenge, toh aap dekhenge ke black
+          colored <strong>Navbar fixed hai</strong> aur apni jagah se nahi hil
+          rahi. Lekin jo right side par blue colored
+          <strong
+            >Sidebar hai, woh pehle thoda scroll hoga aur phir screen ke top se
+            90px door lock (sticky) ho jayega.</strong
+          >
+        </p>
+
+        <!-- Z-INDEX INTERACTION CARD -->
+        <div class="card-container">
+          <!-- Orange circle jo text box ke peeche hai (z-index: -1) -->
+          <div class="bg-circle"></div>
+
+          <!-- Dark Gray Box jo circle ke upar hai (z-index: 2) -->
+          <div class="front-box">
+            <h3>z-index: 2 (Text Box)</h3>
+            <p>
+              Mera z-index positive hai aur peeche orange circle ka z-index: -1
+              hai, isliye main upar dikh raha hoon aur designer circle mere
+              peeche chal gaya hai.
+            </p>
+          </div>
+        </div>
+
+        <p class="scroll-spacer">
+          Page ko niche scroll karte rahein taake aap sticky behavior ko thik se
+          observe kar sakein...
+        </p>
+      </div>
+
+      <!-- STICKY SIDEBAR: Scroll hone par top se 90px par lock ho jayega -->
+      <div class="sidebar">
+        <h3>Sticky Card</h3>
+        <p class="sidebar-text">
+          Main scroll hone ke baad top par chipak jaunga!
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
