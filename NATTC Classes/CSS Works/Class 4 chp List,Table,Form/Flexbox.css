@@ -1,27 +1,282 @@
+/* ========================
+   RESET
+======================== */
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
 
+/* ========================
+   BODY
+   - poori screen gray background
+   - flex isliye ke form ko
+     vertically + horizontally center karo
+======================== */
 body {
+  background-color: #f1f1f1;
+  min-height: 100vh; /* poori screen ki height lo */
+  display: flex;
+  justify-content: center; /* horizontal center */
+  align-items: center; /* vertical center */
+  padding: 40px 16px; /* mobile pe sides pe space */
   font-family: Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
-  color: #333333;
-  padding: 20px;
 }
 
-.Flex-Con {
-  /* background-color: aqua; */
-  height: 50vh;
-  /* width: 100%; */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
+/* ========================
+   PAGE WRAPPER
+   - ye sirf ek helper div hai
+     width control karne ke liye
+======================== */
+.page-wrapper {
+  width: 100%;
+  max-width: 700px; /* laptop pe 700 se zyada nahi */
 }
-.child {
-  margin: 10px;
-  background-color: beige;
-  padding: 20px;
+
+/* ========================
+   FORM WRAPPER (white card)
+   - white background
+   - rounded corners
+   - shadow
+   - padding andar se space
+======================== */
+.form-wrapper {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 40px 50px; /* andar se space */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+
+/* ========================
+   HEADING
+======================== */
+.form-wrapper h2 {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+  color: #111;
+  margin-bottom: 10px;
+}
+
+/* Orange line under heading */
+.orange-line {
+  border: none;
+  height: 3px;
+  background-color: #f97316;
+  /* width: 100px; */
+  /* margin: 0 auto 30px auto; center karo */
+  margin: 0 auto 30px auto;
+}
+
+/* ========================
+   FIELD GROUP
+   - har ek input ka wrapper
+   - label upar, input neeche
+======================== */
+.field-group {
+  margin-bottom: 22px;
+  display: flex;
+  flex-direction: column; /* label upar, input neeche */
+  gap: 8px;
+}
+
+.field-group label {
+  font-size: 14px;
+  font-weight: 700;
+  color: #111;
+}
+
+/* ========================
+   INPUT BOX (icon wala)
+   - icon aur input side by side
+   - flex isliye
+======================== */
+.input-box {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px 16px;
+  gap: 12px;
+  background-color: #fff;
+}
+
+.input-box:focus-within {
+  border-color: #f97316;
+}
+
+.icon {
+  font-size: 18px;
+  color: #9ca3af;
+}
+
+.input-box input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 15px;
+  color: #333;
+  background: transparent;
+}
+
+/* ========================
+   SELECT DROPDOWN
+======================== */
+.field-group select {
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  color: #333;
+  background-color: #fff;
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+.field-group select:focus {
+  border-color: #f97316;
+}
+
+/* ========================
+   TEXTAREA
+======================== */
+.field-group textarea {
+  border: 1.5px solid #d1d5db;
+  border-radius: 8px;
+  padding: 12px 16px;
+  font-size: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  resize: vertical; /* sirf upar neeche resize ho */
+  outline: none;
+  width: 100%;
+}
+
+.field-group textarea:focus {
+  border-color: #f97316;
+}
+
+/* ========================
+   ROW GROUP
+   - Course aur Gender side by side
+   - flex isliye
+   - gap beech mein space
+======================== */
+.row-group {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 22px;
+  align-items: flex-start;
+}
+
+/* half = row ke andar 50-50 */
+.half {
+  flex: 1; /* dono barabar space lenge */
+  margin-bottom: 0;
+}
+
+/* ========================
+   GENDER RADIO BUTTONS
+======================== */
+.gender-options {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+}
+
+.radio-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.radio-label input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #f97316;
+  cursor: pointer;
+}
+
+/* ========================
+   TERMS CHECKBOX
+======================== */
+.terms-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.terms-group input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #f97316;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.terms-group label {
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* ========================
+   SUBMIT BUTTON
+   - full width
+   - orange color
+======================== */
+.submit-btn {
+  width: 100%;
+  padding: 16px;
+  background-color: #f97316;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  letter-spacing: 0.5px;
+}
+
+.submit-btn:hover {
+  background-color: #ea6c0a;
+}
+
+/* ========================
+   RESPONSIVE - MOBILE
+   768px se chota screen
+======================== */
+@media (max-width: 768px) {
+  .form-wrapper {
+    padding: 30px 20px;
+  }
+
+  /* Course + Gender ek ke neeche ek */
+  .row-group {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .half {
+    width: 100%;
+    margin-bottom: 22px;
+  }
+
+  .gender-options {
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-wrapper h2 {
+    font-size: 22px;
+  }
 }
