@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Registration Form</title>
+  <link rel="stylesheet" href="./Flexbox.css"/>
+</head>
+<body>
+
+  <!-- 
+    STRUCTURE SAMJHO:
+    body = gray background
+    .page-wrapper = center karne ke liye
+    .form-wrapper = white card/box
+  -->
+
+  <div class="page-wrapper">
+    <div class="form-wrapper">
+
+      <!-- Heading -->
+      <h2>Student Registration Form</h2>
+      <hr class="orange-line"/>
+
+      <!-- Full Name -->
+      <div class="field-group">
+        <label>Full Name</label>
+        <div class="input-box">
+          <span class="icon">&#128100;</span>
+          <input type="text" placeholder="Enter your full name" required/>
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="field-group">
+        <label>Email Address</label>
+        <div class="input-box">
+          <span class="icon">&#9993;</span>
+          <input type="email" placeholder="Enter your email" required/>
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="field-group">
+        <label>Phone Number</label>
+        <div class="input-box">
+          <span class="icon">&#128222;</span>
+          <input type="tel" placeholder="Enter your phone number" required/>
+        </div>
+      </div>
+
+      <!-- Course + Gender - side by side row -->
+      <div class="row-group">
+
+        <!-- Course -->
+        <div class="field-group half">
+          <label>Course Interested In</label>
+          <select>
+            <option value="" disabled selected>Select a course</option>
+            <option>Web Development</option>
+            <option>Graphic Design</option>
+            <option>Artificial Intelligence</option>
+            <option>Digital Marketing</option>
+            <option>Mobile App Development</option>
+          </select>
+        </div>
+
+        <!-- Gender -->
+        <div class="field-group half">
+          <label>Gender</label>
+          <div class="gender-options">
+            <label class="radio-label">
+              <input type="radio" name="gender" value="male"/> Male
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="gender" value="female"/> Female
+            </label>
+            <label class="radio-label">
+              <input type="radio" name="gender" value="other"/> Other
+            </label>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Message -->
+      <div class="field-group">
+        <label>Message</label>
+        <textarea placeholder="Write your message here..." rows="5"></textarea>
+      </div>
+
+      <!-- Terms -->
+      <div class="terms-group">
+        <input type="checkbox" id="terms" required/>
+        <label for="terms">I agree to the terms and conditions</label>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-btn">Submit Form</button>
+
+    </div>
+  </div>
+
+</body>
+</html>

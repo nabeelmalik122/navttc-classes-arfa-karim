@@ -1,0 +1,33 @@
+.flex-container {
+  display: flex;
+  background-color: #1e293b;
+  padding: 20px;
+  height: 200px;
+  gap: 15px;
+  align-items: center; /* Default alignment for all items is center */
+}
+
+.item {
+  color: white;
+  padding: 15px;
+  border-radius: 6px;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+.normal {
+  background-color: #ef4444; /* Red */
+  flex-basis: 100px; /*Shuruati width */
+}
+
+.special {
+  background-color: #10b981; /* Green */
+  flex-grow: 4; /*Khali bachi hui saari space yeh box le lega */
+  align-self: flex-end; /* Baqi center hain, par yeh akela bilkul bottom par jayega */
+}
+
+.no-shrink {
+  background-color: #3b82f6; /* Blue */
+  width: 150px;
+  flex-shrink: 1; /* Screen choti hone par bhi yeh box 150px se chota nahi hoga */
+}

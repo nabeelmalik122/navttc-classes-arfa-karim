@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Form</title>
+  </head>
+  <body>
+    <form action="">
+      <fieldset>
+        <legend>Contact Details</legend>
+
+        <!--  -->
+        <label for="username">Name <br /></label>
+        <input
+          type="text"
+          name="username"
+          id=""
+          placeholder="Enter your name"
+          required
+          maxlength="10"
+        />
+        <br /><br />
+
+        <!--  -->
+        <label for="email">Enter Your Email <br /></label>
+        <input
+          type="email"
+          name="email"
+          id=""
+          placeholder="Enter Your Email"
+          required
+        />
+        <br />
+        <br />
+
+        <!--  -->
+        <label for="password">Enter Your Password <br /></label>
+        <input
+          type="password"
+          name="password"
+          id=""
+          placeholder="Enter Your Password"
+          required
+          pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+        />
+        <br />
+        <br />
+
+        <!--  -->
+        <label for="text">Write Your Fedback Here <br /></label>
+        <textarea
+          name="text"
+          id=""
+          placeholder="Your Fedback......"
+          cols="40"
+          rows="5"
+        ></textarea>
+        <br /><br />
+
+        <!--  -->
+        <label for="gender">Select Your Gender <br /></label>
+        <input type="radio" name="gender" id="" value="Male" /> Male
+        <input type="radio" name="gender" id="" value="Female" /> Female
+        <input type="radio" name="gender" id="" value="Rather" /> Rather
+        <br /><br />
+
+        <!--  -->
+        <label for="Fruits">My Fav Fruits <br /></label>
+        <input type="checkbox" name="Fruits" value="Apple" />Apple
+        <input type="checkbox" name="Fruits" value="Mango" />Mango
+        <input type="checkbox" name="Fruits" value="Banana" />Banana
+        <input type="checkbox" name="Fruits" value="Grapes" />Grapes <br />
+        <br />
+
+        <!--  -->
+        <label for="CV">Upload Your CV <br /></label>
+        <input type="file" name="CV" id="" accept=".pdf, .png, .gif" />
+        <br /><br />
+
+        <!--  -->
+        <label for="Country">Your Country</label>
+        <select>
+          <option>Select</option>
+          <option value="Pakistan" name="Country">Pakistan</option>
+          <option value="UK" name="Country">UK</option>
+          <option value="USA" name="Country">USA</option>
+          <option value="Iran" name="Country">Iran</option>
+          <option value="China" name="Country">China</option>
+          <option value="Brazil" name="Country">Brazil</option>
+        </select>
+        <br /><br />
+
+        <!--  -->
+        <label for="url">Enter Your URL:</label>
+        <input type="url" name="url" id="" required />
+        <br /><br />
+
+        <!--  -->
+        <label for="dob">Your Date Of Birth <br /></label>
+        <input type="date" name="dob" id="" />
+        <br /><br />
+        <!--  -->
+        <input type="submit" />
+      </fieldset>
+    </form>
+  </body>
+</html>

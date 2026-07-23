@@ -1,0 +1,200 @@
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+/* body {
+  background-color: #f1f1f1; */
+/* min-height: 100vh; */
+/* display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 16px; */
+/* font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+} */
+
+/* .container {
+  width: 100%;
+  height: 100vh;
+  background-color: #b0a9a9;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+/* .item1 {
+  background-color: aqua;
+  margin: 20px 50px;
+  height: 80px;
+  padding: 30px;
+  position: relative;
+  top: 30px;
+  left: 120px;
+  z-index: 1;
+  border-radius: 10px;
+} */
+/* .item2 {
+  background-color: red;
+  margin: 20px 50px;
+  height: 80px;
+  padding: 30px;
+  top: 40px;
+  position: absolute;
+  left: 120px;
+  z-index: 2;
+  border-radius: 10px;
+} */
+
+/* .item3 {
+  background-color: blue;
+  margin: 20px 50px;
+  height: 80px;
+  padding: 30px;
+  position: relative;
+  top: 30px;
+  right: 120px;
+  border-radius: 10px;
+} */
+
+/* .box {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  color: white;
+} */
+
+/* .relative-box {
+  position: relative;
+  top: 40px;
+  background-color: red;
+} */
+
+/* .absolute-box {
+  position: absolute;
+  top: 0;
+  left: 720px;
+  background-color: red;
+} */
+/* .parent {
+  position: relative; 
+  width: 300px;
+  height: 200px;
+  background: lightgray;
+} */
+
+/* .child { */
+/* position: absolute; */
+/* top: 10px; parent ke top se 10px */
+/* right: 10px; parent ke right se 10px */
+/* background: orange; */
+/* padding: 8px; */
+/* } */
+
+/* RESET RULES */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  min-height: 200vh; /* Scrollbar lane ke liye extra height */
+  padding-top: 80px; /* Taake fixed navbar content ko chhupaye na */
+}
+
+/* 1. FIXED NAVBAR WITH Z-INDEX */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #111827; /* Dark Charcoal Black */
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  /* z-index: 10 taake scroll karte waqt baqi content iske niche se guzre */
+  z-index: 10;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* LAYOUT WRAPPER */
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  display: flex;
+  gap: 30px;
+  padding: 0 20px;
+}
+
+/* MAIN CONTENT */
+.main-content {
+  flex: 2;
+  background: white;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.intro-text {
+  margin-top: 20px;
+  line-height: 1.6;
+}
+
+.scroll-spacer {
+  margin-top: 300px;
+  line-height: 1.6;
+}
+
+/* 2. STICKY SIDEBAR */
+.sidebar {
+  flex: 1;
+  position: sticky;
+  top: 80px; /* Sticky lock point: Navbar (70px) + 20px space */
+  background-color: #2563eb; /* Royal Blue */
+  color: white;
+  padding: 20px;
+  border-radius: 8px;
+  height: 250px; /* Chota height box jo scroll ke sath lock hoga */
+}
+
+.sidebar-text {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+/* 3. UNDERSTANDING Z-INDEX (-1 and positive) */
+.card-container {
+  position: relative;
+  background: #e5e7eb;
+  padding: 40px;
+  margin-top: 40px;
+  border-radius: 8px;
+  overflow: hidden; /* Elements ko border ke andar rakhne ke liye */
+}
+
+/* Dark Gray Box (z-index: 2) */
+.front-box {
+  position: relative;
+  background: #374151;
+  color: white;
+  padding: 20px;
+  border-radius: 6px;
+  z-index: 2; /* Iska z-index circle se bada hai, isliye upar hai */
+}
+
+/* Decorative Circle (z-index: -1) */
+.bg-circle {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  background: orange;
+  border-radius: 50%;
+  /* z-index: -1 se yeh text box aur content ke peeche chala gaya */
+  z-index: -1;
+}

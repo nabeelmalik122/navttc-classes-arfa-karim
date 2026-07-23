@@ -1,0 +1,123 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* @import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Momo+Trust+Sans:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"); */
+
+/* h1 {
+  margin: 30px 20px;
+  font-family: "Exo 2", sans-serif;
+  font-family: "Nabeel";
+}
+@font-face {
+  font-family: "Nabeel";
+  src: url(./font/MomoTrustSans-VariableFont_wght.ttf);
+}
+p {
+  font-family: "Nabeel";
+  margin: 30px 20px;
+} */
+/* h1 {
+  margin: 30px 20px;
+  font-size: 30px;
+  font-weight: 900;
+}
+p {
+  margin: 30px 20px;
+  font-size: 20px;
+  font-weight: 300;
+  font-style: italic;
+  text-indent: 250px;
+  text-decoration: underline;
+  text-align: center;
+} */
+
+/* h1 {
+  margin: 30px 20px;
+  letter-spacing: 5px;
+  word-spacing: 4px;
+  text-shadow: 10px 10px 10px red;
+}
+
+p {
+  margin: 30px 20px;
+  line-height: 70px;
+  letter-spacing: 10px;
+  word-spacing: 4px;
+}
+h1::first-letter {
+  color: rgb(8, 0, 255);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 70px;
+}
+p::first-line {
+  background-color: aqua;
+  font-size: 20px;
+} */
+
+h1 {
+  font-family: "Exo 2", sans-serif;
+  font-size: 2em;
+  margin: 30px;
+  word-spacing: 5px;
+  letter-spacing: 5px;
+  font-weight: 700;
+  font-style: italic;
+  text-shadow: 5px 5px 5px yellow;
+}
+
+h1::first-letter {
+  font-size: 80px;
+  color: red;
+}
+
+p {
+  font-family: "Exo 2", sans-serif;
+  margin: 30px;
+  word-spacing: 3px;
+  letter-spacing: 5px;
+  font-weight: 300;
+  text-indent: 30px;
+}
+
+div {
+  margin: 10px 30px;
+}
+
+button {
+  margin: 10px 60px;
+  font-size: 20px;
+  border: none;
+  /* outline: none; */
+  padding: 15px;
+  border-radius: 10px;
+  background-color: rgb(10, 244, 244);
+  color: black;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(81, 227, 227);
+}
+
+button:active {
+  background-color: yellow;
+  scale: 0.9;
+}
+
+.child1 input:focus {
+  border: none;
+  outline: none;
+  /* background-color: aqua; */
+  border-bottom: 2px solid aqua;
+  /* border-bottom: 2px solid blue; */
+}
+
+.child2 input:focus {
+  /* background-color: aqua; */
+  border: none;
+  outline: none;
+  border-bottom: 2px solid aqua;
+}
