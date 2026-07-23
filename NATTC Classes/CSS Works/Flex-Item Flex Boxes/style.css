@@ -17,7 +17,7 @@
 
 .normal {
   background-color: #ef4444; /* Red */
-  flex-basis: 100px; /*Shuruati width */
+  flex-basis: auto; /*Shuruati width */
 }
 
 .special {
@@ -29,5 +29,5 @@
 .no-shrink {
   background-color: #3b82f6; /* Blue */
   width: 150px;
-  flex-shrink: 1; /* Screen choti hone par bhi yeh box 150px se chota nahi hoga */
+  flex-shrink: 0; /* Screen choti hone par bhi yeh box 150px se chota nahi hoga */
 }

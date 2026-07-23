@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aroma — Premium Coffee Shop</title>
+<meta name="description" content="Aroma Coffee — Award-winning specialty coffee, Shoreditch London"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="ldr-cup">
+    <div class="ldr-steam"><span></span><span></span><span></span></div>
+    <div class="ldr-body"><div class="ldr-liquid" id="ldrLiquid"></div></div>
+    <div class="ldr-handle"></div>
+    <div class="ldr-saucer"></div>
+  </div>
+  <p class="ldr-brand">Aroma</p>
+  <div class="ldr-track"><div class="ldr-bar" id="ldrBar"></div></div>
+  <p class="ldr-msg" id="ldrMsg">Brewing your experience…</p>
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+<nav class="nav-inner">
+  <a href="#home" class="nav-logo">
+    <svg class="logo-svg" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" stroke="#C69C6D" stroke-width="1.4"/><path d="M11 27c0 0 2-11 8-11s8 11 8 11" stroke="#C69C6D" stroke-width="1.7" stroke-linecap="round"/><path d="M27 19c2 0 4 1 4 3s-2 3-4 3" stroke="#C69C6D" stroke-width="1.4" stroke-linecap="round"/><line x1="13" y1="29" x2="25" y2="29" stroke="#C69C6D" stroke-width="1.7" stroke-linecap="round"/></svg>
+    <span>Aroma</span>
+  </a>
+  <input type="checkbox" id="navCk" class="nav-ck"/>
+  <label for="navCk" class="nav-hbg" id="navHbg"><span></span><span></span><span></span></label>
+  <ul class="nav-list" id="navList">
+    <li><a href="#home" class="nl">Home</a></li>
+    <li><a href="#featured" class="nl">Menu</a></li>
+    <li><a href="#about" class="nl">About</a></li>
+    <li><a href="#gallery" class="nl">Gallery</a></li>
+    <li><a href="#testimonials" class="nl">Reviews</a></li>
+    <li><a href="#contact" class="nl">Contact</a></li>
+    <li><a href="#reservation" class="nl nl-cta">Reserve</a></li>
+  </ul>
+</nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hslide active" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1920&q=80')"></div>
+    <div class="hslide" style="background-image:url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=1920&q=80')"></div>
+    <div class="hslide" style="background-image:url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1920&q=80')"></div>
+  </div>
+  <div class="hero-ov"></div>
+  <div class="beans" aria-hidden="true">
+    <i class="bn"></i><i class="bn"></i><i class="bn"></i><i class="bn"></i>
+    <i class="bn"></i><i class="bn"></i><i class="bn"></i><i class="bn"></i>
+  </div>
+  <div class="hero-body">
+    <div class="hero-left" id="heroLeft">
+      <span class="eyebrow reveal-up">Est. 2012 · Specialty Coffee</span>
+      <h1 class="hero-h1 reveal-up" data-delay="100">
+        Every Sip is a<br/>
+        <em id="typeTarget"></em>
+      </h1>
+      <p class="hero-p reveal-up" data-delay="200">Handcrafted coffee roasted with passion. From single-origin beans to your cup — taste the difference devotion makes.</p>
+      <div class="hero-btns reveal-up" data-delay="300">
+        <a href="#featured" class="btn btn-gold">Explore Menu</a>
+        <a href="#about" class="btn btn-ghost">Our Story</a>
+      </div>
+      <div class="hero-stats reveal-up" data-delay="400">
+        <div class="hst"><span class="hst-n" data-target="50">0</span><sup>+</sup><small>Coffee Types</small></div>
+        <div class="hst-div"></div>
+        <div class="hst"><span class="hst-n" data-target="10">0</span><sup>K+</sup><small>Happy Guests</small></div>
+        <div class="hst-div"></div>
+        <div class="hst"><span class="hst-n" data-target="20">0</span><sup>+</sup><small>Baristas</small></div>
+      </div>
+    </div>
+    <div class="hero-right reveal-right" data-delay="200" id="heroRight">
+      <div class="h-ring hr1"></div>
+      <div class="h-ring hr2"></div>
+      <div class="h-ring hr3"></div>
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=85" alt="Espresso" class="hero-img" id="heroImg"/>
+      <div class="h-badge" id="hBadge">
+        <span>Since</span><strong>2012</strong><span>Award Winning</span>
+      </div>
+      <div class="h-card" id="hCard">
+        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=100&q=80" alt="Latte"/>
+        <div><strong>Latte Art</strong><span>Crafted daily</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-dots" id="heroDots">
+    <button class="hdot active" data-i="0"></button>
+    <button class="hdot" data-i="1"></button>
+    <button class="hdot" data-i="2"></button>
+  </div>
+  <a href="#featured" class="scroll-hint"><span class="scroll-m"><span class="scroll-w"></span></span>Scroll</a>
+</section>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-t" id="tickerTrack">
+  <span>Single Origin Ethiopia</span><b>✦</b><span>Award Winning Baristas</span><b>✦</b>
+  <span>100% Organic Beans</span><b>✦</b><span>Cold Brew Collection</span><b>✦</b>
+  <span>Seasonal Specials</span><b>✦</b><span>In-House Roastery</span><b>✦</b>
+  <span>Single Origin Ethiopia</span><b>✦</b><span>Award Winning Baristas</span><b>✦</b>
+  <span>100% Organic Beans</span><b>✦</b><span>Cold Brew Collection</span><b>✦</b>
+  <span>Seasonal Specials</span><b>✦</b><span>In-House Roastery</span><b>✦</b>
+</div></div>
+
+<!-- FEATURED COFFEES -->
+<section class="section" id="featured">
+<div class="container">
+  <div class="sec-hd reveal-up"><span class="eyebrow">Signature Drinks</span><h2>Featured Coffees</h2><div class="sec-bar"></div><p>Sourced from the world's finest farms, roasted in-house, served with love.</p></div>
+  <div class="cards-grid">
+    <article class="ccard reveal-up" data-delay="0">
+      <div class="ccard-img">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Espresso" loading="lazy"/>
+        <span class="cbadge">Bestseller</span>
+        <div class="ccard-ov"><a href="#reservation" class="btn btn-sm">Order Now</a></div>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-row"><h3>Double Espresso</h3><span class="cprice">$4.50</span></div>
+        <p>Rich, bold and intensely aromatic — two shots of our signature house blend.</p>
+        <div class="ccard-ft"><span class="cstars">★★★★★ <em>4.9</em></span><a href="#reservation" class="btn btn-sm btn-gold">Order</a></div>
+      </div>
+    </article>
+    <article class="ccard reveal-up" data-delay="100">
+      <div class="ccard-img">
+        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80" alt="Latte" loading="lazy"/>
+        <span class="cbadge cbadge-new">New</span>
+        <div class="ccard-ov"><a href="#reservation" class="btn btn-sm">Order Now</a></div>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-row"><h3>Signature Latte</h3><span class="cprice">$5.80</span></div>
+        <p>Velvety micro-foam, seasonal espresso blend and a hand-poured tulip art.</p>
+        <div class="ccard-ft"><span class="cstars">★★★★★ <em>4.8</em></span><a href="#reservation" class="btn btn-sm btn-gold">Order</a></div>
+      </div>
+    </article>
+    <article class="ccard reveal-up" data-delay="200">
+      <div class="ccard-img">
+        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&q=80" alt="Mocha" loading="lazy"/>
+        <div class="ccard-ov"><a href="#reservation" class="btn btn-sm">Order Now</a></div>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-row"><h3>Mocha Royale</h3><span class="cprice">$6.20</span></div>
+        <p>Belgian dark chocolate, finest espresso and house-made whipped cream.</p>
+        <div class="ccard-ft"><span class="cstars">★★★★★ <em>4.7</em></span><a href="#reservation" class="btn btn-sm btn-gold">Order</a></div>
+      </div>
+    </article>
+    <article class="ccard reveal-up" data-delay="300">
+      <div class="ccard-img">
+        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80" alt="Cold Brew" loading="lazy"/>
+        <span class="cbadge cbadge-cold">Cold</span>
+        <div class="ccard-ov"><a href="#reservation" class="btn btn-sm">Order Now</a></div>
+      </div>
+      <div class="ccard-body">
+        <div class="ccard-row"><h3>Cold Brew Supreme</h3><span class="cprice">$5.50</span></div>
+        <p>Steeped 24 hours in cold filtered water — silky, smooth, dangerously drinkable.</p>
+        <div class="ccard-ft"><span class="cstars">★★★★★ <em>4.9</em></span><a href="#reservation" class="btn btn-sm btn-gold">Order</a></div>
+      </div>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+<div class="container about-grid">
+  <div class="about-vis reveal-left">
+    <div class="about-img-w"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80" alt="Cafe interior" loading="lazy"/></div>
+    <div class="about-img-sm reveal-up" data-delay="200"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=80" alt="Coffee beans" loading="lazy"/></div>
+    <div class="about-yr-badge reveal-up" data-delay="300"><span class="ayr-n" data-target="12">0</span><span>Years of<br/>Excellence</span></div>
+  </div>
+  <div class="about-txt reveal-right" data-delay="100">
+    <span class="eyebrow">Our Story</span>
+    <h2>Rooted in Craft,<br/><em>Brewed with Soul</em></h2>
+    <div class="sec-bar sec-bar-left"></div>
+    <p class="about-lead">What began as a tiny corner roastery in Shoreditch in 2012 has grown into a beloved sanctuary — a place where coffee is not just a drink but a ritual worth slowing down for.</p>
+    <p>We source single-origin beans directly from farmers across Ethiopia, Colombia and Guatemala, then small-batch roast in-house to unlock the unique character of each harvest.</p>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <div><strong>Mission</strong><p>Serve ethically sourced coffee that honours every farmer behind the bean.</p></div>
+      </div>
+      <div class="pillar">
+        <div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div><strong>Vision</strong><p>A world where every cup connects people to the stories behind the harvest.</p></div>
+      </div>
+    </div>
+    <a href="#featured" class="btn btn-dark">Explore Menu</a>
+  </div>
+</div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section" id="why">
+<div class="container">
+  <div class="sec-hd reveal-up"><span class="eyebrow">Why Aroma</span><h2>The Aroma Difference</h2><div class="sec-bar"></div><p>From bean to cup — every step handled with obsessive care.</p></div>
+  <div class="why-grid">
+    <div class="why-card reveal-up" data-delay="0"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><h3>Fresh Daily Roast</h3><p>Every morning, small-batch roasted to guarantee peak freshness in every cup.</p></div>
+    <div class="why-card reveal-up" data-delay="80"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg></div><h3>100% Organic</h3><p>Certified organic — grown without pesticides on sustainable family farms.</p></div>
+    <div class="why-card reveal-up" data-delay="160"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Fast Service</h3><p>Your order ready in under 3 minutes. Quality coffee shouldn't wait.</p></div>
+    <div class="why-card reveal-up" data-delay="240"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 010-5H6M18 9h1.5a2.5 2.5 0 000-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0012 0V2z"/></svg></div><h3>Award Winning</h3><p>Best Coffee Shop — London 2022, 2023 &amp; 2024 by the SCA.</p></div>
+    <div class="why-card reveal-up" data-delay="320"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Expert Baristas</h3><p>Our team trains 6 months before serving their first cup.</p></div>
+    <div class="why-card reveal-up" data-delay="400"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Cosy Atmosphere</h3><p>Warm, beautiful space — work, read, meet, feel at home.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+<nav class="nav-inner">
+  <a href="#home" class="nav-logo">
+    <svg class="logo-svg" viewBox="0 0 38 38" fill="none"><circle cx="19" cy="19" r="18" stroke="#C69C6D" stroke-width="1.4"/><path d="M11 27c0 0 2-11 8-11s8 11 8 11" stroke="#C69C6D" stroke-width="1.7" stroke-linecap="round"/><path d="M27 19c2 0 4 1 4 3s-2 3-4 3" stroke="#C69C6D" stroke-width="1.4" stroke-linecap="round"/><line x1="13" y1="29" x2="25" y2="29" stroke="#C69C6D" stroke-width="1.7" stroke-linecap="round"/></svg>
+    <span>Aroma</span>
+  </a>
+  <input type="checkbox" id="navCk" class="nav-ck"/>
+  <label for="navCk" class="nav-hbg"><span></span><span></span><span></span></label>
+  <ul class="nav-list" id="navList">
+    <li><a href="#home" class="nl">Home</a></li>
+    <li><a href="#featured" class="nl">Menu</a></li>
+    <li><a href="#about" class="nl">About</a></li>
+    <li><a href="#gallery" class="nl">Gallery</a></li>
+    <li><a href="#testimonials" class="nl">Reviews</a></li>
+    <li><a href="#contact" class="nl">Contact</a></li>
+    <li><a href="#reservation" class="nl nl-cta">Reserve</a></li>
+  </ul>
+</nav>
+</header>
+
+<!-- TICKER -->
+<div class="ticker"><div class="ticker-t">
+  <span>Single Origin Ethiopia</span><b>✦</b><span>Award Winning Baristas</span><b>✦</b>
+  <span>100% Organic Beans</span><b>✦</b><span>Cold Brew Collection</span><b>✦</b>
+  <span>Seasonal Specials</span><b>✦</b><span>In-House Roastery</span><b>✦</b>
+  <span>Single Origin Ethiopia</span><b>✦</b><span>Award Winning Baristas</span><b>✦</b>
+  <span>100% Organic Beans</span><b>✦</b><span>Cold Brew Collection</span><b>✦</b>
+</div></div>
+
+<!-- FEATURED COFFEES -->
+<section class="section" id="featured">
+<div class="container">
+  <div class="sec-hd reveal-up"><span class="eyebrow">Signature Drinks</span><h2>Featured Coffees</h2><div class="sec-bar"></div><p>Sourced from the world's finest farms, roasted in-house, served with love.</p></div>
+  <div class="cards-grid">
+    <article class="ccard reveal-up" data-delay="0">
+      <div class="ccard-img"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=80" alt="Espresso" loading="lazy"/><span class="cbadge">Bestseller</span><div class="ccard-ov"><a href="#reservation" class="btn btn-sm">Order Now</a></div></div>
+      <div class="ccard-body"><div class="ccard-row"><h3>Double Espresso</h3><span class="cprice">$4.50</span></div><p>Rich, bold and intensely aromatic — two shots of our signature house blend.</p><div class="ccard-ft"><span class="cstars">★★★★★ <em>4.9</em></span><a href="#reservation" class="btn btn-sm btn-gold">Order</a></div></div>
+    </article>
+    <article class="ccard reveal-up" data-delay="100">
+      <div class="ccard-img"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=600&q=80" alt="Latte" loading="lazy"/><span class="cbadge cbadge-new">New</span><div class="ccard-ov"><a href="#reservation" class="btn btn-sm">Order Now</a></div></div>
+      <div class="ccard-body"><div class="ccard-row"><h3>Signature Latte</h3><span class="cprice">$5.80</span></div><p>Velvety micro-foam, seasonal espresso blend and a hand-poured tulip art.</p><div class="ccard-ft"><span class="cstars">★★★★★ <em>4.8</em></span><a href="#reservation" class="btn btn-sm btn-gold">Order</a></div></div>
+    </article>
+    <article class="ccard reveal-up" data-delay="200">
+      <div class="ccard-img"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=600&q=80" alt="Mocha" loading="lazy"/><div class="ccard-ov"><a href="#reservation" class="btn btn-sm">Order Now</a></div></div>
+      <div class="ccard-body"><div class="ccard-row"><h3>Mocha Royale</h3><span class="cprice">$6.20</span></div><p>Belgian dark chocolate, finest espresso and house-made whipped cream.</p><div class="ccard-ft"><span class="cstars">★★★★★ <em>4.7</em></span><a href="#reservation" class="btn btn-sm btn-gold">Order</a></div></div>
+    </article>
+    <article class="ccard reveal-up" data-delay="300">
+      <div class="ccard-img"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=80" alt="Cold Brew" loading="lazy"/><span class="cbadge cbadge-cold">Cold</span><div class="ccard-ov"><a href="#reservation" class="btn btn-sm">Order Now</a></div></div>
+      <div class="ccard-body"><div class="ccard-row"><h3>Cold Brew Supreme</h3><span class="cprice">$5.50</span></div><p>Steeped 24 hours in cold filtered water — silky, smooth, dangerously drinkable.</p><div class="ccard-ft"><span class="cstars">★★★★★ <em>4.9</em></span><a href="#reservation" class="btn btn-sm btn-gold">Order</a></div></div>
+    </article>
+  </div>
+</div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+<div class="container about-grid">
+  <div class="about-vis reveal-left">
+    <div class="about-img-w"><img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=800&q=80" alt="Cafe interior" loading="lazy"/></div>
+    <div class="about-img-sm reveal-up" data-delay="300"><img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=400&q=80" alt="Coffee beans" loading="lazy"/></div>
+    <div class="about-yr reveal-up" data-delay="200"><span class="ayr-n" data-target="12">0</span><span>Years of<br/>Excellence</span></div>
+  </div>
+  <div class="about-txt reveal-right" data-delay="100">
+    <span class="eyebrow">Our Story</span>
+    <h2>Rooted in Craft,<br/><em>Brewed with Soul</em></h2>
+    <div class="sec-bar sec-bar-left"></div>
+    <p class="about-lead">What began as a tiny corner roastery in Shoreditch in 2012 has grown into a beloved sanctuary.</p>
+    <p>We source single-origin beans directly from farmers across Ethiopia, Colombia and Guatemala, then small-batch roast in-house to unlock the unique character of each harvest.</p>
+    <div class="pillars">
+      <div class="pillar"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div><div><strong>Mission</strong><p>Serve ethically sourced coffee that honours every farmer behind the bean.</p></div></div>
+      <div class="pillar"><div class="pi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><div><strong>Vision</strong><p>A world where every cup connects people to the stories behind the harvest.</p></div></div>
+    </div>
+    <a href="#featured" class="btn btn-dark">Explore Menu</a>
+  </div>
+</div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section" id="why">
+<div class="container">
+  <div class="sec-hd reveal-up"><span class="eyebrow">Why Aroma</span><h2>The Aroma Difference</h2><div class="sec-bar"></div><p>From bean to cup — every step handled with obsessive care.</p></div>
+  <div class="why-grid">
+    <div class="why-card reveal-up" data-delay="0"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><h3>Fresh Daily Roast</h3><p>Every morning, small-batch roasted to guarantee peak freshness in every cup.</p></div>
+    <div class="why-card reveal-up" data-delay="80"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg></div><h3>100% Organic</h3><p>Certified organic — grown without pesticides on sustainable family farms.</p></div>
+    <div class="why-card reveal-up" data-delay="160"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div><h3>Fast Service</h3><p>Your order ready in under 3 minutes. Quality coffee shouldn't wait.</p></div>
+    <div class="why-card reveal-up" data-delay="240"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9H4.5a2.5 2.5 0 010-5H6M18 9h1.5a2.5 2.5 0 000-5H18M18 2H6v7a6 6 0 0012 0V2z"/></svg></div><h3>Award Winning</h3><p>Best Coffee Shop — London 2022, 2023 &amp; 2024 by the SCA.</p></div>
+    <div class="why-card reveal-up" data-delay="320"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><h3>Expert Baristas</h3><p>Our team trains 6 months before serving their first cup.</p></div>
+    <div class="why-card reveal-up" data-delay="400"><div class="wi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><h3>Cosy Atmosphere</h3><p>Warm, beautiful space — work, read, meet, feel at home.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- MENU TABS -->
+<section class="section section-alt" id="menu">
+<div class="container">
+  <div class="sec-hd reveal-up"><span class="eyebrow">Explore</span><h2>Our Full Menu</h2><div class="sec-bar"></div><p>Six categories — every item crafted with obsessive care.</p></div>
+  <div class="menu-tabs">
+    <input type="radio" name="mt" id="mt1" class="mtr" checked/><input type="radio" name="mt" id="mt2" class="mtr"/><input type="radio" name="mt" id="mt3" class="mtr"/><input type="radio" name="mt" id="mt4" class="mtr"/><input type="radio" name="mt" id="mt5" class="mtr"/><input type="radio" name="mt" id="mt6" class="mtr"/>
+    <div class="mt-bar"><label for="mt1" class="mtl">Espresso</label><label for="mt2" class="mtl">Latte</label><label for="mt3" class="mtl">Mocha</label><label for="mt4" class="mtl">Cappuccino</label><label for="mt5" class="mtl">Cold Brew</label><label for="mt6" class="mtl">Desserts</label></div>
+    <div class="mtp" id="mtp1"><div class="mlist">
+      <div class="mi"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=80&q=70" alt="Espresso"/><div><h4>Single Espresso</h4><p>One shot of pure intensity</p></div><span>$3.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=80&q=70" alt="Double Espresso"/><div><h4>Double Espresso</h4><p>Bold, rich, unforgettable</p></div><span>$4.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1497636577773-f1231844b336?w=80&q=70" alt="Ristretto"/><div><h4>Ristretto</h4><p>Half the water, double the soul</p></div><span>$4.00</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1497636577773-f1231844b336?w=80&q=70" alt="Americano"/><div><h4>Americano</h4><p>Espresso with hot water</p></div><span>$4.00</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=80&q=70" alt="Macchiato"/><div><h4>Macchiato</h4><p>Espresso with foam</p></div><span>$4.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1497636577773-f1231844b336?w=80&q=70" alt="Lungo"/><div><h4>Lungo</h4><p>Extended pull, smooth finish</p></div><span>$4.20</span></div>
+    </div></div>
+    <div class="mtp" id="mtp2"><div class="mlist">
+      <div class="mi"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=80&q=70" alt="Latte"/><div><h4>Classic Latte</h4><p>Smooth espresso &amp; steamed milk</p></div><span>$5.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=80&q=70" alt="Vanilla Latte"/><div><h4>Vanilla Latte</h4><p>House vanilla, velvety finish</p></div><span>$5.80</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=80&q=70" alt="Caramel Latte"/><div><h4>Caramel Latte</h4><p>Sweet caramel drizzle</p></div><span>$6.00</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=80&q=70" alt="Matcha Latte"/><div><h4>Matcha Latte</h4><p>Japanese matcha, oat milk</p></div><span>$6.20</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=80&q=70" alt="Hazelnut Latte"/><div><h4>Hazelnut Latte</h4><p>Nutty, warm, indulgent</p></div><span>$5.90</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=80&q=70" alt="Turmeric Latte"/><div><h4>Turmeric Latte</h4><p>Golden, anti-inflammatory</p></div><span>$5.80</span></div>
+    </div></div>
+    <div class="mtp" id="mtp3"><div class="mlist">
+      <div class="mi"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=80&q=70" alt="Mocha"/><div><h4>Classic Mocha</h4><p>Espresso &amp; dark chocolate</p></div><span>$5.90</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=80&q=70" alt="White Mocha"/><div><h4>White Mocha</h4><p>White chocolate, creamy bliss</p></div><span>$6.20</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=80&q=70" alt="Mocha Royale"/><div><h4>Mocha Royale</h4><p>Belgian chocolate &amp; cream</p></div><span>$6.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=80&q=70" alt="Mint Mocha"/><div><h4>Mint Mocha</h4><p>Cool peppermint with chocolate</p></div><span>$6.20</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=80&q=70" alt="Salted Caramel Mocha"/><div><h4>Salted Caramel Mocha</h4><p>Sweet, salty, extraordinary</p></div><span>$6.80</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=80&q=70" alt="Spiced Mocha"/><div><h4>Spiced Mocha</h4><p>Cinnamon &amp; cayenne kick</p></div><span>$6.50</span></div>
+    </div></div>
+    <div class="mtp" id="mtp4"><div class="mlist">
+      <div class="mi"><img src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=80&q=70" alt="Cappuccino"/><div><h4>Classic Cappuccino</h4><p>Equal parts espresso, milk, foam</p></div><span>$5.00</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=80&q=70" alt="Dry Cap"/><div><h4>Dry Cappuccino</h4><p>More foam, less milk</p></div><span>$5.00</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=80&q=70" alt="Iced Cap"/><div><h4>Iced Cappuccino</h4><p>Chilled, refreshing summer pick</p></div><span>$5.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=80&q=70" alt="Spiced Cap"/><div><h4>Spiced Cappuccino</h4><p>Cardamom &amp; cinnamon infused</p></div><span>$5.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=80&q=70" alt="Wet Cap"/><div><h4>Wet Cappuccino</h4><p>More milk, velvety texture</p></div><span>$5.00</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1485808191679-5f86510bd9d4?w=80&q=70" alt="Flavoured Cap"/><div><h4>Flavoured Cappuccino</h4><p>Choose your syrup</p></div><span>$5.80</span></div>
+    </div></div>
+    <div class="mtp" id="mtp5"><div class="mlist">
+      <div class="mi"><img src="https://images.unsplash.com/photo-1595981234058-a9302fb97229?w=80&q=70" alt="Cold Brew"/><div><h4>Cold Brew Classic</h4><p>24-hour steep, ultra smooth</p></div><span>$5.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1595981234058-a9302fb97229?w=80&q=70" alt="Nitro"/><div><h4>Nitro Cold Brew</h4><p>Nitrogen-infused, creamy cascade</p></div><span>$6.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=80&q=70" alt="Iced Americano"/><div><h4>Iced Americano</h4><p>Bold &amp; refreshing over ice</p></div><span>$4.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=80&q=70" alt="Frappuccino"/><div><h4>Frappuccino</h4><p>Blended ice, coffee, milk</p></div><span>$6.00</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1595981234058-a9302fb97229?w=80&q=70" alt="Cold Foam"/><div><h4>Cold Foam Latte</h4><p>Velvety cold foam topping</p></div><span>$6.20</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1595981234058-a9302fb97229?w=80&q=70" alt="Iced Macchiato"/><div><h4>Iced Caramel Macchiato</h4><p>Layered, golden, gorgeous</p></div><span>$6.50</span></div>
+    </div></div>
+    <div class="mtp" id="mtp6"><div class="mlist">
+      <div class="mi"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=80&q=70" alt="Tiramisu"/><div><h4>Tiramisu</h4><p>Classic Italian, house recipe</p></div><span>$7.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=80&q=70" alt="Fondant"/><div><h4>Chocolate Fondant</h4><p>Warm, molten Belgian chocolate</p></div><span>$8.00</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=80&q=70" alt="Panna Cotta"/><div><h4>Coffee Panna Cotta</h4><p>Silky Italian cream dessert</p></div><span>$7.00</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=80&q=70" alt="Kouign"/><div><h4>Kouign-Amann</h4><p>Buttery, caramelised pastry</p></div><span>$4.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=80&q=70" alt="Affogato"/><div><h4>Affogato</h4><p>Espresso poured over gelato</p></div><span>$6.50</span></div>
+      <div class="mi"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=80&q=70" alt="Croissant"/><div><h4>Almond Croissant</h4><p>Flaky, frangipane-filled</p></div><span>$4.20</span></div>
+    </div></div>
+  </div>
+</div>
+</section>

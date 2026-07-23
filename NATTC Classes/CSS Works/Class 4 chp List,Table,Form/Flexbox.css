@@ -79,6 +79,7 @@ body {
   display: flex;
   flex-direction: column; /* label upar, input neeche */
   gap: 8px;
+  justify-content: space-between;
 }
 
 .field-group label {

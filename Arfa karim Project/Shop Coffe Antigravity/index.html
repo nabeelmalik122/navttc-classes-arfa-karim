@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Urban Brew Coffee House — Premium specialty coffee, freshly baked pastries & cozy vibes. Visit us at Saddar Road, Peshawar." />
+  <meta name="keywords" content="coffee shop Peshawar, specialty coffee, Urban Brew, café Peshawar, espresso, cold brew" />
+  <title>Urban Brew Coffee House — Where Every Cup Tells a Story</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ========================================================
+       CUSTOM CURSOR
+  ======================================================== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ========================================================
+       SCROLL PROGRESS INDICATOR
+  ======================================================== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ========================================================
+       PRELOADER
+  ======================================================== -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="ldr-cup">
+      <div class="ldr-steam">
+        <span></span><span></span><span></span>
+      </div>
+      <div class="ldr-body">
+        <div class="ldr-liquid" id="ldrLiquid"></div>
+      </div>
+      <div class="ldr-handle"></div>
+      <div class="ldr-saucer"></div>
+    </div>
+    <p class="ldr-brand">Urban Brew</p>
+    <div class="ldr-track"><div class="ldr-bar" id="ldrBar"></div></div>
+    <p class="ldr-msg">Crafting your experience…</p>
+  </div>
+
+  <!-- ========================================================
+       STICKY NAVBAR
+  ======================================================== -->
+  <header class="navbar" id="navbar" role="banner">
+    <nav class="nav-inner" aria-label="Main Navigation">
+      <a href="#home" class="nav-logo" aria-label="Urban Brew home">
+        <span class="logo-icon">☕</span>
+        <span class="logo-text">Urban Brew</span>
+      </a>
+
+      <!-- CSS-only checkbox hamburger -->
+      <input type="checkbox" id="navCk" class="nav-ck" aria-label="Toggle navigation menu" />
+      <label for="navCk" class="nav-hbg" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
+      <ul class="nav-list" role="list">
+        <li><a href="#home"         class="nl">Home</a></li>
+        <li><a href="#about"        class="nl">Our Story</a></li>
+        <li><a href="#menu"         class="nl">Menu</a></li>
+        <li><a href="#gallery"      class="nl">Gallery</a></li>
+        <li><a href="#testimonials" class="nl">Reviews</a></li>
+        <li><a href="#contact"      class="nl">Find Us</a></li>
+        <li>
+          <a href="https://wa.me/923001234567" class="nl nl-cta" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp"></i> Order Now
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ========================================================
+         HERO SECTION
+    ======================================================== -->
+    <section id="home" class="hero" aria-label="Welcome banner">
+      <!-- Auto-crossfading slides -->
+      <div class="hero-slides" aria-hidden="true">
+        <div class="hslide" style="background-image:url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="hslide" style="background-image:url('https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=1920&q=80')"></div>
+        <div class="hslide" style="background-image:url('https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1920&q=80')"></div>
+      </div>
+      <div class="hero-ov" aria-hidden="true"></div>
+
+      <!-- Floating particles -->
+      <div class="hero-particles" aria-hidden="true">
+        <span class="particle p1">☕</span>
+        <span class="particle p2">🍃</span>
+        <span class="particle p3">☕</span>
+        <span class="particle p4">🍂</span>
+        <span class="particle p5">✦</span>
+        <span class="particle p6">✦</span>
+      </div>
+
+      <div class="hero-body container">
+        <span class="eyebrow reveal-up">Est. 2020 · Saddar Road, Peshawar</span>
+        <h1 class="hero-h1 reveal-up" data-delay="100">
+          Where Every Cup<br/>Tells a
+          <em id="typeTarget" class="type-target"></em>
+        </h1>
+        <p class="hero-p reveal-up" data-delay="200">
+          Sourcing direct-trade beans from Ethiopia, Colombia &amp; Sumatra. Roasted in small batches,
+          poured with intention — in the heart of Peshawar.
+        </p>
+        <div class="hero-btns reveal-up" data-delay="300">
+          <a href="#menu" class="btn btn-gold">View Menu</a>
+          <a href="https://wa.me/923001234567" class="btn btn-ghost" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+          </a>
+        </div>
+        <div class="hero-badges reveal-up" data-delay="400" role="list">
+          <div class="hbadge" role="listitem"><span>🌱</span> 100% Direct Trade</div>
+          <div class="hbadge" role="listitem"><span>🔥</span> Micro-Batch Roasted</div>
+          <div class="hbadge" role="listitem"><span>🏆</span> Champion Baristas</div>
+        </div>
+      </div>
+
+      <!-- Scroll hint -->
+      <a href="#about" class="scroll-hint" aria-label="Scroll to about section">
+        <span class="scroll-hint-dot"></span>
+      </a>
+    </section>
+
+    <!-- ========================================================
+         ABOUT SECTION
+    ======================================================== -->
+    <section id="about" class="about-section" aria-labelledby="about-heading">
+      <div class="container about-grid">
+        <div class="about-content">
+          <span class="section-eyebrow reveal-up">Our Philosophy</span>
+          <h2 class="section-heading reveal-up" id="about-heading">Born from Passion,<br/>Roasted with Intention</h2>
+          <div class="heading-line reveal-up"></div>
+          <p class="about-lead reveal-left" data-delay="100">
+            Urban Brew started with a simple belief: that coffee is more than a morning routine.
+            It's a catalyst for community, creativity, and calm.
+          </p>
+          <p class="about-body reveal-left" data-delay="200">
+            We partner directly with family-owned farms in Ethiopia, Colombia, and Sumatra —
+            ensuring fair wages and sustainable cultivation. Every bean is carefully evaluated,
+            profiled, and roasted in-house in small batches to highlight its unique geographical terroir.
+            Our baristas are sensory artists, committed to pouring perfection every single time.
+          </p>
+          <div class="about-signature reveal-left" data-delay="300">
+            <span class="sig-name">Nabeel Malik</span>
+            <span class="sig-role">Founder &amp; Head Roaster</span>
+          </div>
+          <div class="about-cta reveal-left" data-delay="400">
+            <a href="tel:+923001234567" class="btn btn-outline">
+              <i class="fa-solid fa-phone"></i> Call Us Now
+            </a>
+            <a href="https://wa.me/923001234567" class="btn btn-outline-gold" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+            </a>
+          </div>
+        </div>
+        <div class="about-visual reveal-right">
+          <div class="visual-wrap">
+            <div class="visual-deco" aria-hidden="true"></div>
+            <img
+              src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=80"
+              alt="Barista crafting a specialty coffee"
+              class="about-img"
+              loading="lazy"
+            />
+            <div class="about-img-badge">
+              <strong>5+</strong>
+              <span>Years of Excellence</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         MENU SECTION
+    ======================================================== -->
+    <section id="menu" class="menu-section" aria-labelledby="menu-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow reveal-up">Our Offerings</span>
+          <h2 class="section-heading reveal-up" id="menu-heading">Sip, Savor &amp; Stay</h2>
+          <div class="heading-line centered reveal-up"></div>
+          <p class="section-subheading reveal-up">Every cup starts with sustainably sourced beans, roasted in micro-batches, and poured with pure care.</p>
+        </div>
+
+        <!-- CSS-only Tab Controls -->
+        <div class="menu-tabs-wrapper">
+          <input type="radio" name="mtab" id="tab-hot"    class="mtab-input" checked />
+          <input type="radio" name="mtab" id="tab-cold"   class="mtab-input" />
+          <input type="radio" name="mtab" id="tab-bakery" class="mtab-input" />
+
+          <div class="mtab-labels" role="tablist">
+            <label for="tab-hot"    class="mtab-lbl" role="tab" tabindex="0"><i class="fa-solid fa-fire-flame-curved"></i> Hot Coffee</label>
+            <label for="tab-cold"   class="mtab-lbl" role="tab" tabindex="0"><i class="fa-solid fa-snowflake"></i> Cold &amp; Specials</label>
+            <label for="tab-bakery" class="mtab-lbl" role="tab" tabindex="0"><i class="fa-solid fa-bread-slice"></i> Bakery &amp; Bites</label>
+          </div>
+
+          <div class="menu-panels">
+            <!-- Hot Coffee Panel -->
+            <div class="mpanel hot-panel" role="tabpanel">
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=800&q=80" alt="Espresso" class="mc-img" loading="lazy" />
+                  <span class="mc-badge">Bestseller</span>
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Espresso</h3>
+                    <span class="mc-price">Rs. 350</span>
+                  </div>
+                  <p class="mc-desc">Double extraction of our signature dark house roast — rich, bold, and intense.</p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80" alt="Americano" class="mc-img" loading="lazy" />
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Americano</h3>
+                    <span class="mc-price">Rs. 400</span>
+                  </div>
+                  <p class="mc-desc">Espresso shots diluted with hot water for a smooth, clean cup.</p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=800&q=80" alt="Cappuccino" class="mc-img" loading="lazy" />
+                  <span class="mc-badge">Fan Fave</span>
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Cappuccino</h3>
+                    <span class="mc-price">Rs. 480</span>
+                  </div>
+                  <p class="mc-desc">Classic triple layers — espresso, steamed milk, and thick velvety foam.</p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=800&q=80" alt="Café Latte" class="mc-img" loading="lazy" />
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Café Latte</h3>
+                    <span class="mc-price">Rs. 500</span>
+                  </div>
+                  <p class="mc-desc">Double espresso finished with a silky layer of steamed microfoam milk.</p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=800&q=80" alt="Mocha" class="mc-img" loading="lazy" />
+                  <span class="mc-badge">Seasonal</span>
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Mocha</h3>
+                    <span class="mc-price">Rs. 550</span>
+                  </div>
+                  <p class="mc-desc">Belgian dark chocolate, espresso, steamed milk, and a swirl of cream.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Cold Coffee Panel -->
+            <div class="mpanel cold-panel" role="tabpanel">
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=800&q=80" alt="Iced Latte" class="mc-img" loading="lazy" />
+                  <span class="mc-badge">Refreshing</span>
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Iced Latte</h3>
+                    <span class="mc-price">Rs. 520</span>
+                  </div>
+                  <p class="mc-desc">Espresso over ice with creamy chilled milk — the perfect summer sip.</p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=800&q=80" alt="Cold Brew" class="mc-img" loading="lazy" />
+                  <span class="mc-badge">Signature</span>
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Cold Brew</h3>
+                    <span class="mc-price">Rs. 480</span>
+                  </div>
+                  <p class="mc-desc">18-hour cold extraction. Silky, bold, never bitter. Pure coffee magic.</p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=800&q=80" alt="Frappé" class="mc-img" loading="lazy" />
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Frappé</h3>
+                    <span class="mc-price">Rs. 600</span>
+                  </div>
+                  <p class="mc-desc">Blended iced coffee topped with whipped cream and a caramel drizzle.</p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1594911774802-8822a7079af1?auto=format&fit=crop&w=800&q=80" alt="Affogato" class="mc-img" loading="lazy" />
+                  <span class="mc-badge">Dessert Coffee</span>
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Affogato</h3>
+                    <span class="mc-price">Rs. 650</span>
+                  </div>
+                  <p class="mc-desc">Madagascar vanilla gelato drowned in a hot double shot of espresso.</p>
+                </div>
+              </article>
+            </div>
+
+            <!-- Bakery Panel -->
+            <div class="mpanel bakery-panel" role="tabpanel">
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=800&q=80" alt="Butter Croissant" class="mc-img" loading="lazy" />
+                  <span class="mc-badge">Freshly Baked</span>
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Butter Croissant</h3>
+                    <span class="mc-price">Rs. 300</span>
+                  </div>
+                  <p class="mc-desc">Flaky, buttery layers baked fresh every morning until noon.</p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=800&q=80" alt="Chocolate Muffin" class="mc-img" loading="lazy" />
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Chocolate Muffin</h3>
+                    <span class="mc-price">Rs. 280</span>
+                  </div>
+                  <p class="mc-desc">Rich Belgian chocolate muffin baked with a molten centre.</p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=800&q=80" alt="New York Cheesecake" class="mc-img" loading="lazy" />
+                  <span class="mc-badge">Must Try</span>
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">New York Cheesecake</h3>
+                    <span class="mc-price">Rs. 550</span>
+                  </div>
+                  <p class="mc-desc">Classic dense and creamy cheesecake with a graham cracker crust.</p>
+                </div>
+              </article>
+              <article class="menu-card">
+                <div class="mc-img-wrap">
+                  <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80" alt="Club Sandwich" class="mc-img" loading="lazy" />
+                </div>
+                <div class="mc-body">
+                  <div class="mc-header">
+                    <h3 class="mc-title">Club Sandwich</h3>
+                    <span class="mc-price">Rs. 650</span>
+                  </div>
+                  <p class="mc-desc">Triple-layered chicken club with crispy bacon, lettuce, and tomato.</p>
+                </div>
+              </article>
+            </div>
+          </div><!-- /.menu-panels -->
+        </div><!-- /.menu-tabs-wrapper -->
+      </div>
+    </section>
+
+    <!-- ========================================================
+         GALLERY CAROUSEL (Scroll-Snap)
+    ======================================================== -->
+    <section id="gallery" class="gallery-section" aria-labelledby="gallery-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow reveal-up">Our Spaces &amp; Craft</span>
+          <h2 class="section-heading reveal-up" id="gallery-heading">Through Our Lens</h2>
+          <div class="heading-line centered reveal-up"></div>
+          <p class="section-subheading reveal-up">A glimpse into our cozy space, brewing methods, and daily moments of joy.</p>
+        </div>
+      </div>
+      <div class="gallery-carousel" role="region" aria-label="Coffee shop photo gallery">
+        <div class="gslide">
+          <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=80" alt="Cozy seating area at Urban Brew" loading="lazy" class="gimg" />
+          <div class="goverlay">
+            <span class="gtag">Ambience</span>
+            <h3 class="gtitle">The Cozy Corner</h3>
+          </div>
+        </div>
+        <div class="gslide">
+          <img src="https://images.unsplash.com/photo-1495774856032-8b90bbb32b32?auto=format&fit=crop&w=1000&q=80" alt="Slow pour-over coffee extraction" loading="lazy" class="gimg" />
+          <div class="goverlay">
+            <span class="gtag">Brewing</span>
+            <h3 class="gtitle">Art of the Pour</h3>
+          </div>
+        </div>
+        <div class="gslide">
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=80" alt="Barista crafting specialty coffee" loading="lazy" class="gimg" />
+          <div class="goverlay">
+            <span class="gtag">Craft</span>
+            <h3 class="gtitle">Barista Mastery</h3>
+          </div>
+        </div>
+        <div class="gslide">
+          <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1000&q=80" alt="Coffee shop interior" loading="lazy" class="gimg" />
+          <div class="goverlay">
+            <span class="gtag">Interior</span>
+            <h3 class="gtitle">Our Home</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         TESTIMONIALS SECTION
+    ======================================================== -->
+    <section id="testimonials" class="testimonials-section" aria-labelledby="testimonials-heading">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-eyebrow reveal-up">Guest Reviews</span>
+          <h2 class="section-heading reveal-up" id="testimonials-heading">What Our Guests Say</h2>
+          <div class="heading-line centered reveal-up"></div>
+        </div>
+        <div class="testi-grid">
+          <!-- Card 1 -->
+          <article class="testi-card reveal-left" data-delay="0">
+            <div class="testi-stars" aria-label="5 stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <blockquote class="testi-quote">
+              "Urban Brew has the best cappuccino in Peshawar, hands down. The ambiance is perfect for work or catching up with friends."
+            </blockquote>
+            <div class="testi-author">
+              <img src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?auto=format&fit=crop&w=200&q=80" alt="Ayesha Malik" class="testi-avatar" loading="lazy" />
+              <div class="testi-info">
+                <span class="testi-name">Ayesha Malik</span>
+                <span class="testi-role">Regular Customer</span>
+              </div>
+            </div>
+          </article>
+          <!-- Card 2 -->
+          <article class="testi-card reveal-up" data-delay="150">
+            <div class="testi-stars" aria-label="5 stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <blockquote class="testi-quote">
+              "Their cold brew is exactly what I need on a hot day. Friendly staff, clean space, quick service — highly recommended!"
+            </blockquote>
+            <div class="testi-author">
+              <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=200&q=80" alt="Hamza Raza" class="testi-avatar" loading="lazy" />
+              <div class="testi-info">
+                <span class="testi-name">Hamza Raza</span>
+                <span class="testi-role">Freelancer</span>
+              </div>
+            </div>
+          </article>
+          <!-- Card 3 -->
+          <article class="testi-card reveal-right" data-delay="300">
+            <div class="testi-stars" aria-label="5 stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <blockquote class="testi-quote">
+              "I come here every weekend for their cheesecake and latte. Best coffee shop experience in the city, no doubt."
+            </blockquote>
+            <div class="testi-author">
+              <img src="https://images.unsplash.com/photo-1614283233556-f35b0c801ef1?auto=format&fit=crop&w=200&q=80" alt="Sana Tariq" class="testi-avatar" loading="lazy" />
+              <div class="testi-info">
+                <span class="testi-name">Sana Tariq</span>
+                <span class="testi-role">Student</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================
+         CONTACT SECTION
+    ======================================================== -->
+    <section id="contact" class="contact-section" aria-labelledby="contact-heading">
+      <div class="container contact-grid">
+        <!-- Info Column -->
+        <div class="contact-info reveal-left">
+          <span class="section-eyebrow">Get In Touch</span>
+          <h2 class="section-heading" id="contact-heading">Find Us in Peshawar</h2>
+          <div class="heading-line"></div>
+
+          <div class="cinfo-list">
+            <div class="cinfo-item">
+              <div class="cinfo-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div>
+                <strong>Our Address</strong>
+                <span>Shop #14, Saddar Road<br/>Peshawar, KPK, Pakistan</span>
+              </div>
+            </div>
+            <div class="cinfo-item">
+              <div class="cinfo-icon"><i class="fa-solid fa-clock"></i></div>
+              <div>
+                <strong>Opening Hours</strong>
+                <span>Mon – Sat: 8:00 AM – 11:00 PM<br/>Sunday: 10:00 AM – 11:00 PM</span>
+              </div>
+            </div>
+            <div class="cinfo-item">
+              <div class="cinfo-icon"><i class="fa-solid fa-phone"></i></div>
+              <div>
+                <strong>Call Us</strong>
+                <a href="tel:+923001234567" class="cinfo-link">+92 300 1234567</a>
+              </div>
+            </div>
+            <div class="cinfo-item">
+              <div class="cinfo-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div>
+                <strong>WhatsApp</strong>
+                <a href="https://wa.me/923001234567" class="cinfo-link" target="_blank" rel="noopener noreferrer">+92 300 1234567</a>
+              </div>
+            </div>
+            <div class="cinfo-item">
+              <div class="cinfo-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div>
+                <strong>Email</strong>
+                <a href="mailto:hello@urbanbrew.pk" class="cinfo-link">hello@urbanbrew.pk</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="https://instagram.com/urbanbrew.pk" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://facebook.com/urbanbrewpk" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://wa.me/923001234567" class="social-btn" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Form Column -->
+        <div class="contact-form-wrap reveal-right">
+          <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <h3 class="form-title">Send Us a Message</h3>
+            <div class="form-group">
+              <label for="name">Full Name</label>
+              <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone (optional)</label>
+              <input type="tel" id="phone" name="phone" placeholder="+92 300 0000000" autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea id="message" name="message" rows="5" placeholder="Tell us how we can help…" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-gold btn-block" id="submitBtn">
+              <i class="fa-solid fa-paper-plane"></i> Send Message
+            </button>
+            <p class="form-note">
+              <i class="fa-solid fa-lock"></i> Your information is private and secure. We respond within 24 hours.
+            </p>
+          </form>
+
+          <!-- Google Map -->
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3305.2!2d71.5249!3d34.0151!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSaddar%20Peshawar!5e0!3m2!1sen!2spk!4v1"
+              width="100%"
+              height="260"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Urban Brew location on Google Maps"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================
+       FOOTER
+  ======================================================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a href="#home" class="footer-logo">
+          <span class="logo-icon">☕</span>
+          <span>Urban Brew</span>
+        </a>
+        <p class="footer-tagline">"Where Every Cup Tells a Story"</p>
+        <div class="footer-social">
+          <a href="https://instagram.com/urbanbrew.pk" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://facebook.com/urbanbrewpk"   target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://wa.me/923001234567"          target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#testimonials">Reviews</a></li>
+          <li><a href="#contact">Find Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Contact</h4>
+        <ul>
+          <li><i class="fa-solid fa-location-dot"></i> Shop #14, Saddar Road, Peshawar</li>
+          <li><a href="tel:+923001234567"><i class="fa-solid fa-phone"></i> +92 300 1234567</a></li>
+          <li><a href="mailto:hello@urbanbrew.pk"><i class="fa-solid fa-envelope"></i> hello@urbanbrew.pk</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 class="footer-col-title">Opening Hours</h4>
+        <ul class="hours-list">
+          <li><span>Mon – Sat</span><span>8:00 AM – 11:00 PM</span></li>
+          <li><span>Sunday</span><span>10:00 AM – 11:00 PM</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Urban Brew Coffee House. All rights reserved. Crafted with ☕ in Peshawar.</p>
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       JAVASCRIPT
+  ======================================================== -->
+  <script>
+    // ═══════════════════════════════════════════════════════════
+    //  ULTRA-SMOOTH CUSTOM CURSOR — Pure RAF lerp, no CSS transition
+    // ═══════════════════════════════════════════════════════════
+    const dot  = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+
+    // Raw mouse position (dot snaps here instantly)
+    let mouseX = window.innerWidth  / 2;
+    let mouseY = window.innerHeight / 2;
+
+    // Lerp position for ring (lags behind mouse)
+    let ringX = mouseX, ringY = mouseY;
+
+    // Track hover state
+    let isHovering = false;
+
+    // Update raw mouse position — dot follows exactly
+    document.addEventListener('mousemove', e => {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    // Hide cursors when leaving window
+    document.addEventListener('mouseleave', () => {
+      dot.style.opacity  = '0';
+      ring.style.opacity = '0';
+    });
+    document.addEventListener('mouseenter', () => {
+      dot.style.opacity  = '1';
+      ring.style.opacity = '1';
+    });
+
+    // Hover grow effect on interactive elements
+    document.querySelectorAll('a, button, label, .menu-card, .testi-card, .gslide').forEach(el => {
+      el.addEventListener('mouseenter', () => { isHovering = true;  ring.classList.add('ring-hover'); dot.classList.add('dot-hover'); });
+      el.addEventListener('mouseleave', () => { isHovering = false; ring.classList.remove('ring-hover'); dot.classList.remove('dot-hover'); });
+    });
+
+    // Single rAF loop — butter-smooth lerp for ring
+    const LERP_SPEED = 0.09; // lower = more lag / smoother trail
+    function rafLoop() {
+      // Dot snaps instantly to mouse (no lerp)
+      dot.style.transform  = `translate(${mouseX}px, ${mouseY}px)`;
+
+      // Ring lerps toward mouse
+      ringX += (mouseX - ringX) * LERP_SPEED;
+      ringY += (mouseY - ringY) * LERP_SPEED;
+      ring.style.transform = `translate(${ringX}px, ${ringY}px)`;
+
+      requestAnimationFrame(rafLoop);
+    }
+    rafLoop();
+
+    // ═══════════════════════════════════════════════════════════
+    //  SCROLL PROGRESS INDICATOR
+    // ═══════════════════════════════════════════════════════════
+    const prog = document.getElementById('scrollProgress');
+    function updateScrollProgress() {
+      const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      prog.style.width = Math.min(pct, 100) + '%';
+    }
+    window.addEventListener('scroll', updateScrollProgress, { passive: true });
+
+    // ═══════════════════════════════════════════════════════════
+    //  DYNAMIC STICKY NAVBAR
+    // ═══════════════════════════════════════════════════════════
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('navbar-scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    // ═══════════════════════════════════════════════════════════
+    //  TYPEWRITER TEXT EFFECT
+    // ═══════════════════════════════════════════════════════════
+    const words  = ['Story.', 'Masterpiece.', 'Journey.', 'Memory.', 'Moment.'];
+    const typeEl = document.getElementById('typeTarget');
+    let wi = 0, ci = 0, deleting = false;
+
+    function typeWriter() {
+      const word = words[wi];
+      if (!deleting) {
+        typeEl.textContent = word.substring(0, ci + 1);
+        ci++;
+        if (ci === word.length) { deleting = true; setTimeout(typeWriter, 1800); return; }
+      } else {
+        typeEl.textContent = word.substring(0, ci - 1);
+        ci--;
+        if (ci === 0) { deleting = false; wi = (wi + 1) % words.length; }
+      }
+      setTimeout(typeWriter, deleting ? 55 : 95);
+    }
+    typeWriter();
+
+    // ═══════════════════════════════════════════════════════════
+    //  HERO SLIDESHOW
+    // ═══════════════════════════════════════════════════════════
+    const slides = document.querySelectorAll('.hslide');
+    let si = 0;
+    slides[si].classList.add('active');
+    setInterval(() => {
+      slides[si].classList.remove('active');
+      si = (si + 1) % slides.length;
+      slides[si].classList.add('active');
+    }, 5200);
+
+    // ═══════════════════════════════════════════════════════════
+    //  PROFESSIONAL SCROLL REVEAL — Left, Right, Up with stagger
+    // ═══════════════════════════════════════════════════════════
+    const revealEls = document.querySelectorAll('[class*="reveal-"]');
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el    = entry.target;
+          const delay = +(el.dataset.delay || 0);
+          setTimeout(() => el.classList.add('revealed'), delay);
+          revealObserver.unobserve(el);
+        }
+      });
+    }, {
+      threshold: 0.10,       // Trigger when 10% visible
+      rootMargin: '0px 0px -40px 0px'  // Slightly before fully in view
+    });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+
+    // Auto-stagger children inside grids (menu cards, testi cards)
+    document.querySelectorAll('.testi-grid, .mpanel').forEach(grid => {
+      const children = grid.querySelectorAll(':scope > article, :scope > .menu-card');
+      children.forEach((child, i) => {
+        if (!child.dataset.delay) child.dataset.delay = i * 80;
+        if (!child.classList.contains('reveal-up') &&
+            !child.classList.contains('reveal-left') &&
+            !child.classList.contains('reveal-right')) {
+          child.classList.add(i % 2 === 0 ? 'reveal-left' : 'reveal-right');
+        }
+        revealObserver.observe(child);
+      });
+    });
+
+    // ═══════════════════════════════════════════════════════════
+    //  ACTIVE NAV LINK HIGHLIGHT ON SCROLL
+    // ═══════════════════════════════════════════════════════════
+    const sections = document.querySelectorAll('main section[id]');
+    const navLinks = document.querySelectorAll('.nl');
+    const scrollSpy = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navLinks.forEach(l => l.classList.remove('nl-active'));
+          const active = document.querySelector(`.nl[href="#${e.target.id}"]`);
+          if (active) active.classList.add('nl-active');
+        }
+      });
+    }, { threshold: 0.3 });
+    sections.forEach(s => scrollSpy.observe(s));
+
+    // ─── CLOSE MOBILE MENU ON LINK CLICK ─────────────────────
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navCk').checked = false;
+      });
+    });
+
+    // ═══════════════════════════════════════════════════════════
+    //  PRELOADER
+    // ═══════════════════════════════════════════════════════════
+    const ldrBar = document.getElementById('ldrBar');
+    const ldrLiq = document.getElementById('ldrLiquid');
+    const ldr    = document.getElementById('loader');
+    let pct = 0;
+    const fill = setInterval(() => {
+      pct += Math.random() * 18;
+      if (pct >= 100) { pct = 100; clearInterval(fill); }
+      ldrBar.style.width  = pct + '%';
+      ldrLiq.style.height = pct + '%';
+    }, 110);
+    setTimeout(() => ldr.classList.add('ldr-hidden'), 2700);
+  </script>
+
+</body>
+</html>

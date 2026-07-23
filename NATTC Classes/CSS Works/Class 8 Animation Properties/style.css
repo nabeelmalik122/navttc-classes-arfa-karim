@@ -15,24 +15,6 @@
   /* animation-delay: 2s; */
   animation-iteration-count: infinite;
   animation-fill-mode: both;
-  animation-timing-function: ease; /* dheere shuru, beech mein fast, dheere khatam */
-  animation-timing-function: linear; /* same speed throughout */
-  animation-timing-function: ease-in; /* dheere shuru, fast khatam */
-  animation-timing-function: ease-out; /* fast shuru, dheere khatam */
-  animation-timing-function: ease-in-out; /* dono taraf dheera */
-  animation-delay: 2s; /* 2 second baad shuru hogi */
-  animation-delay: 0s; /* foran shuru (default) */
-  animation-iteration-count: 1; /* sirf ek baar */
-  animation-iteration-count: 3; /* teen baar */
-  animation-iteration-count: infinite; /* hamesha chalti rahe */
-  animation-direction: normal; /* 0% → 100% (forward) */
-  animation-direction: reverse; /* 100% → 0% (ulta) */
-  animation-direction: alternate; /* forward phir backward */
-  animation-direction: alternate-reverse; /* backward phir forward */
-  animation-fill-mode: none; /* animation end pe wapas original */
-  animation-fill-mode: forwards; /* animation end pe wahan ruk jao */
-  animation-fill-mode: backwards; /* delay mein bhi from state mein raho */
-  animation-fill-mode: both; /* forwards + backwards dono */
 }
 @keyframes pulse {
   0% {
