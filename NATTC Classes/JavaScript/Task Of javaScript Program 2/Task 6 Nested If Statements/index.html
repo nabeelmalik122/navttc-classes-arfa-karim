@@ -7,26 +7,29 @@
   </head>
   <body>
     <script>
-
       // Nested if statement example No 1
       let age = +prompt("Aapki age?");
       let grade = +prompt("Aapka grade level? (11/12)");
       let gpa = +prompt("Aapka GPA? (e.g. 3.7)");
 
+      // Nested If Statements Logic
       if (age >= 17) {
         if (grade == 11 || grade == 12) {
           if (gpa >= 3.0) {
             console.log("Aap scholarship ke liye eligible hain!");
+            alert("Aap scholarship ke liye eligible hain!");
           } else {
             console.log("GPA 3.0 se kam hai!");
+            alert("GPA 3.0 se kam hai!");
           }
         } else {
           console.log("Grade 11 ya 12 mein hona chahiye!");
+          alert("Grade 11 ya 12 mein hona chahiye!");
         }
       } else {
         console.log("Age 17 se kam hai!");
+        alert("Age 17 se kam hai!");
       }
-
       //Nested if statement example No 2
 
       let membership = prompt("Aapki membership? (Gold/Platinum/None)");
