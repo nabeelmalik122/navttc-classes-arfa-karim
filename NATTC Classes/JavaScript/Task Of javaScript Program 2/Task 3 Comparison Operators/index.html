@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = [1, 2, 3, 4, 5, 6, 7];
+      arr.push(8);
+      arr.pop(8);
+      arr.pop(7);
+      arr.unshift(0);
+      arr.unshift(0.0);
+      arr.shift(0);
+      arr.shift(1);
+      arr.splice(4, 1, 9);
+      arr.splice(2, 0, "Nabeel");
+      console.log(arr);
+
+      let slice = arr.slice(1, 5);
+
+      console.log(slice);
+      var colors = ["Red", "Green", "Blue", "Yellow", "Pink"];
+      let newArr = colors.slice(1, 4);
+
+      console.log(newArr);
+      colors.splice(1, 0, "Black");
+      console.log(colors);
+      let full = colors.length;
+      console.log(full);
+
+      //AND Operator
+      let age = +prompt("Aapki age kya hai?");
+      let marraige = prompt("Kya aap married hain? (yes/no)");
+
+      if (age >= 25 && marraige == "Yes") {
+        console.log(`oh bhai ap shadi shuda hey or ${age} saal ke hu`);
+      } else {
+        console.log(`${age} saal ka hu, es leye konwara hu`);
+      }
+      //OR Operator
+
+      let city = prompt("Aapka favourite city? (Peshawar/Nowshera)");
+
+      if (city == "Peshawar" || city == "Nowshera") {
+        console.log(`${city} Muji Buhud Pasand hey..`);
+      } else {
+        console.log(`${city} : city yaha nahi hey..`);
+      }
+
+      // Not Operator
+
+      let license = prompt("Apki Pass license hey (yes/no)");
+      if (license !== "yes") {
+        console.log(`${license} : Aapke paas driving license nahi hai!`);
+      } else {
+        console.log("Aapke paas license hai!");
+      }
+    </script>
+  </body>
+</html>
