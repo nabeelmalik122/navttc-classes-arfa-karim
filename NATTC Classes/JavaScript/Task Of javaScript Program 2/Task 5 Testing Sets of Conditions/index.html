@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 5</title>
+  </head>
+  <body>
+    <script>
+      let pak = prompt("Kya aap Pakistani music pasand karte hain? yes/no");
+      let ind = prompt("Kya aap Indian music pasand karte hain? yes/no");
+
+      if (pak == "yes" && ind == "yes") {
+        alert(`Aapke music ka taste toh international hai!`);
+      } else if (pak == "yes" && ind !== "yes") {
+        alert(`Aap sirf Pakistani music ke fan hain!`);
+      } else if (pak !== "yes" && ind == "yes") {
+        alert("Aap sirf Indian music ke fan hain!");
+      } else {
+        alert(`"Muji music zyada pasand nahi!`);
+      }
+      // Languages
+      let count = Number(prompt("Aap kitni languages bolte hain?"));
+      let langs = prompt("Konsi languages? (e.g. Urdu, English, Punjabi)");
+
+      if (count >= 3) {
+        alert(
+          "Aapke zubaan ka ilm toh bahut hai! Aap " + langs + " bolte hain!",
+        );
+      } else if (count === 2) {
+        alert("Aap bilingual hain — " + langs);
+      } else {
+        alert("Aap ek language bolte hain — " + langs);
+      }
+    </script>
+  </body>
+</html>
