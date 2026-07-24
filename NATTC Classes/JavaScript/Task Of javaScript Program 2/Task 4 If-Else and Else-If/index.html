@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 4</title>
+  </head>
+  <body>
+    <script>
+      //If-Else and Else-If
+
+      let city = prompt(
+        "Aapka favourite Pakistani city? (Nowshrea/Peshawar/Pabbi)",
+      );
+
+      if (city == "Nowshrea" || city == "Peshawar" || city == "Pabbi") {
+        console.log(`Ye Khubsorat Saheer hey Me be ${city} sey hu..`);
+      } else {
+        console.log(`${city} : Kpk Me Nahi Ata bro..`);
+      }
+
+      //Family Size
+
+      let sibling = +prompt("Aapke kitne bhai-behen hain? (10/6/2)");
+      if (sibling > 8 && sibling <= 13) {
+        console.log(
+          `Aapke ${sibling} bhai-behen toh bahut hain! Bari family hai!`,
+        );
+      } else if (sibling >= 3 && sibling <= 8) {
+        console.log(`Medium family hai — ${sibling} bhai-behen!`);
+      } else if (sibling >= 1 && sibling <= 2) {
+        console.log(`Choti family hai — ${sibling} se kam bhai-behen!`);
+      } else {
+        console.log("Aap Oupt of range hey bhai");
+      }
+    </script>
+  </body>
+</html>
