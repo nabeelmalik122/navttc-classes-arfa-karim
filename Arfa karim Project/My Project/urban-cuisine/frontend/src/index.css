@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets & tokens ────────────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-charcoal text-offwhite font-body antialiased;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  a,
+  button {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #c9a227;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #d9b747;
+  }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 2px solid #c9a227;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ── Reusable component classes ─────────────────────────────────────────── */
+@layer components {
+  /* Gold divider line */
+  .gold-divider {
+    @apply w-16 h-0.5 bg-gold mx-auto my-4;
+  }
+
+  /* Section wrapper */
+  .section-pad {
+    @apply py-16 px-4 sm:py-20 sm:px-6 lg:px-8;
+  }
+
+  /* Constrained content width */
+  .container-main {
+    @apply max-w-7xl mx-auto w-full;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-gold text-charcoal font-semibold
+           px-7 py-3 rounded-sm
+           w-full sm:w-auto
+           transition-all duration-300
+           hover:bg-gold-light hover:shadow-lg hover:shadow-gold/20
+           active:scale-[0.98]
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Ghost / outline button */
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2
+           border border-gold text-gold font-semibold
+           px-7 py-3 rounded-sm
+           w-full sm:w-auto
+           transition-all duration-300
+           hover:bg-gold hover:text-charcoal
+           active:scale-[0.98]
+           disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Dark ghost button */
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2
+           text-offwhite font-medium
+           px-5 py-2.5 rounded-sm
+           transition-all duration-200
+           hover:text-gold
+           active:scale-[0.98];
+  }
+
+  /* Input base */
+  .input-base {
+    @apply w-full bg-transparent border border-offwhite/20
+           text-offwhite placeholder-offwhite/40
+           px-4 py-3 rounded-sm
+           transition-colors duration-200
+           focus:outline-none focus:border-gold
+           focus:ring-1 focus:ring-gold/30;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white/5 border border-white/10 rounded-sm
+           transition-all duration-300
+           hover:border-gold/30 hover:bg-white/10;
+  }
+
+  /* Section heading */
+  .section-title {
+    @apply font-heading text-4xl sm:text-4xl lg:text-5xl text-offwhite leading-tight;
+  }
+
+  /* Gold accent text */
+  .text-accent {
+    @apply text-gold;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-block text-xs font-semibold uppercase tracking-widest
+           px-3 py-1 rounded-full;
+  }
+  .badge-gold {
+    @apply badge bg-gold/15 text-gold border border-gold/30;
+  }
+  .badge-green {
+    @apply badge bg-emerald-500/15 text-emerald-400 border border-emerald-500/30;
+  }
+  .badge-red {
+    @apply badge bg-red-500/15 text-red-400 border border-red-500/30;
+  }
+  .badge-blue {
+    @apply badge bg-blue-500/15 text-blue-400 border border-blue-500/30;
+  }
+}
+
+/* ── Utility overrides ───────────────────────────────────────────────────── */
+@layer utilities {
+  /* Subtle overlay gradient for hero images */
+  .overlay-dark {
+    background: linear-gradient(
+      to bottom,
+      rgba(26, 26, 26, 0.55) 0%,
+      rgba(26, 26, 26, 0.88) 100%
+    );
+  }
+
+  /* Noise texture for depth */
+  .text-shadow-gold {
+    text-shadow: 0 2px 20px rgba(201, 162, 39, 0.35);
+  }
+
+  /* Animated underline */
+  .underline-gold {
+    @apply relative after:absolute after:bottom-0 after:left-0
+           after:h-0.5 after:bg-gold after:w-0
+           after:transition-all after:duration-300
+           hover:after:w-full;
+  }
+
+  /* Glass card */
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* ── Page transition animation ───────────────────────────────────────────── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ── Loading spinner ─────────────────────────────────────────────────────── */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(201, 162, 39, 0.2);
+  border-top-color: #c9a227;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}

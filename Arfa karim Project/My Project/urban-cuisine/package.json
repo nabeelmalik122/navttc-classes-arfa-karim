@@ -1,0 +1,11 @@
+{
+  "name": "urban-cuisine",
+  "version": "1.0.0",
+  "description": "Urban Cuisine — MERN Stack Restaurant Website",
+  "private": true,
+  "scripts": {
+    "install:all": "cd backend && npm install && cd ../frontend && npm install",
+    "dev:backend": "cd backend && npm run dev",
+    "dev:frontend": "cd frontend && npm run dev"
+  }
+}
