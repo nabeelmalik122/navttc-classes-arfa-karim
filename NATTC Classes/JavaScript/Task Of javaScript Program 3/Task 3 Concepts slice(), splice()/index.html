@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 3</title>
+  </head>
+  <body>
+    <script>
+      // Concepts: slice(), splice()
+      let movies = ["Inception", "Avatar", "Titanic", "Joker", "Interstellar"];
+
+      let newMov = movies.slice(1, 4);
+      movies.splice(3, 1);
+      movies.splice(2, 1, "The Matrix");
+
+      console.log(movies);
+      console.log(newMov);
+
+      // 4️⃣ Bus Queue Simulation
+
+      //Concepts: unshift(), push(), shift()
+
+      let busQueue = ["Alice", "Bob", "Charlie"];
+      busQueue.push("David");
+      busQueue.unshift("Emma");
+      busQueue.shift();
+
+      console.log(busQueue);
+    </script>
+  </body>
+</html>
