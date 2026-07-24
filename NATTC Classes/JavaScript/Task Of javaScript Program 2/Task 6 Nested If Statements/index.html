@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 6</title>
+  </head>
+  <body>
+    <script>
+      let age = +prompt("Aapki age?");
+      let grade = +prompt("Aapka grade level? (11/12)");
+      let gpa = +prompt("Aapka GPA? (e.g. 3.7)");
+
+      if (age >= 17) {
+        if (grade == 11 || grade == 12) {
+          if (gpa >= 3.0) {
+            console.log("Aap scholarship ke liye eligible hain!");
+          } else {
+            console.log("GPA 3.0 se kam hai!");
+          }
+        } else {
+          console.log("Grade 11 ya 12 mein hona chahiye!");
+        }
+      } else {
+        console.log("Age 17 se kam hai!");
+      }
+
+      let membership = prompt("Aapki membership? (Gold/Platinum/None)");
+      let price = +prompt("Product ki price?");
+
+      if (membership === "Gold" || membership === "Platinum") {
+        if (price >= 1000) {
+          console.log("Aapko discount mil raha hai!");
+        } else {
+          alert("Price Rs. 1000 se kam hai — discount nahi!");
+        }
+      } else {
+        alert("Gold ya Platinum membership chahiye discount ke liye!");
+      }
+    </script>
+  </body>
+</html>
