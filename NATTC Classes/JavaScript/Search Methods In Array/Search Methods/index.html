@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Include True/fasle
+      // let a = ["Malik", "Nabeel", "Khattak"];
+      // let newArr = a.includes("Nabeel");
+      // console.log(a.includes("Khan"));
+      // console.log(newArr);
+
+      // Indexof() First index
+      // let arr = ["A", "A", "C", "E", "E"];
+      // console.log(arr.indexOf("A"));
+
+      // Lastindexof() last index
+      // let aa = ["A", "B", "C", "D"];
+      // console.log(aa.lastIndexOf("D"));
+
+      // // at() Modren
+      // let abc = ["AB", "BC", "CD", "DE"];
+      // console.log(abc.at(2));
+
+      // Join String Banao
+      // let aa = [1, 2, 3];
+      // console.log(aa.join("/"));
+
+      // reverse() Ulta karo
+      // let a = [0, 1, 2, 3, 4, 5];
+      // console.log(a.reverse());
+
+      // sort() array ko sort karo
+      // let a = ["Banana", "Apple", "Mango"];
+      // console.log(a.sort());
+      // let n = [10, 30, 2, 30, 5];
+      // console.log(n.sort());
+
+      // concat() Jodo
+      // let a = [10, 20, 30];
+      // let b = [40, 50, 60];
+      // let c = [70, 80, 90];
+      // let d = a.concat(b, c);
+      // console.log(d);
+
+      //toString string
+      //   let a = [1, 2, 3];
+      //   console.log(a.toString());
+
+      // String Methods
+
+      // 1) .Length
+      // let s = "Nabeel";
+      // console.log(s.length);
+
+      //Charat()
+
+      // let s = "Nabeel";
+      // console.log(s.charAt(2));
+      // // "b"
+
+      //indexOf() first index
+      // let s = "Hello World";
+      // console.log(s.lastIndexOf("d"));
+      // s.indexOf("xyz");
+      // -1
+
+      // includes() true/false
+      // String mein koi text hai ya nahi
+      // let s = "Malik Nabeel";
+      // s.includes("Nabeel");
+      // // true
+      // s.includes("Sara");
+      // // false
+
+      // startsWith() true/false
+
+      // let s = "Malik Nabeel";
+      // console.log(s.startsWith("Malik"));
+
+      // let ss = " Malik Nabeel";
+      // console.log(s.endsWith("Malik"));
+
+      //trim() spaces hatao
+
+      // let s = " Nabeel ";
+      // console.log(s.trim());
+
+      //replace() pehla replace
+
+      // let s = "Hello Wolrd Wolrd";
+      // console.log(s.replace("Wolrd", "Nabeel"));
+
+      // let s = "HTML,CSS,JS";
+      // console.log(s.split(","));
+
+      // // // ["HTML","CSS","JS"]
+      // // console.log("Hi".split(""));
+      // ["H","i"]
+
+      // concat() jodo
+      // let a = "Hello";
+      // let b = " Nabeel";
+      // console.log(a.concat(b));
+      // "Hello Nabeel"
+
+      // repeat() repeat karo
+      // let s = "Na";
+      // console.log(s.repeat(7));
+      // // "NaNaNa"
+
+      let names = ["Ali", "Nabeel", "Sara", "Bob"];
+      let found = false; // FLAG — shuru mein false
+
+      for (let i = 0; i < names.length; i++) {
+        if (names[i] === "Nabeek") {
+          found = true; // FLAG set karo
+          break; // loop band karo
+        }
+      }
+
+      if (found) {
+        console.log("Nabeel mila!");
+      } else {
+        console.log("Nahi mila");
+      }
+    </script>
+  </body>
+</html>
