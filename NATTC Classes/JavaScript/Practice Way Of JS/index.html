@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let number = 10.59675;
+      // console.log(Math.random(number));
+      console.log(number.toFixed(0));
+
+      let d = new Date();
+      let currentYear = d.getFullYear();
+      let currentMonth = d.getMonth() + 1;
+      let currentDate = d.getDate();
+      let currentDay = d.getDay();
+      let crrentTime = d.toLocaleTimeString();
+      console.log(`Current Year: ${currentYear}`);
+      console.log(`Current Month: ${currentMonth}`);
+      console.log(`Current Date: ${currentDate}`);
+      console.log(`Current Day: ${currentDay}`);
+      console.log(`Current Time: ${crrentTime}`);
+
+      let weeks = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+
+      weeks = weeks[d.getDay()];
+      console.log(weeks);
+    </script>
+  </body>
+</html>
