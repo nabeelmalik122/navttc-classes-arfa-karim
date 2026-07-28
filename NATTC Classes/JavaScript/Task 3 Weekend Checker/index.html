@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let d = new Date();
+      let weeks = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      weeks = weeks[d.getDay()];
+      if (weeks === "Sunday" || weeks === "Saturday") {
+        console.log("🎉 Enjoy! It's Weekend.");
+      } else {
+        console.log("Study Hard! It's a Working Day.");
+      }
+    </script>
+  </body>
+</html>
