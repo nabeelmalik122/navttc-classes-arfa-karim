@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let Char =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcedefghjklmnopqrstuvwxyz1234567890!@#$%^&*()";
+      let Pass = " ";
+      let Leng = 20;
+
+      for (let i = 0; i < Leng; i++) {
+        let newIndex = Math.floor(Math.random() * Char.length);
+        Pass = Pass + Char[newIndex];
+      }
+
+      console.log("New Password is : " + Pass);
+    </script>
+  </body>
+</html>
