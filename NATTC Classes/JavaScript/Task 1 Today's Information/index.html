@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let d = new Date();
+      let currentYear = d.getFullYear();
+      let CurrentMonth = d.getMonth() + 1;
+      let currentDate = d.getDate();
+      let Days = [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ];
+      Days = Days[d.getDay()];
+      let currentTime = d.toLocaleTimeString();
+
+      console.log(`year : ${currentYear}`);
+      console.log(`month : ${CurrentMonth}`);
+      console.log(`date : ${currentDate}`);
+      console.log(`days : ${Days}`);
+      console.log(`time : ${currentTime}`);
+
+      
+    </script>
+  </body>
+</html>
