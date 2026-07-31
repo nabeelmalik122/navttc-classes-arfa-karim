@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <h1 id="chnage">Welcome</h1>
+    <button id="btn1" onclick="cliked()">Change Text</button>
+    <hr />
+
+    <h2 id="Uniq">Hello</h2>
+    <p id="lore">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et, officiis.
+    </p>
+    <button onclick="onCliked()">register</button>
+    <hr />
+
+    <!-- // Task 3 – Color Changer 🎨 -->
+
+    <h3 id="goo">Change Color</h3>
+    <button onclick="Red()">Red</button>
+    <button onclick="Blue()">Blue</button>
+    <button onclick="Green()">Green</button>
+
+    <script>
+      // Task 1 – Welcome Message (Accessing + Changing Text)
+
+      let btn = document.getElementById("chnage");
+      // console.log(btn);
+      function cliked() {
+        btn.innerText = "To JavaScript DOM 🚀";
+      }
+
+      // Task 2 – Dark Mode (classList Styling)
+
+      let heading = document.querySelector("#Uniq");
+      let para = document.querySelector("#lore");
+
+      function onCliked() {
+        heading.classList.toggle("active");
+        document.body.classList.toggle("may");
+      }
+
+      //
+      let goSoo = document.getElementById("goo");
+
+      function Red() {
+        goSoo.style.color = "Red";
+      }
+      function Blue() {
+        goSoo.style.color = "Blue";
+      }
+      function Green() {
+        goSoo.style.color = "Green";
+      }
+    </script>
+  </body>
+</html>
