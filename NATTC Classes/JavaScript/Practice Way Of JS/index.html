@@ -4,37 +4,142 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: linear-gradient(135deg, #667eea, #764ba2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .container {
+        width: 420px;
+        background: white;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+      }
+
+      h1 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+      }
+
+      .input-box {
+        display: flex;
+        gap: 10px;
+      }
+
+      input {
+        flex: 1;
+        padding: 12px;
+        border: 2px solid #ddd;
+        border-radius: 8px;
+        font-size: 16px;
+      }
+
+      input:focus {
+        outline: none;
+        border-color: #667eea;
+      }
+
+      button {
+        background: #667eea;
+        color: white;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      button:hover {
+        background: red;
+      }
+
+      ul {
+        margin-top: 20px;
+      }
+
+      li {
+        list-style: none;
+        background: #f5f5f5;
+        padding: 12px;
+        border-radius: 8px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+        animation: show 0.3s;
+      }
+
+      @keyframes show {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .deleteBtn {
+        background: #ff4d4d;
+      }
+
+      .deleteBtn:hover {
+        background: #d90000;
+      }
+    </style>
   </head>
   <body>
+    <!-- <button onclick="ageCalculator()">Age Calculator</button>
+    <h2 id="name">Nabeel</h2>
+    <button onclick="changeName()">Click</button> -->
+    <!-- <input type="text" name="" id="username" value="nabeel" />
+    <button onclick="show()">Click On Button</button> -->
+    <!-- <input type="text" id="name" />
+    <h1 id="result"></h1>
+    <button onclick="show()">Show</button> -->
+    <div class="container">
+      <h1>My Task Manager</h1>
+      <div class="input-box">
+        <input type="text" id="username" placeholder="Enter your task..." />
+        <button onclick="addTask()">Add Task</button>
+      </div>
+      <ul id="tasked"></ul>
+    </div>
+
     <script>
-      let number = 10.59675;
-      // console.log(Math.random(number));
-      console.log(number.toFixed(0));
+      function addTask() {
+        let newInput = document.getElementById("username").value;
 
-      let d = new Date();
-      let currentYear = d.getFullYear();
-      let currentMonth = d.getMonth() + 1;
-      let currentDate = d.getDate();
-      let currentDay = d.getDay();
-      let crrentTime = d.toLocaleTimeString();
-      console.log(`Current Year: ${currentYear}`);
-      console.log(`Current Month: ${currentMonth}`);
-      console.log(`Current Date: ${currentDate}`);
-      console.log(`Current Day: ${currentDay}`);
-      console.log(`Current Time: ${crrentTime}`);
+        let newList = document.createElement("li");
+        newList.innerText = newInput;
 
-      let weeks = [
-        "Sunday",
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-      ];
+        let newUl = document.getElementById("tasked");
+        newUl.append(newList);
 
-      weeks = weeks[d.getDay()];
-      console.log(weeks);
+        let btn = document.createElement("button");
+        btn.innerText = `Delete Button`;
+        newList.append(btn);
+
+        btn.onclick = function () {
+          newList.remove();
+        };
+        document.getElementById("username").value = " ";
+      }
     </script>
   </body>
 </html>
