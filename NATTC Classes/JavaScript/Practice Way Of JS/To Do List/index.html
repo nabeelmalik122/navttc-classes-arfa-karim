@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Task Manager</title>
     <style>
       * {
         margin: 0;
@@ -17,7 +17,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        min-height: 100vh;
+        margin: 0;
       }
 
       .container {
@@ -63,11 +64,12 @@
       }
 
       button:hover {
-        background: red;
+        background: #5563c1;
       }
 
       ul {
         margin-top: 20px;
+        padding-left: 0;
       }
 
       li {
@@ -87,7 +89,6 @@
           opacity: 0;
           transform: translateY(-10px);
         }
-
         to {
           opacity: 1;
           transform: translateY(0);
@@ -96,6 +97,9 @@
 
       .deleteBtn {
         background: #ff4d4d;
+        padding: 6px 12px;
+        font-size: 14px;
+        border-radius: 6px;
       }
 
       .deleteBtn:hover {
@@ -104,41 +108,40 @@
     </style>
   </head>
   <body>
-    <!-- <button onclick="ageCalculator()">Age Calculator</button>
-    <h2 id="name">Nabeel</h2>
-    <button onclick="changeName()">Click</button> -->
-    <!-- <input type="text" name="" id="username" value="nabeel" />
-    <button onclick="show()">Click On Button</button> -->
-    <!-- <input type="text" id="name" />
-    <h1 id="result"></h1>
-    <button onclick="show()">Show</button> -->
     <div class="container">
       <h1>My Task Manager</h1>
       <div class="input-box">
         <input type="text" id="username" placeholder="Enter your task..." />
         <button onclick="addTask()">Add Task</button>
       </div>
-      <ul id="tasked"></ul>
+      <ul id="Tasked"></ul>
     </div>
 
     <script>
       function addTask() {
-        let newInput = document.getElementById("username").value;
+        let add1 = document.getElementById("username").value;
+
+        // Agar input khali ho toh task add na ho
+        if (add1 === "") {
+          alert("Kuch Enter kare");
+        }
 
         let newList = document.createElement("li");
-        newList.innerText = newInput;
+        newList.innerText = add1;
 
-        let newUl = document.getElementById("tasked");
-        newUl.append(newList);
+        let newTask = document.getElementById("Tasked");
+        newTask.append(newList);
 
         let btn = document.createElement("button");
-        btn.innerText = `Delete Button`;
+        btn.innerText = "Delete";
+        btn.className = "deleteBtn";
         newList.append(btn);
 
         btn.onclick = function () {
           newList.remove();
         };
-        document.getElementById("username").value = " ";
+
+        document.getElementById("username").value = "";
       }
     </script>
   </body>
