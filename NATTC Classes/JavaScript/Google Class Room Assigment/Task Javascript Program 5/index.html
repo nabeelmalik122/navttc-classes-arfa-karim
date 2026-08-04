@@ -7,7 +7,6 @@
   </head>
   <body>
     <script>
-      
       //Create an object named student with the following properties:
       // name;
       // age;
@@ -18,13 +17,35 @@
         name: "Malik Nabeel Khattak",
         age: 30,
         city: "Nowshera",
-        institue: "Arfa Karim Akti",
+        institute: "Arfa Karim Akti",
       };
 
       console.log("Name is : " + student.name);
       console.log("Age is : " + student.age);
       console.log("City is : " + student.city);
-      console.log("institue is : " + student.institue);
+      console.log("institue is : " + student.institute);
+
+      // Create an object named mobile with:
+      // brand;
+      // model;
+      // price;
+      // color;
+
+      let car = {
+        brand: "Toyota",
+        model: "1990",
+        price: 500 + " Dollar ",
+        color: "White",
+      };
+      car.engine = "1600cc";
+      car.color = "Black";
+      delete car.model;
+      // console.log(car.brand);
+      // console.log(car.price);
+      // console.log(car.engine);
+      // console.log(car.color);
+      // console.log(car.model);
+      console.log(car);
     </script>
   </body>
 </html>
