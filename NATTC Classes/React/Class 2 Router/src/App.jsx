@@ -1,22 +1,46 @@
-import { useState } from "react";
-import InputChild from "./components/InputChild";
-import DisplayChild from "./components/DisplayChild";
+// import { useState, useEffect } from "react";
 
-function App() {
-  // State ko Parent ke paas rakha (Lifting Up)
-  const [text, setText] = useState("");
+// function ProductList() {
+//   const [data, setData] = useState([]);
+
+//   useEffect(() => {
+//     // 1. Page load hotay hi API se data mangwaya
+//     fetch("https://jsonplaceholder.typicode.com/posts/1")
+//       .then((res) => res.json())
+//       .then((result) => {
+//         setData(result); // 2. State update kar di
+//       });
+//   }, []); // [] ka matlab: Sirf ek baar API call hogi
+
+//   return (
+//     <div style={{ padding: "20px" }}>
+//       <h2>API Result:</h2>
+//       <p>{data.title ? data.title : "Loading..."}</p>
+//     </div>
+//   );
+// }
+
+// export default ProductList;
+import { useState, useEffect } from "react";
+
+function ProductList() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // 1. Page load hotay hi API se data mangwaya
+    fetch("https://jsonplaceholder.typicode.com/posts/1")
+      .then((res) => res.json())
+      .then((result) => {
+        setData(result); // 2. State update kar di
+      });
+  }, []); // [] ka matlab: Sirf ek baar API call hogi
 
   return (
-    <div style={{ padding: "20px 10px" }}>
-      <h2>Parent Component</h2>
-
-      {/* Child 1 ko function aur value di */}
-      <InputChild text={text} setText={setText} />
-
-      {/* Child 2 ko sirf display ke liye value di */}
-      <DisplayChild text={text} />
+    <div style={{ padding: "20px" }}>
+      <h2>API Result:</h2>
+      <p>{data.title ? data.title : "Loading..."}</p>
     </div>
   );
 }
 
-export default App;
+export default ProductList;
