@@ -1,46 +1,27 @@
-// import { useState, useEffect } from "react";
+// src/App.jsx
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
 
-// function ProductList() {
-//   const [data, setData] = useState([]);
-
-//   useEffect(() => {
-//     // 1. Page load hotay hi API se data mangwaya
-//     fetch("https://jsonplaceholder.typicode.com/posts/1")
-//       .then((res) => res.json())
-//       .then((result) => {
-//         setData(result); // 2. State update kar di
-//       });
-//   }, []); // [] ka matlab: Sirf ek baar API call hogi
-
-//   return (
-//     <div style={{ padding: "20px" }}>
-//       <h2>API Result:</h2>
-//       <p>{data.title ? data.title : "Loading..."}</p>
-//     </div>
-//   );
-// }
-
-// export default ProductList;
-import { useState, useEffect } from "react";
-
-function ProductList() {
-  const [data, setData] = useState([]);
-
-  useEffect(() => {
-    // 1. Page load hotay hi API se data mangwaya
-    fetch("https://jsonplaceholder.typicode.com/posts/1")
-      .then((res) => res.json())
-      .then((result) => {
-        setData(result); // 2. State update kar di
-      });
-  }, []); // [] ka matlab: Sirf ek baar API call hogi
-
+function App() {
   return (
-    <div style={{ padding: "20px" }}>
-      <h2>API Result:</h2>
-      <p>{data.title ? data.title : "Loading..."}</p>
-    </div>
+    <>
+      {/* Navigation Bar */}
+      <nav style={{ display: "flex", gap: "15px", padding: "10px" }}>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/contact">Contact</Link>
+      </nav>
+
+      {/* Page Switching Area */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </>
   );
 }
 
-export default ProductList;
+export default App;
