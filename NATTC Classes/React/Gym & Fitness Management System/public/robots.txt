@@ -1,0 +1,20 @@
+# IRONX Production Robots Directives
+User-agent: *
+Allow: /
+Allow: /programs
+Allow: /classes
+Allow: /trainers
+Allow: /pricing
+Allow: /gallery
+Allow: /about
+Allow: /contact
+
+# Disallow indexing of private athlete and administration portals
+Disallow: /member/
+Disallow: /trainer/
+Disallow: /admin/
+Disallow: /auth/
+Disallow: /login
+Disallow: /register
+Disallow: /forgot-password
+Disallow: /reset-password

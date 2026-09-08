@@ -1,0 +1,819 @@
+@import "tailwindcss";
+
+/* ============================================================ */
+/* IRONYX DESIGN SYSTEM — TAILWIND V4 CSS-FIRST CONFIG          */
+/* ============================================================ */
+
+@theme {
+  /* IRONYX Color System Tokens (resolved at build time) */
+  --color-bg-canvas: #08080a;
+  --color-surface-base: #0c0c10;
+  --color-surface-card: #121217;
+  --color-surface-elevated: #16161b;
+
+  --color-border-subtle: #1f1f26;
+  --color-border-active: #2e2e38;
+
+  --color-text-primary: #f4f4f5;
+  --color-text-secondary: #a1a1aa;
+  --color-text-muted: #71717a;
+
+  --color-accent-volt: #dfff00;
+  --color-accent-volt-hover: #ebff33;
+
+  --color-status-success: #10b981;
+  --color-status-warning: #f59e0b;
+  --color-status-danger: #ef4444;
+  --color-status-info: #3b82f6;
+
+  /* Fonts */
+  --font-heading: 'Outfit', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-mono: 'Space Grotesk', monospace;
+
+  /* Radius Scale */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-full: 9999px;
+}
+
+@layer base {
+  /* ============================================================ */
+  /* LIGHT MODE TOKENS (default — overridden by .dark below)      */
+  /* ============================================================ */
+  :root {
+    /* Surfaces */
+    --color-bg-canvas:        #f8f9fa;
+    --color-surface-base:     #ffffff;
+    --color-surface-card:     #ffffff;
+    --color-surface-elevated: #f1f2f4;
+
+    /* Borders */
+    --color-border-subtle:    #e4e4e7;
+    --color-border-active:    #d4d4d8;
+
+    /* Text */
+    --color-text-primary:     #0a0a0a;
+    --color-text-secondary:   #52525b;
+    --color-text-muted:       #71717a;
+
+    /* Brand accent — NEVER changes between modes */
+    --color-accent-volt:      #dfff00;
+    --color-accent-volt-hover:#c8e600;
+
+    /* Status */
+    --color-status-success:   #10b981;
+    --color-status-warning:   #f59e0b;
+    --color-status-danger:    #ef4444;
+    --color-status-info:      #3b82f6;
+
+    /* Spacing */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-12: 48px;
+    --space-16: 64px;
+    --space-24: 96px;
+
+    /* Semantic Compatibility Aliases (light) */
+    --background:            0 0% 97%;
+    --foreground:            240 10% 4%;
+    --card:                  0 0% 100%;
+    --card-foreground:       240 10% 4%;
+    --popover:               0 0% 100%;
+    --popover-foreground:    240 10% 4%;
+    --primary:               74 100% 44%;
+    --primary-foreground:    240 10% 3.9%;
+    --secondary:             240 4% 94%;
+    --secondary-foreground:  240 10% 10%;
+    --muted:                 240 4% 94%;
+    --muted-foreground:      240 5% 40%;
+    --accent:                240 4% 90%;
+    --accent-foreground:     240 10% 10%;
+    --destructive:           0 84% 60%;
+    --destructive-foreground:0 0% 98%;
+    --border:                240 4% 88%;
+    --input:                 240 4% 88%;
+    --ring:                  74 100% 44%;
+
+    --radius: 0.75rem;
+
+    --font-heading: 'Outfit', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+  }
+
+  /* ============================================================ */
+  /* DARK MODE TOKENS (applied when html.dark)                    */
+  /* ============================================================ */
+  html.dark {
+    --color-bg-canvas:        #08080a;
+    --color-surface-base:     #0c0c10;
+    --color-surface-card:     #121217;
+    --color-surface-elevated: #16161b;
+
+    --color-border-subtle:    #1f1f26;
+    --color-border-active:    #2e2e38;
+
+    --color-text-primary:     #f4f4f5;
+    --color-text-secondary:   #a1a1aa;
+    --color-text-muted:       #71717a;
+
+    --color-accent-volt:      #dfff00;
+    --color-accent-volt-hover:#ebff33;
+
+    --color-status-success:   #10b981;
+    --color-status-warning:   #f59e0b;
+    --color-status-danger:    #ef4444;
+    --color-status-info:      #3b82f6;
+
+    /* Semantic dark overrides */
+    --background:             240 10% 3.9%;
+    --foreground:             0 0% 98%;
+    --card:                   240 10% 4.9%;
+    --card-foreground:        0 0% 98%;
+    --popover:                240 10% 4.9%;
+    --popover-foreground:     0 0% 98%;
+    --primary:                74 100% 50%;
+    --primary-foreground:     240 10% 3.9%;
+    --secondary:              240 4% 12%;
+    --secondary-foreground:   0 0% 98%;
+    --muted:                  240 4% 16%;
+    --muted-foreground:       240 5% 65%;
+    --accent:                 240 4% 18%;
+    --accent-foreground:      0 0% 98%;
+    --destructive:            0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border:                 240 4% 16%;
+    --input:                  240 4% 16%;
+    --ring:                   74 100% 50%;
+  }
+
+  /* ============================================================ */
+  /* GLOBAL BASE STYLES                                           */
+  /* ============================================================ */
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  * {
+    border-color: var(--color-border-subtle);
+  }
+
+  body {
+    background-color: var(--color-bg-canvas);
+    color: var(--color-text-primary);
+    font-family: var(--font-sans);
+    letter-spacing: -0.005em;
+    line-height: 1.5;
+    overflow-x: hidden;
+    max-width: 100vw;
+    /* Smooth theme transition */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* ============================================================ */
+/* IRONYX TYPOGRAPHY SCALE UTILITIES                            */
+/* ============================================================ */
+.ironyx-display,
+.vortex-display {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+}
+
+.vortex-heading-section {
+  font-family: var(--font-heading);
+  font-size: clamp(1.85rem, 3.5vw, 3rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+}
+
+.vortex-heading-card {
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.vortex-subheading {
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+
+.vortex-body-large {
+  font-family: var(--font-sans);
+  font-size: 1.125rem;
+  font-weight: 400;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+}
+
+.vortex-body {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+}
+
+.vortex-body-small {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+/* Telemetry font restricted to KPIs, numbers, and technical telemetry */
+.vortex-telemetry {
+  font-family: var(--font-mono);
+  font-size: clamp(1.75rem, 2.5vw, 2.5rem);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+}
+
+.vortex-badge-code {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.05em;
+}
+
+.vortex-btn-text {
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: 0.02em;
+}
+
+/* ============================================================ */
+/* VORTEX SURFACE ELEVATION HIERARCHY                           */
+/* ============================================================ */
+.surface-canvas {
+  background-color: var(--color-bg-canvas);
+  transition: background-color 0.3s ease;
+}
+
+.surface-base {
+  background-color: var(--color-surface-base);
+  border: 1px solid var(--color-border-subtle);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.surface-card {
+  background-color: var(--color-surface-card);
+  border: 1px solid var(--color-border-subtle);
+  transition: border-color 0.2s ease-out, background-color 0.3s ease;
+}
+
+.surface-card:hover {
+  border-color: var(--color-border-active);
+}
+
+/* Light mode: cards get a subtle shadow for depth */
+html:not(.dark) .surface-card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+html:not(.dark) .surface-card:hover {
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.surface-elevated {
+  background-color: var(--color-surface-elevated);
+  border: 1px solid var(--color-border-active);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+  transition: background-color 0.3s ease;
+}
+
+html:not(.dark) .surface-elevated {
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.border-structural {
+  border-color: var(--color-border-subtle);
+}
+
+.border-interactive {
+  border-color: var(--color-border-active);
+}
+
+/* ============================================================ */
+/* IRONYX CONTAINER PRIMITIVES                                  */
+/* ============================================================ */
+.ironyx-container-marketing,
+.vortex-container-marketing {
+  width: 100%;
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+.vortex-container-dashboard {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 2.5vw, 2rem);
+}
+
+.vortex-container-reading {
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* ============================================================ */
+/* ACCESSIBILITY & FOCUS VISIBILITY                             */
+/* ============================================================ */
+.vortex-focus {
+  outline: none;
+}
+
+.vortex-focus:focus-visible {
+  outline: 2px solid var(--color-accent-volt);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================ */
+/* VORTEX MOTION & TRANSITION TOKENS (LEVEL 1 & 2)             */
+/* ============================================================ */
+.transition-micro {
+  transition-property: color, background-color, border-color, transform, opacity;
+  transition-duration: 150ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.transition-standard {
+  transition-property: color, background-color, border-color, transform, opacity;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+}
+
+.transition-surface {
+  transition-property: border-color, background-color;
+  transition-duration: 200ms;
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.press-feedback {
+  transition: transform 120ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.press-feedback:active {
+  transform: scale(0.98);
+}
+
+/* ============================================================ */
+/* GLASS & ACCENT UTILITIES                                     */
+/* ============================================================ */
+.glass-panel {
+  background: rgba(13, 13, 17, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Light mode glass */
+html:not(.dark) .glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.glass-panel-elevated {
+  background: rgba(26, 26, 34, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+html:not(.dark) .glass-panel-elevated {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+}
+
+.glow-volt {
+  box-shadow: 0 0 20px -3px rgba(223, 255, 0, 0.25);
+}
+
+/* ============================================================ */
+/* CUSTOM SCROLLBAR — DARK + LIGHT MODES                        */
+/* ============================================================ */
+
+/* Firefox */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+}
+
+html:not(.dark) {
+  scrollbar-color: #d4d4d8 #f1f1f1;
+}
+
+/* WebKit */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html.dark ::-webkit-scrollbar-track {
+  background: #08080a;
+}
+
+html:not(.dark) ::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 4px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #3f3f46;
+  border-radius: 4px;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb {
+  background: #d4d4d8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #dfff00;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #dfff00;
+}
+
+html:not(.dark) ::-webkit-scrollbar-thumb:hover {
+  background: #dfff00;
+}
+
+/* Dashboard Sidebar Custom Scrollbar */
+.dashboard-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #3f3f46 transparent;
+  overscroll-behavior: contain;
+}
+
+.dashboard-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dashboard-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dashboard-scrollbar::-webkit-scrollbar-thumb {
+  background: #2e2e38;
+  border-radius: 9999px;
+}
+
+.dashboard-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #dfff00;
+}
+
+.dashboard-scrollbar::-webkit-scrollbar-button {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+/* ============================================================ */
+/* VORTEX CINEMATIC UIVERSE LOADER                              */
+/* ============================================================ */
+.loader {
+  --main-size: clamp(2.4em, 6vw, 3.8em);
+  --text-color: #ffffff;
+  --shine-color: rgba(223, 255, 0, 0.3);
+  --shadow-color: #71717a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  position: relative;
+  font-size: var(--main-size);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--text-color);
+  width: 7.3em;
+  height: 2em;
+  filter: drop-shadow(0 0 0.05em var(--shine-color));
+  font-family: 'Space Grotesk', 'Outfit', sans-serif;
+}
+
+.loader .text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  height: 1em;
+}
+
+.loader .text:nth-child(1) {
+  clip-path: polygon(0% 0%, 11.11% 0%, 11.11% 100%, 0% 100%);
+  font-size: calc(var(--main-size) / 20);
+  margin-left: -2.1em;
+  opacity: 0.6;
+}
+
+.loader .text:nth-child(2) {
+  clip-path: polygon(11.11% 0%, 22.22% 0%, 22.22% 100%, 11.11% 100%);
+  font-size: calc(var(--main-size) / 16);
+  margin-left: -0.98em;
+  opacity: 0.7;
+}
+
+.loader .text:nth-child(3) {
+  clip-path: polygon(22.22% 0%, 33.33% 0%, 33.33% 100%, 22.22% 100%);
+  font-size: calc(var(--main-size) / 13);
+  margin-left: -0.33em;
+  opacity: 0.8;
+}
+
+.loader .text:nth-child(4) {
+  clip-path: polygon(33.33% 0%, 44.44% 0%, 44.44% 100%, 33.33% 100%);
+  font-size: calc(var(--main-size) / 11);
+  margin-left: -0.05em;
+  opacity: 0.9;
+}
+
+.loader .text:nth-child(5) {
+  clip-path: polygon(44.44% 0%, 55.55% 0%, 55.55% 100%, 44.44% 100%);
+  font-size: calc(var(--main-size) / 10);
+  margin-left: 0em;
+  opacity: 1;
+}
+
+.loader .text:nth-child(6) {
+  clip-path: polygon(55.55% 0%, 66.66% 0%, 66.66% 100%, 55.55% 100%);
+  font-size: calc(var(--main-size) / 11);
+  margin-left: 0.05em;
+  opacity: 0.9;
+}
+
+.loader .text:nth-child(7) {
+  clip-path: polygon(66.66% 0%, 77.77% 0%, 77.77% 100%, 66.66% 100%);
+  font-size: calc(var(--main-size) / 13);
+  margin-left: 0.33em;
+  opacity: 0.8;
+}
+
+.loader .text:nth-child(8) {
+  clip-path: polygon(77.77% 0%, 88.88% 0%, 88.88% 100%, 77.77% 100%);
+  font-size: calc(var(--main-size) / 16);
+  margin-left: 0.98em;
+  opacity: 0.7;
+}
+
+.loader .text:nth-child(9) {
+  clip-path: polygon(88.88% 0%, 100% 0%, 100% 100%, 88.88% 100%);
+  font-size: calc(var(--main-size) / 20);
+  margin-left: 2.1em;
+  opacity: 0.6;
+}
+
+.loader .text span {
+  animation:
+    scrolling 2s cubic-bezier(0.1, 0.6, 0.9, 0.4) infinite,
+    shadow 2s cubic-bezier(0.1, 0.6, 0.9, 0.4) infinite;
+}
+
+.loader .text:nth-child(1) span {
+  background: linear-gradient(to right, var(--text-color) 4%, var(--shadow-color) 7%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.loader .text:nth-child(2) span {
+  background: linear-gradient(to right, var(--text-color) 9%, var(--shadow-color) 13%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.loader .text:nth-child(3) span {
+  background: linear-gradient(to right, var(--text-color) 15%, var(--shadow-color) 18%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.loader .text:nth-child(4) span {
+  background: linear-gradient(to right, var(--text-color) 20%, var(--shadow-color) 23%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.loader .text:nth-child(5) span {
+  background: linear-gradient(
+    to right,
+    var(--text-color) 22%,
+    #dfff00 27%,
+    var(--text-color) 32%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.loader .text:nth-child(6) span {
+  background: linear-gradient(to right, var(--shadow-color) 29%, var(--text-color) 32%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.loader .text:nth-child(7) span {
+  background: linear-gradient(to right, var(--shadow-color) 34%, var(--text-color) 37%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.loader .text:nth-child(8) span {
+  background: linear-gradient(to right, var(--shadow-color) 39%, var(--text-color) 42%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.loader .text:nth-child(9) span {
+  background: linear-gradient(to right, var(--shadow-color) 45%, var(--text-color) 48%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.loader .line {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 0.05em;
+  width: calc(var(--main-size) / 1.5);
+  margin-top: 1.2em;
+  border-radius: 0.05em;
+}
+
+.loader .line::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: var(--text-color);
+  opacity: 0.25;
+}
+
+.loader .line::after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: #dfff00;
+  border-radius: 0.05em;
+  transform: translateX(-90%);
+  animation: wobble 2s cubic-bezier(0.5, 0.8, 0.5, 0.2) infinite;
+}
+
+@keyframes wobble {
+  0%   { transform: translateX(-90%); }
+  50%  { transform: translateX(90%);  }
+  100% { transform: translateX(-90%); }
+}
+
+@keyframes scrolling {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%);  }
+}
+
+@keyframes shadow {
+  0%   { background-position: -98% 0; }
+  100% { background-position: 102% 0; }
+}
+
+/* ============================================================ */
+/* LIGHT MODE — GLOBAL TAILWIND CLASS OVERRIDES                 */
+/* These handle pages that use hardcoded dark-specific classes  */
+/* without requiring individual component edits.                */
+/* ============================================================ */
+
+/* text-white → use primary text token in light mode */
+html:not(.dark) .text-white {
+  color: var(--color-text-primary) !important;
+}
+
+/* text-[#f4f4f5] (primary dark text) */
+html:not(.dark) [class*="text-\[#f4f4f5\]"] {
+  color: var(--color-text-primary);
+}
+
+/* text-[#a1a1aa] (secondary dark text) */
+html:not(.dark) [class*="text-\[#a1a1aa\]"] {
+  color: var(--color-text-secondary);
+}
+
+/* text-[#71717a] (muted dark text) */
+html:not(.dark) [class*="text-\[#71717a\]"] {
+  color: var(--color-text-muted);
+}
+
+/* Dark surface backgrounds → light equivalents */
+html:not(.dark) [class*="bg-\[#0c0c10\]"],
+html:not(.dark) [class*="bg-\[#08080a\]"] {
+  background-color: var(--color-bg-canvas);
+}
+
+html:not(.dark) [class*="bg-\[#121217\]"],
+html:not(.dark) [class*="bg-\[#0d0d11\]"] {
+  background-color: var(--color-surface-card);
+}
+
+html:not(.dark) [class*="bg-\[#16161b\]"],
+html:not(.dark) [class*="bg-\[#1a1a22\]"] {
+  background-color: var(--color-surface-elevated);
+}
+
+/* Dark borders → light equivalents */
+html:not(.dark) [class*="border-\[#1f1f26\]"] {
+  border-color: var(--color-border-subtle);
+}
+
+html:not(.dark) [class*="border-\[#2e2e38\]"] {
+  border-color: var(--color-border-active);
+}
+
+/* Subtle background opacity panels → soften in light mode */
+html:not(.dark) [class*="bg-black\/"] {
+  background-color: rgba(0,0,0,0.04);
+}
+
+html:not(.dark) [class*="bg-white\/"] {
+  background-color: rgba(0,0,0,0.03);
+}
+
+/* Dark inline backgrounds on eyebrows/badges → light surface */
+html:not(.dark) [class*="bg-\[#121217\]"][class*="border-\[#1f1f26\]"] {
+  background-color: var(--color-surface-card);
+  border-color: var(--color-border-subtle);
+}
+

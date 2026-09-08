@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <!-- Dark Carbon Background Badge -->
+  <rect width="100" height="100" rx="24" fill="#08080A" />
+  <rect x="1" y="1" width="98" height="98" rx="23" stroke="#1F1F26" stroke-width="2" />
+  
+  <!-- Subtle Glow Aura -->
+  <circle cx="50" cy="50" r="36" fill="#DFFF00" fill-opacity="0.12" />
+
+  <!-- Pulse Arc Ring -->
+  <path d="M50 14 A36 36 0 1 1 14 50" stroke="#DFFF00" stroke-width="6.5" stroke-linecap="round" />
+  
+  <!-- EKG Pulse Polyline -->
+  <polyline points="24,50 38,50 44,34 56,66 62,50 76,50" fill="none" stroke="#DFFF00" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

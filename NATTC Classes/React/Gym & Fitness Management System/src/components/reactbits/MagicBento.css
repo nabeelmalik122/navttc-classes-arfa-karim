@@ -1,0 +1,22 @@
+.magic-bento-card {
+  will-change: transform, box-shadow;
+  transform-style: preserve-3d;
+}
+
+.magic-bento-spotlight {
+  transition: opacity 0.2s ease;
+  mix-blend-mode: normal;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magic-bento-card {
+    transform: none !important;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease !important;
+  }
+}
+
+@media (pointer: coarse) {
+  .magic-bento-card {
+    transform: none !important;
+  }
+}

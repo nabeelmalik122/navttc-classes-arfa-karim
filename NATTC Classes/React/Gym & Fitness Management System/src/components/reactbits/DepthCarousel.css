@@ -1,0 +1,33 @@
+.depth-carousel-wrapper {
+  --card-width: clamp(280px, 45vw, 440px);
+  --card-height: clamp(340px, 50vw, 540px);
+}
+
+.depth-carousel-track {
+  height: var(--card-height);
+  width: 100%;
+}
+
+.depth-carousel-card {
+  width: var(--card-width);
+  height: var(--card-height);
+  cursor: pointer;
+  will-change: transform, opacity;
+}
+
+.depth-carousel-card[aria-current="true"] {
+  cursor: default;
+}
+
+@media (max-width: 640px) {
+  .depth-carousel-wrapper {
+    --card-width: 82vw;
+    --card-height: clamp(300px, 100vw, 420px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .depth-carousel-card {
+    transition: none !important;
+  }
+}

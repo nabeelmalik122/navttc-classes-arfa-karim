@@ -1,0 +1,14 @@
+/* React Bits Dock — Adapted for Inline Navbar Integration */
+.dock-panel {
+  position: relative;
+  align-items: center;
+  transform-origin: center;
+}
+
+.dock-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}

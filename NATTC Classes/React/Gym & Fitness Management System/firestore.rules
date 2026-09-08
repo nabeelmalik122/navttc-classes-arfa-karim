@@ -1,0 +1,228 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // =========================================================================
+    // HELPER FUNCTIONS FOR AUTHENTICATION & RBAC
+    // =========================================================================
+
+    // Verify user is authenticated with Firebase Auth
+    function isAuthenticated() {
+      return request.auth != null && request.auth.uid != null;
+    }
+
+    // Verify current user matches the requested UID
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    // Helper to retrieve authenticated user's profile document from Firestore
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    // Check if the authenticated user has an 'admin' role in their user document
+    function isAdmin() {
+      return isAuthenticated() && (
+        request.auth.token.role == 'admin' ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+         getUserData().role == 'admin')
+      );
+    }
+
+    // Check if the authenticated user has a 'trainer' or 'admin' role
+    function isTrainer() {
+      return isAuthenticated() && (
+        request.auth.token.role == 'trainer' ||
+        isAdmin() ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+         getUserData().role in ['trainer', 'admin'])
+      );
+    }
+
+    // =========================================================================
+    // 1. USERS COLLECTION (Profile & Security Roles)
+    // =========================================================================
+    match /users/{userId} {
+      // Any authenticated user can read their own profile; trainers & admins can read athlete profiles
+      allow read: if isOwner(userId) || isTrainer() || isAdmin();
+
+      // Initial user profile creation:
+      // User can create their own doc, but MUST NOT self-assign role, subscription, or accessPolicy
+      allow create: if isOwner(userId) && (
+        !('role' in request.resource.data) ||
+        request.resource.data.role == 'member' ||
+        isAdmin()
+      ) && (
+        !('subscription' in request.resource.data) &&
+        !('accessPolicy' in request.resource.data) &&
+        !('paddleCustomerId' in request.resource.data) &&
+        !('paddleSubscriptionId' in request.resource.data)
+      );
+
+      // User profile updates:
+      // Regular user cannot escalate role, change uid, or tamper with billing/access policy fields
+      allow update: if (
+        isOwner(userId) &&
+        !request.resource.data.diff(resource.data).affectedKeys().hasAny([
+          'role',
+          'uid',
+          'status',
+          'subscription',
+          'accessPolicy',
+          'paddleCustomerId',
+          'paddleSubscriptionId'
+        ])
+      ) || isAdmin();
+
+      // Deletion is strictly restricted to platform administrators
+      allow delete: if isAdmin();
+    }
+
+    // =========================================================================
+    // 2. CLASSES COLLECTION (Arena Fitness Sessions)
+    // =========================================================================
+    match /classes/{classId} {
+      // Public / authenticated read for schedule & roster viewing
+      allow read: if true;
+
+      // Creation is restricted to trainers and admins
+      allow create: if isTrainer() || isAdmin();
+
+      // Updates:
+      // 1. Admins and assigned Trainers can update class parameters
+      // 2. Authenticated members can only increment/decrement bookedCount during booking flow
+      allow update: if isTrainer() || isAdmin() || (
+        isAuthenticated() &&
+        request.resource.data.diff(resource.data).affectedKeys().hasOnly(['bookedCount', 'updatedAt'])
+      );
+
+      // Deletion restricted to trainers and admins
+      allow delete: if isTrainer() || isAdmin();
+    }
+
+    // =========================================================================
+    // 3. BOOKINGS LEDGER
+    // =========================================================================
+    match /bookings/{bookingId} {
+      // Members can read their own bookings; trainers and admins can view session rosters
+      allow read: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid ||
+        isTrainer() ||
+        isAdmin()
+      );
+
+      // Members can create bookings ONLY for their own authenticated UID
+      allow create: if isAuthenticated() && (
+        request.resource.data.userId == request.auth.uid ||
+        isAdmin()
+      );
+
+      // Updates:
+      // 1. Member can cancel their own booking (cannot fake check-in status 'attended')
+      // 2. Trainer/Admin can update status (check in, mark attended)
+      allow update: if isAuthenticated() && (
+        (resource.data.userId == request.auth.uid && request.resource.data.status == 'cancelled') ||
+        isTrainer() ||
+        isAdmin()
+      );
+
+      // Deletions restricted to booking owner or admin
+      allow delete: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid ||
+        isAdmin()
+      );
+    }
+
+    // =========================================================================
+    // 4. WORKOUTS COLLECTION
+    // =========================================================================
+    match /workouts/{workoutId} {
+      // Members can read unassigned/general workouts or their own assigned routines
+      allow read: if isAuthenticated() && (
+        !('assignedToUserId' in resource.data) ||
+        resource.data.assignedToUserId == null ||
+        resource.data.assignedToUserId == request.auth.uid ||
+        isTrainer() ||
+        isAdmin()
+      );
+
+      // Workouts can only be authored and managed by trainers and admins
+      allow create, update, delete: if isTrainer() || isAdmin();
+    }
+
+    // =========================================================================
+    // 5. BIOMETRIC PROGRESSION ENTRIES
+    // =========================================================================
+    match /progress/{progressId} {
+      // Members can read their own metrics; trainers can read assigned athlete metrics
+      allow read: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid ||
+        isTrainer() ||
+        isAdmin()
+      );
+
+      // Members can only log progress for their own authenticated UID
+      allow create: if isAuthenticated() && (
+        request.resource.data.userId == request.auth.uid ||
+        isAdmin()
+      );
+
+      // Updates and deletes restricted to record owner or admin
+      allow update, delete: if isAuthenticated() && (
+        resource.data.userId == request.auth.uid ||
+        isAdmin()
+      );
+    }
+
+    // =========================================================================
+    // 6. TRAINERS DIRECTORY
+    // =========================================================================
+    match /trainers/{trainerId} {
+      // Public read for gym trainer roster & bio display
+      allow read: if true;
+
+      // Trainers can update their own public profile document; Admins can manage all
+      allow create, update: if isTrainer() || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // =========================================================================
+    // 7. MEMBERSHIP PLANS
+    // =========================================================================
+    match /plans/{planId} {
+      // Public read for pricing and membership tiers
+      allow read: if true;
+
+      // Plan modifications and pricing changes are strictly administrative
+      allow create, update, delete: if isAdmin();
+    }
+
+    // =========================================================================
+    // 8. ATHLETE REVIEWS & TESTIMONIALS
+    // =========================================================================
+    match /reviews/{reviewId} {
+      // Public read for approved reviews; Admins can inspect all reviews for moderation
+      allow read: if (
+        resource.data.isApproved == true ||
+        isAdmin()
+      );
+
+      // Members can submit reviews, but 'isApproved' must default to false for moderation
+      allow create: if isAuthenticated() && (
+        request.resource.data.userId == request.auth.uid &&
+        (request.resource.data.isApproved == false || isAdmin())
+      );
+
+      // Only administrators can moderate and toggle review approval
+      allow update, delete: if isAdmin();
+    }
+
+    // =========================================================================
+    // DEFAULT DENY FOR ANY UNMATCHED PATH
+    // =========================================================================
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
