@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — Page Not Found | AgeVault</title>
+  <meta name="description" content="The page you're looking for doesn't exist. Return to AgeVault's homepage." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link rel="stylesheet" href="assets/css/pages.css" />
+</head>
+<body>
+<div id="loader" class="loader" aria-hidden="true"><div class="loader__inner"><div class="loader__logo"><span class="loader__logo-icon">⧖</span><span class="loader__logo-text">AgeVault</span></div><div class="loader__bar-wrap"><div class="loader__bar"></div></div><p class="loader__tagline">Measuring time beautifully</p></div></div>
+<header class="navbar" id="navbar" role="banner"><nav class="navbar__inner container" aria-label="Main navigation"><a href="index.html" class="navbar__brand"><span class="navbar__brand-icon">⧖</span><span class="navbar__brand-name">AgeVault</span></a><ul class="navbar__links" role="list"><li><a href="index.html" class="navbar__link">Home</a></li><li><a href="pages/calculator.html" class="navbar__link">Calculator</a></li><li><a href="pages/faq.html" class="navbar__link">FAQ</a></li><li><a href="blog/index.html" class="navbar__link">Blog</a></li></ul><div class="navbar__actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button><button class="navbar__menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav></header>
+<div class="mobile-nav" id="mobileNav" aria-hidden="true"><button class="mobile-nav__close" id="mobileClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button><ul class="mobile-nav__links" role="list"><li><a href="index.html">Home</a></li><li><a href="pages/calculator.html">Calculator</a></li><li><a href="pages/faq.html">FAQ</a></li><li><a href="blog/index.html">Blog</a></li></ul></div>
+<div class="overlay" id="overlay"></div>
+
+<main class="page-main" style="position:relative;overflow:hidden">
+  <!-- Decorative bg orbs -->
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0">
+    <div style="position:absolute;width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.12) 0%,transparent 70%);top:-200px;left:-200px;filter:blur(80px)"></div>
+    <div style="position:absolute;width:400px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,.1) 0%,transparent 70%);bottom:-100px;right:-100px;filter:blur(80px)"></div>
+  </div>
+
+  <section class="error-page" style="position:relative;z-index:1" aria-labelledby="err-title">
+    <span class="error-page__num" aria-hidden="true">404</span>
+    <div class="error-page__content">
+      <span class="error-page__icon" role="img" aria-label="Lost in time">⧖</span>
+      <h1 class="error-page__title" id="err-title">Lost in Time</h1>
+      <p class="error-page__sub">The page you're looking for has drifted into another dimension. Let's get you back on track.</p>
+      <div class="error-page__actions">
+        <a href="index.html" class="btn btn--primary btn--lg">
+          <i class="fa-solid fa-house"></i> Go Home
+        </a>
+        <a href="pages/calculator.html" class="btn btn--ghost btn--lg">
+          <i class="fa-solid fa-calculator"></i> Age Calculator
+        </a>
+      </div>
+      <div style="margin-top:var(--space-10);display:flex;flex-wrap:wrap;gap:var(--space-3);justify-content:center">
+        <a href="pages/age-difference.html" class="btn btn--sm btn--outline">Age Difference</a>
+        <a href="pages/birthday-countdown.html" class="btn btn--sm btn--outline">Birthday Countdown</a>
+        <a href="pages/retirement.html" class="btn btn--sm btn--outline">Retirement</a>
+        <a href="pages/faq.html" class="btn btn--sm btn--outline">FAQ</a>
+        <a href="blog/index.html" class="btn btn--sm btn--outline">Blog</a>
+        <a href="pages/contact.html" class="btn btn--sm btn--outline">Contact</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo"><div class="container"><div class="footer__bottom" style="border-top:1px solid var(--border);padding-top:var(--space-5)"><p>&copy; <span id="footerYear"></span> AgeVault. All rights reserved.</p><a href="index.html" style="color:var(--primary);font-weight:600;font-size:0.88rem">← Back to AgeVault</a></div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

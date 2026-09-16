@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Core pages -->
+  <url><loc>https://agevault.app/</loc><lastmod>2026-07-28</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://agevault.app/pages/calculator.html</loc><lastmod>2026-07-28</lastmod><changefreq>weekly</changefreq><priority>0.9</priority></url>
+
+  <!-- Tool pages -->
+  <url><loc>https://agevault.app/pages/age-difference.html</loc><lastmod>2026-07-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agevault.app/pages/birthday-countdown.html</loc><lastmod>2026-07-28</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://agevault.app/pages/retirement.html</loc><lastmod>2026-07-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agevault.app/pages/life-timeline.html</loc><lastmod>2026-07-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agevault.app/pages/pregnancy.html</loc><lastmod>2026-07-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agevault.app/pages/work-experience.html</loc><lastmod>2026-07-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+  <!-- Info pages -->
+  <url><loc>https://agevault.app/pages/faq.html</loc><lastmod>2026-07-28</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agevault.app/pages/about.html</loc><lastmod>2026-07-28</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://agevault.app/pages/contact.html</loc><lastmod>2026-07-28</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://agevault.app/pages/privacy.html</loc><lastmod>2026-07-28</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://agevault.app/pages/terms.html</loc><lastmod>2026-07-28</lastmod><changefreq>yearly</changefreq><priority>0.3</priority></url>
+
+  <!-- Blog -->
+  <url><loc>https://agevault.app/blog/</loc><lastmod>2026-07-28</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agevault.app/blog/how-to-calculate-age.html</loc><lastmod>2026-07-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://agevault.app/blog/leap-year-explained.html</loc><lastmod>2026-07-05</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://agevault.app/blog/birthday-fun-facts.html</loc><lastmod>2026-07-10</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://agevault.app/blog/age-calculator-guide.html</loc><lastmod>2026-07-15</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://agevault.app/blog/how-age-is-calculated.html</loc><lastmod>2026-07-20</lastmod><changefreq>monthly</changefreq><priority>0.6</priority></url>
+
+</urlset>

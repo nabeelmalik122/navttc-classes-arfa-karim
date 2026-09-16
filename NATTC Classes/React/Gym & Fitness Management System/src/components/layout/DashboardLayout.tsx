@@ -342,17 +342,17 @@ export const DashboardLayout: React.FC = () => {
                     to={item.href}
                     onClick={() => setMobileOpen(false)}
                     aria-current={isActive ? "page" : undefined}
-                    className={`flex items-center ${
-                      collapsed ? "justify-center w-11 h-11 mx-auto px-0" : "gap-3 px-3 min-h-[44px]"
-                    } rounded-xl text-xs font-semibold transition-all duration-150 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dfff00] ${
+                    className={`relative flex items-center ${
+                      collapsed ? "justify-center w-11 h-11 mx-auto px-0" : "gap-3 px-3.5 min-h-[44px]"
+                    } rounded-xl text-xs font-semibold transition-all duration-200 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#dfff00] ${
                       isActive
-                        ? "bg-[#16161b] text-white border border-[#2e2e38] shadow-sm font-bold"
-                        : "text-[#a1a1aa] hover:text-white hover:bg-[#121217]"
+                        ? "bg-[#16161b] text-white border border-[#2e2e38] shadow-[0_2px_10px_rgba(0,0,0,0.35)] font-bold before:absolute before:left-0 before:top-2 before:bottom-2 before:w-[3px] before:rounded-r-full before:bg-[#dfff00]"
+                        : "text-[#a1a1aa] hover:text-white hover:bg-[#121217] hover:translate-x-[1px]"
                     }`}
                     title={collapsed ? item.label : undefined}
                   >
                     <Icon
-                      className={`w-4 h-4 shrink-0 transition-transform duration-200 group-hover:scale-110 ${
+                      className={`w-4 h-4 shrink-0 transition-transform duration-200 group-hover:scale-105 ${
                         isActive ? "text-[#dfff00]" : "text-[#71717a] group-hover:text-[#f4f4f5]"
                       }`}
                       aria-hidden="true"

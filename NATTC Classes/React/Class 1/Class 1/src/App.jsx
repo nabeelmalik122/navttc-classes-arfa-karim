@@ -1,10 +1,21 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 function App() {
-  const [name, setName] = useState("");
+  const { register, handleSubmit } = useForm();
 
-  return <input value={name} onChange={(e) => setName(e.target.value)} />;
+  function onSubmit(data) {
+    console.log(data);
+  }
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <input {...register("name")} />
+
+      <input {...register("email")} />
+
+      <button type="submit">Submit</button>
+    </form>
+  );
 }
-export default App;
 
-//
+export default App;

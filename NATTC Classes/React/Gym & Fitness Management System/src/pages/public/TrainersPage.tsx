@@ -96,13 +96,13 @@ export default function TrainersPage() {
           {trainers.map((trainer) => (
             <div
               key={trainer.id}
-              className="rounded-2xl border border-[#1f1f26] bg-[#121217] overflow-hidden flex flex-col sm:flex-row hover:border-[#2e2e38] transition-all duration-300 group"
+              className="rounded-2xl border border-[#1f1f26] bg-[#121217] overflow-hidden flex flex-col sm:flex-row hover:border-[#2e2e38] transition-all duration-400 md:hover:-translate-y-1.5 md:hover:shadow-[0_12px_40px_-10px_rgba(79,157,255,0.1)] group"
             >
               <div className="sm:w-2/5 relative min-h-[260px] overflow-hidden bg-[#08080a]">
                 <img
                   src={trainer.avatarUrl}
                   alt={trainer.fullName}
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500 md:group-hover:scale-[1.03] md:group-hover:translate-y-[1px]"
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t sm:bg-gradient-to-r from-[#121217] via-transparent to-transparent" />
@@ -143,7 +143,7 @@ export default function TrainersPage() {
                     className="w-full min-h-[42px] gap-1.5"
                     onClick={() => setActiveTrainer(trainer)}
                   >
-                    View Credentials & Bio <ArrowRight className="w-3.5 h-3.5" aria-hidden="true" />
+                    View Credentials & Bio <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 md:group-hover:translate-x-1" aria-hidden="true" />
                   </Button>
                 </div>
               </div>

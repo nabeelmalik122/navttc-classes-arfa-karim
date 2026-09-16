@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How to Calculate Age Accurately | AgeVault Blog</title>
+  <meta name="description" content="Learn the correct method to calculate someone's age — including leap year handling, month-end edge cases, and calendar arithmetic explained simply." />
+  <link rel="canonical" href="https://agevault.app/blog/how-to-calculate-age.html" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"How to Calculate Age Accurately","author":{"@type":"Organization","name":"AgeVault"},"publisher":{"@type":"Organization","name":"AgeVault","url":"https://agevault.app"},"datePublished":"2026-07-01","description":"A complete guide to understanding age calculation — leap years, calendar arithmetic, and why it matters."}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
+</head>
+<body>
+<div id="loader" class="loader" aria-hidden="true"><div class="loader__inner"><div class="loader__logo"><span class="loader__logo-icon">⧖</span><span class="loader__logo-text">AgeVault</span></div><div class="loader__bar-wrap"><div class="loader__bar"></div></div><p class="loader__tagline">Measuring time beautifully</p></div></div>
+<header class="navbar" id="navbar" role="banner"><nav class="navbar__inner container" aria-label="Main navigation"><a href="../index.html" class="navbar__brand"><span class="navbar__brand-icon">⧖</span><span class="navbar__brand-name">AgeVault</span></a><ul class="navbar__links" role="list"><li><a href="../index.html" class="navbar__link">Home</a></li><li><a href="../pages/calculator.html" class="navbar__link">Calculator</a></li><li class="navbar__dropdown"><button class="navbar__link navbar__dropdown-btn" aria-haspopup="true" aria-expanded="false">Tools <i class="fa-solid fa-chevron-down navbar__chevron"></i></button><ul class="navbar__dropdown-menu" role="menu"><li role="none"><a href="../pages/age-difference.html" role="menuitem">Age Difference</a></li><li role="none"><a href="../pages/birthday-countdown.html" role="menuitem">Birthday Countdown</a></li><li role="none"><a href="../pages/retirement.html" role="menuitem">Retirement Calculator</a></li><li role="none"><a href="../pages/life-timeline.html" role="menuitem">Life Timeline</a></li><li role="none"><a href="../pages/pregnancy.html" role="menuitem">Pregnancy Calculator</a></li><li role="none"><a href="../pages/work-experience.html" role="menuitem">Work Experience</a></li></ul></li><li><a href="../pages/faq.html" class="navbar__link">FAQ</a></li><li><a href="index.html" class="navbar__link active">Blog</a></li></ul><div class="navbar__actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button><button class="navbar__menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav></header>
+<div class="mobile-nav" id="mobileNav" aria-hidden="true"><button class="mobile-nav__close" id="mobileClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button><ul class="mobile-nav__links" role="list"><li><a href="../index.html">Home</a></li><li><a href="../pages/calculator.html">Calculator</a></li><li><a href="../pages/faq.html">FAQ</a></li><li><a href="index.html">Blog</a></li><li><a href="../pages/about.html">About</a></li><li><a href="../pages/contact.html">Contact</a></li></ul></div>
+<div class="overlay" id="overlay"></div>
+
+<main class="page-main">
+  <section class="article-section">
+    <div class="container">
+      <div class="article-wrap">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i><a href="index.html">Blog</a><i class="fa-solid fa-chevron-right"></i><span>How to Calculate Age</span></nav>
+
+        <header class="article-header">
+          <div class="article-meta">
+            <span><i class="fa-solid fa-tag"></i> Guide</span>
+            <span><i class="fa-solid fa-calendar"></i> July 1, 2026</span>
+            <span><i class="fa-solid fa-clock"></i> 5 min read</span>
+          </div>
+          <h1 class="article-title">How to Calculate Age Accurately</h1>
+          <p class="article-lead">Age calculation sounds simple — subtract the birth year from today's year. But the truly accurate method is more nuanced, and getting it right matters for legal documents, medical records, and official applications.</p>
+        </header>
+
+        <div class="article-body">
+          <h2>The Simple Method (and Why It Falls Short)</h2>
+          <p>The most common approach is: Current Year − Birth Year = Age. If you were born in 1990 and it's 2026, that gives 36. But this ignores whether your birthday has actually passed this year. If today is March 1st and your birthday is December 15th, you haven't turned 36 yet — you're still 35.</p>
+
+          <h2>The Correct Method: Calendar Arithmetic</h2>
+          <p>Accurate age calculation requires three passes:</p>
+          <ul>
+            <li><strong>Years:</strong> Start with current year minus birth year.</li>
+            <li><strong>Months:</strong> If the current month is before the birth month, subtract 1 from years and adjust months.</li>
+            <li><strong>Days:</strong> If the current day is before the birth day, subtract 1 from months and add the number of days in the previous month.</li>
+          </ul>
+          <p>This is exactly the method used by AgeVault, and it matches how age is formally recognized in most legal jurisdictions.</p>
+
+          <h2>Why Leap Years Matter</h2>
+          <p>Leap years add an extra day — February 29. When calculating total days lived, you must count whether each year in the span was a leap year. Ignoring this introduces an error of roughly 1 day per 4 years of life. For a 40-year-old, that's about 10 uncounted days.</p>
+
+          <h2>Month Length Variation</h2>
+          <p>Months have 28, 29, 30, or 31 days. When a partial month is at the end of an age calculation, the "remaining days" must be measured against the actual number of days in that month — not a fixed 30-day assumption. AgeVault handles this by checking the real calendar month length at runtime.</p>
+
+          <h2>Edge Cases to Watch For</h2>
+          <ul>
+            <li>Born on February 29 (leap day) — only occurs every 4 years</li>
+            <li>Calculating age across a year boundary (e.g., born December, calculated in January)</li>
+            <li>Time zone differences when calculating age at a precise birth time</li>
+            <li>Gregorian vs Julian calendar for very old historical dates</li>
+          </ul>
+
+          <h2>Try It Now</h2>
+          <p>The fastest and most accurate way to calculate your age is to use <a href="../pages/calculator.html">AgeVault's Age Calculator</a>. It handles all the edge cases above automatically and shows your age to the exact second.</p>
+        </div>
+
+        <div style="margin-top:var(--space-10);padding-top:var(--space-8);border-top:1px solid var(--border)">
+          <h3 style="font-family:var(--font-display);font-weight:700;margin-bottom:var(--space-5);color:var(--text)">Continue Reading</h3>
+          <div class="blog-grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">
+            <a href="leap-year-explained.html" class="blog-card glass-card"><div class="blog-card__tag">Learn</div><h3 class="blog-card__title">Leap Year Explained Simply</h3><p class="blog-card__excerpt">The science behind adding an extra day every four years.</p><span class="blog-card__read">Read More <i class="fa-solid fa-arrow-right"></i></span></a>
+            <a href="birthday-fun-facts.html" class="blog-card glass-card"><div class="blog-card__tag">Fun Facts</div><h3 class="blog-card__title">25 Amazing Birthday Fun Facts</h3><p class="blog-card__excerpt">Fascinating birthday facts you won't believe.</p><span class="blog-card__read">Read More <i class="fa-solid fa-arrow-right"></i></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo"><div class="container"><div class="footer__top"><div class="footer__brand"><a href="../index.html" class="footer__logo"><span class="footer__logo-icon">⧖</span><span>AgeVault</span></a><p class="footer__tagline">Measuring time, beautifully.</p><div class="footer__social"><a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a><a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" class="footer__social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></div></div><div class="footer__links"><div class="footer__col"><h4 class="footer__col-title">Tools</h4><ul><li><a href="../pages/calculator.html">Age Calculator</a></li><li><a href="../pages/age-difference.html">Age Difference</a></li><li><a href="../pages/birthday-countdown.html">Birthday Countdown</a></li></ul></div><div class="footer__col"><h4 class="footer__col-title">Company</h4><ul><li><a href="../pages/about.html">About</a></li><li><a href="../pages/faq.html">FAQ</a></li><li><a href="index.html">Blog</a></li><li><a href="../pages/contact.html">Contact</a></li></ul></div><div class="footer__col"><h4 class="footer__col-title">Legal</h4><ul><li><a href="../pages/privacy.html">Privacy Policy</a></li><li><a href="../pages/terms.html">Terms of Service</a></li></ul></div></div></div><div class="footer__bottom"><p>&copy; <span id="footerYear"></span> AgeVault. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#EF4444"></i> for time explorers.</p></div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

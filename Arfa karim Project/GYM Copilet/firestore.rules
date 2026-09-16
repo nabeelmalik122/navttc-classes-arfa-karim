@@ -1,0 +1,118 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // --- Helper Functions ---
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isUser(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+
+    function belongsToTenant(tenantId) {
+      return isAuthenticated() && 
+        (request.auth.token.tenantId == tenantId || request.auth.token.role == 'super_admin');
+    }
+
+    function hasRole(role) {
+      return isAuthenticated() && request.auth.token.role == role;
+    }
+
+    function isStaff() {
+      return hasRole('super_admin') || hasRole('branch_manager') || hasRole('trainer');
+    }
+
+    function isManagement() {
+      return hasRole('super_admin') || hasRole('branch_manager');
+    }
+
+    // --- User Profile Root ---
+    match /users/{userId} {
+      allow read: if isAuthenticated() && (isUser(userId) || isStaff());
+      allow create: if isAuthenticated() && isUser(userId);
+      allow update: if isAuthenticated() && (isUser(userId) || isManagement());
+      allow delete: if hasRole('super_admin');
+    }
+
+    // --- Multi-Tenant Boundary ---
+    match /tenants/{tenantId} {
+      allow read: if belongsToTenant(tenantId);
+      allow create, update: if hasRole('super_admin');
+      allow delete: if false; // Soft deletes only
+
+      // Locations / Branches
+      match /locations/{locationId} {
+        allow read: if belongsToTenant(tenantId);
+        allow write: if belongsToTenant(tenantId) && isManagement();
+      }
+
+      // Membership Tiers & Plans
+      match /memberships/{planId} {
+        allow read: if belongsToTenant(tenantId);
+        allow write: if belongsToTenant(tenantId) && isManagement();
+      }
+
+      // Member Subscriptions
+      match /subscriptions/{subId} {
+        allow read: if belongsToTenant(tenantId) && 
+          (isManagement() || resource.data.memberId == request.auth.uid);
+        allow write: if belongsToTenant(tenantId) && isManagement();
+      }
+
+      // Classes & Scheduled Sessions
+      match /classes/{classId} {
+        allow read: if belongsToTenant(tenantId);
+        allow write: if belongsToTenant(tenantId) && isManagement();
+      }
+
+      match /sessions/{sessionId} {
+        allow read: if belongsToTenant(tenantId);
+        allow write: if belongsToTenant(tenantId) && (isManagement() || hasRole('trainer'));
+      }
+
+      // Bookings & Attendance
+      match /bookings/{bookingId} {
+        allow read: if belongsToTenant(tenantId) && 
+          (isStaff() || resource.data.memberId == request.auth.uid);
+        allow create: if belongsToTenant(tenantId) && 
+          (isStaff() || request.resource.data.memberId == request.auth.uid);
+        allow update: if belongsToTenant(tenantId) && 
+          (isStaff() || resource.data.memberId == request.auth.uid);
+        allow delete: if belongsToTenant(tenantId) && 
+          (isManagement() || resource.data.memberId == request.auth.uid);
+      }
+
+      // Workout Programs & Exercise Library
+      match /workout_plans/{planId} {
+        allow read: if belongsToTenant(tenantId);
+        allow write: if belongsToTenant(tenantId) && (isManagement() || hasRole('trainer'));
+      }
+
+      // Workout Execution Logs
+      match /workout_logs/{logId} {
+        allow read: if belongsToTenant(tenantId) && 
+          (isStaff() || resource.data.memberId == request.auth.uid);
+        allow create: if belongsToTenant(tenantId) && 
+          (request.resource.data.memberId == request.auth.uid || isStaff());
+        allow update, delete: if belongsToTenant(tenantId) && 
+          (resource.data.memberId == request.auth.uid || isManagement());
+      }
+
+      // Inventory & POS Merchandise
+      match /inventory/{itemId} {
+        allow read: if belongsToTenant(tenantId);
+        allow write: if belongsToTenant(tenantId) && isManagement();
+      }
+
+      // Financial Records & Invoices
+      match /invoices/{invoiceId} {
+        allow read: if belongsToTenant(tenantId) && 
+          (isManagement() || resource.data.memberId == request.auth.uid);
+        allow write: if belongsToTenant(tenantId) && isManagement();
+      }
+    }
+  }
+}

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AgeVault — Calculate Your Exact Age Instantly | Free Age Calculator</title>
+<meta name="description" content="Calculate your exact age in years, months, weeks, days, hours and seconds. Discover your zodiac sign, birthstone, generation, leap year info and live age counter. Free, instant, private." />
+<meta name="keywords" content="age calculator, exact age, birthday calculator, how old am i, age in days, zodiac sign calculator" />
+<meta name="robots" content="index, follow" />
+<meta name="author" content="AgeVault" />
+<link rel="canonical" href="https://agevault.app/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://agevault.app/" />
+<meta property="og:title" content="AgeVault — Calculate Your Exact Age Instantly" />
+<meta property="og:description" content="Exact age in seconds, zodiac, birthstone, live counter. Free and private." />
+<meta property="og:image" content="https://agevault.app/assets/images/og.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AgeVault — Exact Age Calculator" />
+<meta name="twitter:description" content="Your age down to the second. Plus zodiac, birthstone, milestones and more." />
+<meta name="theme-color" content="#F59E0B" />
+<link rel="manifest" href="manifest.json" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"AgeVault",
+"url":"https://agevault.app","description":"Premium age calculator with zodiac, live counter, milestones and more.",
+"applicationCategory":"UtilitiesApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<!-- Fonts (non-blocking) -->
+<link rel="preconnect" href="https://api.fontshare.com" />
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&f[]=clash-display@400,500,600,700&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,600,700&f[]=clash-display@400,500,600,700&display=swap" /></noscript>
+<!-- Icons (non-blocking) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  crossorigin="anonymous" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" /></noscript>
+<!-- Styles -->
+<link rel="stylesheet" href="assets/css/styles.css" />
+<!-- Critical inline style to prevent FOUC -->
+<style>
+  body{opacity:0;transition:opacity .25s ease}
+  body.ready{opacity:1}
+</style>
+</head>
+<body>
+<!-- Skip link -->
+<a href="#main" class="sr-only" style="position:fixed;top:12px;left:12px;z-index:9999;background:var(--primary);color:#000;padding:8px 16px;border-radius:99px;font-weight:700;opacity:0;pointer-events:none" onfocus="this.style.opacity='1';this.style.pointerEvents='auto'" onblur="this.style.opacity='0';this.style.pointerEvents='none'">Skip to content</a>
+<!-- Loader -->
+<div id="loader" class="loader" aria-hidden="true">
+  <div class="loader__inner">
+    <div class="loader__logo">
+      <span class="loader__icon">⧖</span>
+      <span class="loader__name">AgeVault</span>
+    </div>
+    <div class="loader__track"><div class="loader__fill"></div></div>
+    <p class="loader__label">Measuring time beautifully</p>
+  </div>
+</div>
+<!-- Confetti canvas -->
+<canvas id="confettiCanvas" aria-hidden="true"></canvas>
+<!-- NAVBAR -->
+<header class="navbar" id="navbar" role="banner">
+  <nav class="navbar__inner container" aria-label="Main navigation">
+    <a href="index.html" class="navbar__brand" aria-label="AgeVault home">
+      <span class="navbar__brand-icon" aria-hidden="true">⧖</span>
+      <span>AgeVault</span>
+    </a>
+    <ul class="navbar__links" role="list">
+      <li><a href="index.html" class="navbar__link active" aria-current="page">Home</a></li>
+      <li><a href="pages/calculator.html" class="navbar__link">Calculator</a></li>
+      <li class="navbar__dropdown">
+        <button class="navbar__link navbar__dropdown-btn" aria-haspopup="true" aria-expanded="false">
+          Tools <i class="fa-solid fa-chevron-down navbar__chevron" aria-hidden="true"></i>
+        </button>
+        <ul class="navbar__dropdown-menu" role="menu">
+          <li role="none"><a href="pages/age-difference.html" role="menuitem">Age Difference</a></li>
+          <li role="none"><a href="pages/birthday-countdown.html" role="menuitem">Birthday Countdown</a></li>
+          <li role="none"><a href="pages/retirement.html" role="menuitem">Retirement Calculator</a></li>
+          <li role="none"><a href="pages/life-timeline.html" role="menuitem">Life Timeline</a></li>
+          <li role="none"><a href="pages/pregnancy.html" role="menuitem">Pregnancy Calculator</a></li>
+          <li role="none"><a href="pages/work-experience.html" role="menuitem">Work Experience</a></li>
+        </ul>
+      </li>
+      <li><a href="pages/faq.html" class="navbar__link">FAQ</a></li>
+      <li><a href="blog/index.html" class="navbar__link">Blog</a></li>
+    </ul>
+    <div class="navbar__actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Switch to light mode">
+        <i class="fa-solid fa-sun" aria-hidden="true"></i>
+      </button>
+      <button class="navbar__menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <div class="mobile-nav__header">
+    <div class="mobile-nav__brand">
+      <span style="background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">⧖</span>
+      AgeVault
+    </div>
+    <button class="mobile-nav__close" id="mobileClose" aria-label="Close menu">
+      <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+    </button>
+  </div>
+  <ul class="mobile-nav__links" role="list">
+    <li><a href="index.html"><i class="fa-solid fa-house" aria-hidden="true"></i> Home</a></li>
+    <li><a href="pages/calculator.html"><i class="fa-solid fa-calculator" aria-hidden="true"></i> Age Calculator</a></li>
+    <div class="mobile-nav__divider"></div>
+    <li><a href="pages/age-difference.html"><i class="fa-solid fa-arrows-left-right-to-line" aria-hidden="true"></i> Age Difference</a></li>
+    <li><a href="pages/birthday-countdown.html"><i class="fa-solid fa-party-horn" aria-hidden="true"></i> Birthday Countdown</a></li>
+    <li><a href="pages/retirement.html"><i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i> Retirement</a></li>
+    <li><a href="pages/life-timeline.html"><i class="fa-solid fa-timeline" aria-hidden="true"></i> Life Timeline</a></li>
+    <li><a href="pages/pregnancy.html"><i class="fa-solid fa-baby" aria-hidden="true"></i> Pregnancy</a></li>
+    <li><a href="pages/work-experience.html"><i class="fa-solid fa-briefcase" aria-hidden="true"></i> Work Experience</a></li>
+    <div class="mobile-nav__divider"></div>
+    <li><a href="pages/faq.html"><i class="fa-solid fa-circle-question" aria-hidden="true"></i> FAQ</a></li>
+    <li><a href="blog/index.html"><i class="fa-solid fa-pen-nib" aria-hidden="true"></i> Blog</a></li>
+    <li><a href="pages/about.html"><i class="fa-solid fa-info-circle" aria-hidden="true"></i> About</a></li>
+    <li><a href="pages/contact.html"><i class="fa-solid fa-envelope" aria-hidden="true"></i> Contact</a></li>
+  </ul>
+</div>
+<div class="overlay" id="overlay" aria-hidden="true"></div>
+
+<main id="main">
+
+<!-- ═══════════════════════════════════════════════════
+     HERO  — 68vh, copy left / calculator right
+═══════════════════════════════════════════════════ -->
+<section class="hero" aria-labelledby="hero-heading">
+  <div class="hero__grid" aria-hidden="true"></div>
+  <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+  <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+
+  <div class="container hero__inner">
+
+    <!-- ── LEFT: Copy ── -->
+    <div class="hero__copy">
+      <div class="hero__eyebrow" data-aos="fade-in">
+        <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+        Free · Private · Instant
+      </div>
+
+      <h1 class="hero__title" id="hero-heading" data-aos="fade-up" data-aos-delay="100">
+        How Old Are<br />
+        You <em>Exactly</em>?
+      </h1>
+
+      <p class="hero__desc" data-aos="fade-up" data-aos-delay="200">
+        Your age down to the second — with zodiac sign,
+        birthstone, generation, live heartbeat counter
+        and milestone messages.
+      </p>
+
+      <div class="hero__stats" data-aos="fade-up" data-aos-delay="300">
+        <div>
+          <span class="hero__stat-val tabular" data-count="2000000">0</span>
+          <span class="hero__stat-label">Users</span>
+        </div>
+        <div>
+          <span class="hero__stat-val tabular" data-count="8">0</span>
+          <span class="hero__stat-label">Tools</span>
+        </div>
+        <div>
+          <span class="hero__stat-val" style="background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;font-family:var(--font-display);font-size:1.6rem;font-weight:700">100%</span>
+          <span class="hero__stat-label">Free</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── RIGHT: Calculator embedded ── -->
+    <div class="hero__calc" id="calculator">
+      <div class="calc-wrapper">
+
+        <!-- Input card -->
+        <div class="glass-card calc-card" id="calcInputCard">
+          <div class="calc-card__header">
+            <div class="calc-card__icon" aria-hidden="true">
+              <i class="fa-solid fa-calendar-days"></i>
+            </div>
+            <h2 class="calc-card__title">Calculate My Age</h2>
+          </div>
+
+          <form class="calc-form" id="ageCalcForm" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="dob">
+                <i class="fa-solid fa-cake-candles" aria-hidden="true"></i>
+                Date of Birth
+              </label>
+              <input type="date" id="dob" name="dob" class="form-input"
+                required aria-required="true" aria-describedby="dob-error" />
+              <span class="form-error" id="dob-error" role="alert" aria-live="assertive"></span>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="calcDate">
+                <i class="fa-solid fa-clock" aria-hidden="true"></i>
+                Age On (optional)
+              </label>
+              <div class="input-with-btn">
+                <input type="date" id="calcDate" name="calcDate" class="form-input"
+                  aria-describedby="calcDate-hint" />
+                <button type="button" class="btn-today" id="todayBtn">Today</button>
+              </div>
+              <span class="form-hint" id="calcDate-hint">Defaults to today</span>
+            </div>
+
+            <div class="calc-form__actions">
+              <button type="submit" class="btn btn--primary btn--full" id="calculateBtn">
+                <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+                Calculate Now
+              </button>
+              <button type="button" class="btn btn--ghost btn--full" id="resetBtn">
+                <i class="fa-solid fa-rotate-left" aria-hidden="true"></i>
+                Reset
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Result card (hidden until calculated) -->
+        <div class="glass-card calc-card calc-card--result" id="resultCard"
+          aria-live="polite" aria-atomic="false" aria-label="Age calculation results" hidden>
+
+          <!-- Birthday banner (shown if today = birthday) -->
+          <div id="birthdayBanner" hidden>
+            🎂 Happy Birthday! Today is your special day — you just turned
+            <span id="bdayAge"></span>!
+          </div>
+
+          <!-- Milestone message -->
+          <div class="milestone-banner" id="milestoneBanner" hidden>
+            <span id="milestoneText"></span>
+          </div>
+
+          <!-- Main age -->
+          <div class="result-hero">
+            <div style="display:flex;align-items:baseline;justify-content:center;gap:.5rem;flex-wrap:wrap">
+              <span class="result-age-num tabular" id="resultYears">0</span>
+              <span class="result-age-label">Years Old</span>
+            </div>
+            <div class="result-age-sub">
+              <span class="tabnum" id="resultMonths">0</span> months,
+              <span class="tabnum" id="resultDays">0</span> days
+            </div>
+          </div>
+
+          <!-- Live counter -->
+          <div class="live-counter" id="liveCounter">
+            <div class="live-counter__label">Live Counter</div>
+            <div class="live-counter__nums">
+              <div class="live-counter__item">
+                <span class="live-counter__val tabular" id="liveSeconds">0</span>
+                <span class="live-counter__unit">Seconds</span>
+              </div>
+              <div class="live-counter__item">
+                <span class="live-counter__val tabular" id="liveDays">0</span>
+                <span class="live-counter__unit">Days</span>
+              </div>
+              <div class="live-counter__item">
+                <span class="live-counter__val tabular" id="liveHours">0</span>
+                <span class="live-counter__unit">Hours</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats grid -->
+          <div class="result-grid" id="resultGrid"></div>
+
+          <!-- Heartbeat -->
+          <div class="heartbeat-stat" id="heartbeatStat">
+            <span class="heartbeat-icon" aria-hidden="true">❤️</span>
+            <div class="heartbeat-info">
+              <span class="heartbeat-val tabular" id="heartbeatVal">0</span>
+              <span class="heartbeat-label">Estimated Heartbeats</span>
+            </div>
+          </div>
+
+          <!-- Extras: zodiac, birthstone, generation, leap -->
+          <div class="result-extras" id="resultExtras"></div>
+
+          <!-- Shareable URL -->
+          <div class="share-url-bar" id="shareUrlBar">
+            <i class="fa-solid fa-link" style="color:var(--text-3);font-size:.75rem" aria-hidden="true"></i>
+            <input type="text" id="shareUrlInput" readonly aria-label="Shareable result URL" />
+            <button class="btn btn--sm btn--surface" id="copyUrlBtn" aria-label="Copy URL">
+              <i class="fa-regular fa-copy" aria-hidden="true"></i>
+            </button>
+          </div>
+
+          <!-- Actions -->
+          <div class="result-actions">
+            <button class="btn btn--sm btn--ghost" id="shareBtn">
+              <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Share
+            </button>
+            <button class="btn btn--sm btn--ghost" id="copyBtn">
+              <i class="fa-regular fa-copy" aria-hidden="true"></i> Copy
+            </button>
+            <button class="btn btn--sm btn--ghost" id="printBtn">
+              <i class="fa-solid fa-print" aria-hidden="true"></i> Print
+            </button>
+          </div>
+        </div><!-- /resultCard -->
+
+      </div><!-- /calc-wrapper -->
+    </div><!-- /hero__calc -->
+
+  </div><!-- /hero__inner -->
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FEATURES SECTION
+═══════════════════════════════════════════════════ -->
+<section class="features-section" aria-labelledby="features-heading">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Why AgeVault</span>
+      <h2 class="section-title" id="features-heading">More Than Just a Number</h2>
+      <p class="section-subtitle">Every calculation reveals something new and interesting about your time on Earth.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="flat-card feature-card" data-aos="fade-up" data-aos-delay="50">
+        <div class="feature-card__icon feature-card__icon--amber">
+          <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+        </div>
+        <h3 class="feature-card__title">Exact to the Second</h3>
+        <p class="feature-card__desc">Years, months, days, hours, minutes and seconds. A live counter that updates every second you sit on the page.</p>
+      </div>
+
+      <div class="flat-card feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-card__icon feature-card__icon--blue">
+          <i class="fa-solid fa-star" aria-hidden="true"></i>
+        </div>
+        <h3 class="feature-card__title">Zodiac & Birthstone</h3>
+        <p class="feature-card__desc">Discover your Western zodiac sign and unique birthstone based on your exact birth date.</p>
+      </div>
+
+      <div class="flat-card feature-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="feature-card__icon feature-card__icon--red">
+          <i class="fa-solid fa-heart-pulse" aria-hidden="true"></i>
+        </div>
+        <h3 class="feature-card__title">Heartbeat Counter</h3>
+        <p class="feature-card__desc">See the estimated number of times your heart has beaten since you were born. A number that puts life in perspective.</p>
+      </div>
+
+      <div class="flat-card feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-card__icon feature-card__icon--green">
+          <i class="fa-solid fa-cake-candles" aria-hidden="true"></i>
+        </div>
+        <h3 class="feature-card__title">Birthday Celebration</h3>
+        <p class="feature-card__desc">Calculate on your birthday and get a full confetti celebration. The website knows — and it celebrates with you.</p>
+      </div>
+
+      <div class="flat-card feature-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="feature-card__icon feature-card__icon--amber">
+          <i class="fa-solid fa-trophy" aria-hidden="true"></i>
+        </div>
+        <h3 class="feature-card__title">Age Milestones</h3>
+        <p class="feature-card__desc">Hit 10,000 days? 1 billion seconds? AgeVault detects these moments and tells you about them.</p>
+      </div>
+
+      <div class="flat-card feature-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-card__icon feature-card__icon--blue">
+          <i class="fa-solid fa-lock" aria-hidden="true"></i>
+        </div>
+        <h3 class="feature-card__title">100% Private</h3>
+        <p class="feature-card__desc">All calculations run in your browser. Your date of birth never leaves your device. No accounts. No tracking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     TOOLS SECTION
+═══════════════════════════════════════════════════ -->
+<section class="tools-section" aria-labelledby="tools-heading">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">All Tools</span>
+      <h2 class="section-title" id="tools-heading">Your Complete Time Toolkit</h2>
+      <p class="section-subtitle">Every date and time calculation you'll ever need — in one place.</p>
+    </div>
+
+    <div class="tools-grid">
+      <a href="pages/age-difference.html" class="flat-card tool-card" data-aos="fade-up" data-aos-delay="50">
+        <div class="tool-card__icon"><i class="fa-solid fa-arrows-left-right-to-line" aria-hidden="true"></i></div>
+        <div class="tool-card__body">
+          <div class="tool-card__title">Age Difference</div>
+          <div class="tool-card__desc">Exact gap between two birthdays.</div>
+        </div>
+        <i class="fa-solid fa-arrow-right tool-card__arrow" aria-hidden="true"></i>
+      </a>
+
+      <a href="pages/birthday-countdown.html" class="flat-card tool-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="tool-card__icon"><i class="fa-solid fa-party-horn" aria-hidden="true"></i></div>
+        <div class="tool-card__body">
+          <div class="tool-card__title">Birthday Countdown</div>
+          <div class="tool-card__desc">Live timer to your next birthday.</div>
+        </div>
+        <i class="fa-solid fa-arrow-right tool-card__arrow" aria-hidden="true"></i>
+      </a>
+
+      <a href="pages/retirement.html" class="flat-card tool-card" data-aos="fade-up" data-aos-delay="150">
+        <div class="tool-card__icon"><i class="fa-solid fa-umbrella-beach" aria-hidden="true"></i></div>
+        <div class="tool-card__body">
+          <div class="tool-card__title">Retirement Calculator</div>
+          <div class="tool-card__desc">How many years until you can retire?</div>
+        </div>
+        <i class="fa-solid fa-arrow-right tool-card__arrow" aria-hidden="true"></i>
+      </a>
+
+      <a href="pages/life-timeline.html" class="flat-card tool-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="tool-card__icon"><i class="fa-solid fa-timeline" aria-hidden="true"></i></div>
+        <div class="tool-card__body">
+          <div class="tool-card__title">Life Timeline</div>
+          <div class="tool-card__desc">Visual milestones from birth to 100.</div>
+        </div>
+        <i class="fa-solid fa-arrow-right tool-card__arrow" aria-hidden="true"></i>
+      </a>
+
+      <a href="pages/pregnancy.html" class="flat-card tool-card" data-aos="fade-up" data-aos-delay="250">
+        <div class="tool-card__icon"><i class="fa-solid fa-baby" aria-hidden="true"></i></div>
+        <div class="tool-card__body">
+          <div class="tool-card__title">Pregnancy Due Date</div>
+          <div class="tool-card__desc">Due date and current pregnancy week.</div>
+        </div>
+        <i class="fa-solid fa-arrow-right tool-card__arrow" aria-hidden="true"></i>
+      </a>
+
+      <a href="pages/work-experience.html" class="flat-card tool-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="tool-card__icon"><i class="fa-solid fa-briefcase" aria-hidden="true"></i></div>
+        <div class="tool-card__body">
+          <div class="tool-card__title">Work Experience</div>
+          <div class="tool-card__desc">Total professional experience calculator.</div>
+        </div>
+        <i class="fa-solid fa-arrow-right tool-card__arrow" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FAQ SECTION
+═══════════════════════════════════════════════════ -->
+<section class="faq-section" aria-labelledby="faq-heading">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">FAQ</span>
+      <h2 class="section-title" id="faq-heading">Frequently Asked Questions</h2>
+    </div>
+
+    <div class="faq-list" data-aos="fade-up" data-aos-delay="100">
+      <details class="faq-item">
+        <summary class="faq-item__q">
+          <span>How is my exact age calculated?</span>
+          <i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i>
+        </summary>
+        <div class="faq-item__a">
+          <p>We use precise calendar arithmetic — subtracting birth date from today accounting for actual month lengths and leap years. The result is exact down to the second.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__q">
+          <span>Is my data stored anywhere?</span>
+          <i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i>
+        </summary>
+        <div class="faq-item__a">
+          <p>No. Everything runs in your browser. Your date of birth never leaves your device. We don't use servers for calculations, and we don't collect any personal data.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__q">
+          <span>Can I calculate age for any date — past or future?</span>
+          <i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i>
+        </summary>
+        <div class="faq-item__a">
+          <p>Yes. Use the "Age On" field to choose any date. Calculate someone's age on a specific historical date, or find out how old you'll be on a future date.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary class="faq-item__q">
+          <span>How does the heartbeat counter work?</span>
+          <i class="fa-solid fa-plus faq-icon" aria-hidden="true"></i>
+        </summary>
+        <div class="faq-item__a">
+          <p>We use 70 beats per minute as the average resting heart rate and multiply by the number of minutes you've been alive. It's an estimate — real heart rates vary with activity, age and health.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="faq-cta" data-aos="fade-up">
+      <a href="pages/faq.html" class="btn btn--ghost">
+        View All FAQs <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     BLOG SECTION
+═══════════════════════════════════════════════════ -->
+<section class="blog-section" aria-labelledby="blog-heading">
+  <div class="container">
+    <div class="section-header" data-aos="fade-up">
+      <span class="section-tag">Blog</span>
+      <h2 class="section-title" id="blog-heading">Insights on Age &amp; Time</h2>
+    </div>
+
+    <div class="blog-grid">
+      <a href="blog/how-to-calculate-age.html" class="flat-card blog-card" data-aos="fade-up" data-aos-delay="50">
+        <span class="blog-tag">Guide</span>
+        <h3 class="blog-card__title">How to Calculate Age Accurately</h3>
+        <p class="blog-card__excerpt">Calendar arithmetic, leap years, and why the simple subtraction method is wrong.</p>
+        <span class="blog-card__read">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+
+      <a href="blog/leap-year-explained.html" class="flat-card blog-card" data-aos="fade-up" data-aos-delay="150">
+        <span class="blog-tag">Learn</span>
+        <h3 class="blog-card__title">Leap Year Explained Simply</h3>
+        <p class="blog-card__excerpt">Why we add an extra day every four years — the astronomy and history behind leap years.</p>
+        <span class="blog-card__read">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+
+      <a href="blog/birthday-fun-facts.html" class="flat-card blog-card" data-aos="fade-up" data-aos-delay="250">
+        <span class="blog-tag">Fun Facts</span>
+        <h3 class="blog-card__title">25 Amazing Birthday Fun Facts</h3>
+        <p class="blog-card__excerpt">The Birthday Paradox, the world's oldest person, and 23 more facts you won't believe.</p>
+        <span class="blog-card__read">Read More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     CTA BAND
+═══════════════════════════════════════════════════ -->
+<section class="cta-band" aria-labelledby="cta-heading">
+  <div class="container cta-band__inner" data-aos="fade-up">
+    <h2 class="cta-band__title" id="cta-heading">
+      Discover Your Exact Age <em style="font-style:normal;background:var(--grad-primary);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">Right Now</em>
+    </h2>
+    <p class="cta-band__sub">Free, instant, private. No sign-up required.</p>
+    <a href="#calculator" class="btn btn--primary btn--lg">
+      <i class="fa-solid fa-bolt" aria-hidden="true"></i>
+      Calculate My Age
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════ -->
+<footer class="footer" role="contentinfo">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a href="index.html" class="footer__logo" aria-label="AgeVault home">
+          <span class="footer__logo-icon" aria-hidden="true">⧖</span>
+          AgeVault
+        </a>
+        <p class="footer__tagline">Measuring time, beautifully.<br />Free forever. No account needed.</p>
+        <div class="footer__social" aria-label="Social links">
+          <a href="#" class="footer__social-link" aria-label="Twitter / X">
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="Instagram">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+          </a>
+          <a href="#" class="footer__social-link" aria-label="GitHub">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__cols">
+        <nav aria-label="Tools links">
+          <p class="footer__col-title">Tools</p>
+          <ul>
+            <li><a href="pages/calculator.html">Age Calculator</a></li>
+            <li><a href="pages/age-difference.html">Age Difference</a></li>
+            <li><a href="pages/birthday-countdown.html">Birthday Countdown</a></li>
+            <li><a href="pages/retirement.html">Retirement</a></li>
+            <li><a href="pages/life-timeline.html">Life Timeline</a></li>
+            <li><a href="pages/pregnancy.html">Pregnancy</a></li>
+            <li><a href="pages/work-experience.html">Work Experience</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Company links">
+          <p class="footer__col-title">Company</p>
+          <ul>
+            <li><a href="pages/about.html">About</a></li>
+            <li><a href="pages/faq.html">FAQ</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="pages/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav aria-label="Legal links">
+          <p class="footer__col-title">Legal</p>
+          <ul>
+            <li><a href="pages/privacy.html">Privacy Policy</a></li>
+            <li><a href="pages/terms.html">Terms of Service</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p>&copy; <span id="footerYear"></span> AgeVault. All rights reserved.</p>
+      <p>Made with <i class="fa-solid fa-heart" style="color:#EF4444" aria-label="love"></i> for time explorers.</p>
+    </div>
+  </div>
+</footer>
+
+</main><!-- /main -->
+
+<!-- Toast -->
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+<!-- Scroll to top -->
+<button class="scroll-top" id="scrollTop" aria-label="Scroll to top">
+  <i class="fa-solid fa-chevron-up" aria-hidden="true"></i>
+</button>
+
+<!-- Main script (defer — non-blocking) -->
+<script src="assets/js/main.js" defer></script>
+
+<!-- Make body visible after styles load -->
+<script>document.addEventListener('DOMContentLoaded',()=>document.body.classList.add('ready'));</script>
+</body>
+</html>

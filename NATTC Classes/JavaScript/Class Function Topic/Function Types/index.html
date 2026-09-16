@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Named Function
+
+      // function greet() {
+      //   console.log("Hello Nabee!");
+      // }
+      // greet();
+
+      // . Parameterized Function (Single Parameter)
+
+      // function userGreet(greet) {
+      //   console.log("Heelo " + greet);
+      // }
+      // userGreet("Nabeel, Kaisy hey App");
+
+      //Two (or Multi) Parameterized Function
+
+      // function addTwoNumber(num1, num2) {
+      //   console.log(`Sum of Both is :  ${num1 + num2}`);
+      // }
+      // addTwoNumber(10, 20);
+
+      //. Function Return (Data wapas bhejne wala)
+
+      // function calculateTax(amount) {
+      //   var tax = amount * 0.15;
+      //   return tax;
+      // }
+      // console.log(calculateTax(1000));
+
+      //5. Anonymous Function (Bina naam wala Function)
+
+      // Bina naam ka function
+      // function () {
+      //   console.log("Mera koi naam nahi hai!");
+      // }
+
+      //Function Expression
+
+      // var multiply = function (a, b) {
+      //   return a * b;
+      // };
+      // console.log(multiply(2, 10));
+
+      // IIFE (Immediately Invoked Function Expression)
+
+      // (function () {
+      //   console.log("Me IIEE Hu");
+      // })();
+
+      //
+      var message = "Global Message";
+
+      (function () {
+        // var message = "Inside IIFE";
+        console.log("Inside IIFE");
+      })();
+
+      console.log(message);
+
+      //
+      // function init() {
+      //   console.log("App Initialized!");
+      // }
+      // init();
+
+      //
+
+      // Function Expression
+      // var addNew = function (a, b) {
+      //   return a + b;
+      // };
+      // // Function Call
+      // var result = addNew(5, 10);
+      // console.log(result);
+    </script>
+  </body>
+</html>

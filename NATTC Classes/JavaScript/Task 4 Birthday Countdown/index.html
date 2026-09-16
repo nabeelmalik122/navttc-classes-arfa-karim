@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Birthday Checker</title>
+  </head>
+  <body>
+    <script>
+      let today = new Date();
+      let currentMonth = today.getMonth() + 1; // 1 to 12
+      let currentDate = today.getDate(); // 1 to 31
+
+      // Aap ki birth date: 05 May (May = Month 5, Date = 5)
+      let birthMonth = 10;
+      let birthDate = 1;
+
+      if (currentMonth === birthMonth && currentDate === birthDate) {
+        console.log("🎉 Happy Birthday!");
+      } else if (
+        currentMonth < birthMonth ||
+        (currentMonth === birthMonth && currentDate < birthDate)
+      ) {
+        console.log("Your birthday is coming soon!");
+      } else {
+        console.log("Wait for next year!");
+      }
+    </script>
+  </body>
+</html>

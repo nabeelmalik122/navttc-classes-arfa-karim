@@ -25,7 +25,7 @@ export const NotFoundPage: React.FC = () => {
             Off-Grid Destination
           </h1>
           <p className="text-xs sm:text-sm text-[#a1a1aa] leading-relaxed max-w-sm mx-auto">
-            The telemetry coordinate you requested does not exist within the IRONYX platform.
+            The telemetry coordinate you requested does not exist within the IRONX platform.
           </p>
         </div>
 

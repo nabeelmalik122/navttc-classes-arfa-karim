@@ -22,13 +22,25 @@ const NAV_LINKS = [
 export const PublicNavbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrollDirection, setScrollDirection] = useState<"up" | "down" | "top">("top");
   const location = useLocation();
   const { isAuthenticated, activeRole, switchSandboxRole, isDemoMode } = useAuthStore();
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
+    let lastY = window.scrollY;
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentY = window.scrollY;
+      setIsScrolled(currentY > 20);
+
+      if (currentY <= 20) {
+        setScrollDirection("top");
+      } else if (currentY > lastY && currentY > 80) {
+        setScrollDirection("down");
+      } else if (currentY < lastY) {
+        setScrollDirection("up");
+      }
+      lastY = currentY;
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -84,14 +96,19 @@ export const PublicNavbar: React.FC = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
-        ? isDark
-          ? "bg-[#08080a] border-b border-[#1f1f26] py-3.5 shadow-xl"
-          : "bg-white border-b border-zinc-200 py-3.5 shadow-sm"
-        : isDark
-          ? "bg-[#08080a]/95 sm:bg-[#08080a]/90 border-b border-[#1f1f26]/60 py-4 sm:py-5"
-          : "bg-white/95 sm:bg-white/90 border-b border-zinc-200/60 py-4 sm:py-5"
-        }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrollDirection === "down" && !mobileMenuOpen
+          ? "-translate-y-2 py-2 opacity-95"
+          : "translate-y-0"
+      } ${
+        isScrolled
+          ? isDark
+            ? "bg-[#08080a]/90 backdrop-blur-md border-b border-[#1f1f26] py-3 shadow-[0_4px_24px_rgba(0,0,0,0.45)]"
+            : "bg-white/95 backdrop-blur-md border-b border-zinc-200 py-3 shadow-sm"
+          : isDark
+            ? "bg-transparent border-b border-transparent py-4 sm:py-5"
+            : "bg-transparent border-b border-transparent py-4 sm:py-5"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         {/* Brand Logo */}

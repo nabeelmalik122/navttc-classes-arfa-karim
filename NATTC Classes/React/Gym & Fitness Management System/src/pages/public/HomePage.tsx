@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { motion, useScroll, useTransform, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   Shield,
@@ -41,6 +42,13 @@ export default function HomePage() {
   const storeTrainers = useGymStore((s) => s.trainers);
   const storePlans = useGymStore((s) => s.plans);
   const storeReviews = useGymStore((s) => s.reviews);
+
+  const prefersReduced = useReducedMotion();
+  const { scrollY } = useScroll();
+  
+  // Cinematic Hero Parallax
+  const heroY = useTransform(scrollY, [0, 1000], [0, prefersReduced ? 0 : 40]);
+  const heroScale = useTransform(scrollY, [0, 1000], [1, prefersReduced ? 1 : 1.05]);
 
   // Filter out any placeholder text leaks and guarantee rich default datasets
   const cleanClasses = (storeClasses || []).filter(
@@ -269,10 +277,11 @@ export default function HomePage() {
           {/* Right Column: Hero High-Impact Athletic Action & Telemetry Visual */}
           <div className="lg:col-span-5 relative flex items-center justify-center min-h-[380px] sm:min-h-[460px]">
             <div className="relative w-full max-w-[480px] rounded-3xl overflow-hidden border border-[#272736] bg-[#0c0c10] shadow-[0_20px_60px_rgba(0,0,0,0.85),0_0_50px_rgba(223,255,0,0.1)] group">
-              <img
+              <motion.img
                 src="/vortex-auth-bg.jpg"
                 alt="IRONX Athlete in High Performance Conditioning"
-                className="w-full h-[400px] sm:h-[460px] object-cover object-center transition-transform duration-700 group-hover:scale-105 filter brightness-95 contrast-110"
+                style={{ y: heroY, scale: heroScale }}
+                className="w-full h-[400px] sm:h-[460px] object-cover object-center filter brightness-95 contrast-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#08080a] via-[#08080a]/30 to-transparent" />
 
@@ -374,13 +383,13 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredClasses.map((item, idx) => (
             <SectionReveal key={item.id} delay={idx * 0.08}>
-              <div className="group rounded-2xl border border-[#1f1f26] bg-[#121217] overflow-hidden hover:border-[#2e2e38] transition-all duration-300 flex flex-col h-full">
+              <div className="group rounded-2xl border border-[#1f1f26] bg-[#121217] overflow-hidden hover:border-[#2e2e38] transition-all duration-400 md:hover:-translate-y-1.5 md:hover:shadow-[0_12px_40px_-10px_rgba(223,255,0,0.15)] flex flex-col h-full">
                 {/* Visual Header with Real Image & Metadata Badges */}
                 <div className="relative aspect-[16/10] overflow-hidden bg-[#08080a]">
                   <img
                     src={item.imageUrl}
                     alt={item.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-[1.04] md:group-hover:translate-x-[1px] md:group-hover:translate-y-[1px]"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#121217] via-[#121217]/40 to-transparent" />
@@ -429,8 +438,8 @@ export default function HomePage() {
                       </div>
                     </div>
                     <Link to="/classes">
-                      <Button variant="volt" size="sm">
-                        Reserve
+                      <Button variant="volt" size="sm" className="gap-1.5">
+                        Reserve <ArrowRight className="w-3.5 h-3.5 transition-transform duration-300 md:group-hover:translate-x-1" aria-hidden="true" />
                       </Button>
                     </Link>
                   </div>
@@ -467,13 +476,13 @@ export default function HomePage() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {featuredTrainers.map((trainer, idx) => (
             <SectionReveal key={trainer.id} delay={idx * 0.08}>
-              <div className="group rounded-2xl border border-[#1f1f26] bg-[#121217] overflow-hidden hover:border-[#2e2e38] transition-all duration-300 flex flex-col h-full">
+              <div className="group rounded-2xl border border-[#1f1f26] bg-[#121217] overflow-hidden hover:border-[#2e2e38] transition-all duration-400 md:hover:-translate-y-1.5 md:hover:shadow-[0_12px_40px_-10px_rgba(79,157,255,0.1)] flex flex-col h-full">
                 {/* Authentic Editorial Athletic Portrait */}
                 <div className="relative aspect-[4/5] sm:aspect-[3/4] overflow-hidden bg-[#08080a]">
                   <img
                     src={trainer.avatarUrl}
                     alt={trainer.fullName}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-[1.03] md:group-hover:translate-y-[1px]"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#121217] via-[#121217]/20 to-transparent" />
@@ -520,9 +529,9 @@ export default function HomePage() {
                     </span>
                     <Link
                       to="/trainers"
-                      className="text-[#dfff00] font-bold hover:text-[#ebff33] inline-flex items-center gap-1"
+                      className="text-[#dfff00] font-bold hover:text-[#ebff33] inline-flex items-center gap-1 transition-colors"
                     >
-                      Credentials <ChevronRight className="w-3.5 h-3.5" aria-hidden="true" />
+                      Credentials <ChevronRight className="w-3.5 h-3.5 transition-transform duration-300 md:group-hover:translate-x-1" aria-hidden="true" />
                     </Link>
                   </div>
                 </div>

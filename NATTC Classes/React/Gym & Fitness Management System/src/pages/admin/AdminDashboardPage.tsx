@@ -186,7 +186,9 @@ export default function AdminDashboardPage() {
               <h3 className="text-lg font-bold text-white uppercase font-heading">
                 Peak Traffic Hours
               </h3>
-              <Badge variant="default" className="text-[10px] font-mono">CHECK-INS</Badge>
+              <Badge variant="outline" className="text-[10px] font-mono border-[#4f9dff]/40 text-[#4f9dff] bg-[#4f9dff]/10">
+                CHECK-INS
+              </Badge>
             </div>
 
             <div className="h-72 w-full pt-4">
@@ -204,7 +206,7 @@ export default function AdminDashboardPage() {
                       fontSize: "12px"
                     }}
                   />
-                  <Bar dataKey="count" fill="#dfff00" radius={[6, 6, 0, 0]} />
+                  <Bar dataKey="count" fill="#4f9dff" radius={[6, 6, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </div>

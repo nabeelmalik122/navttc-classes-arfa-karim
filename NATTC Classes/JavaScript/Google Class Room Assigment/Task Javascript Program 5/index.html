@@ -6,6 +6,9 @@
     <title>Document</title>
   </head>
   <body>
+    <button onclick="reloadPage()">Reload</button>
+    <button onclick="openGoogle()">Open Google</button>
+    <button onclick="goBack()">Go Back</button>
     <script>
       //Create an object named student with the following properties:
       // name;
@@ -46,6 +49,26 @@
       // console.log(car.color);
       // console.log(car.model);
       console.log(car);
+
+      //
+
+      console.log(location.href);
+      console.log(location.hostname);
+      console.log(navigator.language);
+
+      // location.reload();
+      function reloadPage() {
+        location.reload();
+
+        // console.log("load hoegya");
+      }
+      function openGoogle() {
+        window.open("https://www.google.com");
+      }
+
+      function goBack() {
+        history.back();
+      }
     </script>
   </body>
 </html>

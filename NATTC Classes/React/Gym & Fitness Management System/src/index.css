@@ -5,14 +5,16 @@
 /* ============================================================ */
 
 @theme {
-  /* IRONYX Color System Tokens (resolved at build time) */
+  /* IRONX Color System Tokens (resolved at build time) */
   --color-bg-canvas: #08080a;
   --color-surface-base: #0c0c10;
   --color-surface-card: #121217;
   --color-surface-elevated: #16161b;
+  --color-surface-interactive: #1a1a22;
 
   --color-border-subtle: #1f1f26;
   --color-border-active: #2e2e38;
+  --color-border-strong: #3f3f4e;
 
   --color-text-primary: #f4f4f5;
   --color-text-secondary: #a1a1aa;
@@ -20,11 +22,13 @@
 
   --color-accent-volt: #dfff00;
   --color-accent-volt-hover: #ebff33;
+  --color-accent-blue: #4f9dff;
+  --color-accent-blue-hover: #6baeff;
 
   --color-status-success: #10b981;
   --color-status-warning: #f59e0b;
   --color-status-danger: #ef4444;
-  --color-status-info: #3b82f6;
+  --color-status-info: #4f9dff;
 
   /* Fonts */
   --font-heading: 'Outfit', sans-serif;
@@ -49,19 +53,23 @@
     --color-surface-base:     #ffffff;
     --color-surface-card:     #ffffff;
     --color-surface-elevated: #f1f2f4;
+    --color-surface-interactive: #e8e9ec;
 
     /* Borders */
     --color-border-subtle:    #e4e4e7;
     --color-border-active:    #d4d4d8;
+    --color-border-strong:    #a1a1aa;
 
     /* Text */
     --color-text-primary:     #0a0a0a;
     --color-text-secondary:   #52525b;
     --color-text-muted:       #71717a;
 
-    /* Brand accent — NEVER changes between modes */
+    /* Brand accents */
     --color-accent-volt:      #dfff00;
     --color-accent-volt-hover:#c8e600;
+    --color-accent-blue:      #3b82f6;
+    --color-accent-blue-hover:#2563eb;
 
     /* Status */
     --color-status-success:   #10b981;
@@ -116,9 +124,11 @@
     --color-surface-base:     #0c0c10;
     --color-surface-card:     #121217;
     --color-surface-elevated: #16161b;
+    --color-surface-interactive: #1a1a22;
 
     --color-border-subtle:    #1f1f26;
     --color-border-active:    #2e2e38;
+    --color-border-strong:    #3f3f4e;
 
     --color-text-primary:     #f4f4f5;
     --color-text-secondary:   #a1a1aa;
@@ -126,11 +136,13 @@
 
     --color-accent-volt:      #dfff00;
     --color-accent-volt-hover:#ebff33;
+    --color-accent-blue:      #4f9dff;
+    --color-accent-blue-hover:#6baeff;
 
     --color-status-success:   #10b981;
     --color-status-warning:   #f59e0b;
     --color-status-danger:    #ef4444;
-    --color-status-info:      #3b82f6;
+    --color-status-info:      #4f9dff;
 
     /* Semantic dark overrides */
     --background:             240 10% 3.9%;
@@ -313,12 +325,26 @@ html:not(.dark) .surface-elevated {
   box-shadow: 0 8px 32px rgba(0,0,0,0.12);
 }
 
+.surface-interactive {
+  background-color: var(--color-surface-interactive);
+  border: 1px solid var(--color-border-active);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.surface-interactive:hover {
+  border-color: var(--color-border-strong);
+}
+
 .border-structural {
   border-color: var(--color-border-subtle);
 }
 
 .border-interactive {
   border-color: var(--color-border-active);
+}
+
+.border-strong {
+  border-color: var(--color-border-strong);
 }
 
 /* ============================================================ */

@@ -89,25 +89,26 @@ export default function RegisterPage() {
       {/* ── SPLIT LAYOUT ── */}
       <div className="relative z-10 min-h-screen w-full flex flex-col lg:flex-row">
 
-        {/* ── LEFT: ATHLETE VISUAL PANEL ── */}
-        <div className="relative hidden lg:flex lg:w-1/2 min-h-screen bg-black flex-col justify-end p-6 sm:p-8 xl:p-12 pb-10 xl:pb-14">
+        {/* ── LEFT / MOBILE BANNER: ATHLETE VISUAL PANEL ── */}
+        <div className="relative w-full h-[28vh] min-h-[190px] max-h-[250px] lg:h-auto lg:min-h-screen lg:max-h-none lg:w-1/2 bg-black flex flex-col justify-end p-5 sm:p-8 xl:p-12 pb-6 lg:pb-14 overflow-hidden shrink-0">
           <img
             src="/vortex-auth-bg.jpg"
             alt="Athlete training"
-            className="absolute inset-0 w-full h-full object-cover object-[center_35%] filter brightness-[0.75] contrast-[1.1] saturate-[1.05]"
+            className="absolute inset-0 w-full h-full object-cover object-[center_30%] filter brightness-[0.75] contrast-[1.1] saturate-[1.05]"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#08080a] pointer-events-none" />
+          {/* Subtle directional depth overlays */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#08080a] via-black/40 to-black/20 lg:from-black lg:via-black/40 lg:to-black/10 pointer-events-none" />
+          <div className="hidden lg:block absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-[#08080a] pointer-events-none" />
 
-          {/* Bottom Hero Manifesto */}
+          {/* Hero Manifesto */}
           <div className="relative z-10 max-w-md">
-            <span className="inline-flex w-fit items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-[#dfff00]/40 bg-black/70 backdrop-blur-sm text-[9px] font-bold tracking-[0.2em] text-[#dfff00] uppercase mb-2.5">
+            <span className="inline-flex w-fit items-center gap-1.5 px-2.5 py-0.5 rounded-full border border-[#dfff00]/40 bg-black/75 backdrop-blur-sm text-[9px] font-bold tracking-[0.2em] text-[#dfff00] uppercase mb-1.5 lg:mb-2.5">
               Athletic Performance Platform
             </span>
-            <h2 className="text-3xl xl:text-4xl font-black uppercase leading-[1.08] font-heading text-white drop-shadow-xl">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl xl:text-4xl font-black uppercase leading-[1.08] font-heading text-white drop-shadow-xl">
               Forge <span className="text-[#dfff00]">Uncompromising</span> Power
             </h2>
-            <p className="text-zinc-300 text-xs xl:text-sm mt-2.5 leading-relaxed font-sans">
+            <p className="hidden sm:block text-zinc-300 text-xs xl:text-sm mt-1.5 lg:mt-2.5 leading-relaxed font-sans">
               Biomechanical precision, periodized strength protocols, and elite coaching — under one roof.
             </p>
           </div>

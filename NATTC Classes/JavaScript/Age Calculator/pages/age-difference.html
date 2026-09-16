@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Age Difference Calculator — Compare Ages | AgeVault</title>
+  <meta name="description" content="Calculate the exact age difference between two people in years, months, and days. Perfect for couples, siblings, and friends." />
+  <link rel="canonical" href="https://agevault.app/pages/age-difference.html" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://agevault.app/"},{"@type":"ListItem","position":2,"name":"Age Difference","item":"https://agevault.app/pages/age-difference.html"}]}</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
+</head>
+<body>
+<div id="loader" class="loader" aria-hidden="true"><div class="loader__inner"><div class="loader__logo"><span class="loader__logo-icon">⧖</span><span class="loader__logo-text">AgeVault</span></div><div class="loader__bar-wrap"><div class="loader__bar"></div></div><p class="loader__tagline">Measuring time beautifully</p></div></div>
+<header class="navbar" id="navbar" role="banner"><nav class="navbar__inner container" aria-label="Main navigation"><a href="../index.html" class="navbar__brand"><span class="navbar__brand-icon">⧖</span><span class="navbar__brand-name">AgeVault</span></a><ul class="navbar__links" role="list"><li><a href="../index.html" class="navbar__link">Home</a></li><li><a href="calculator.html" class="navbar__link">Calculator</a></li><li class="navbar__dropdown"><button class="navbar__link navbar__dropdown-btn" aria-haspopup="true" aria-expanded="false">Tools <i class="fa-solid fa-chevron-down navbar__chevron"></i></button><ul class="navbar__dropdown-menu" role="menu"><li role="none"><a href="age-difference.html" role="menuitem">Age Difference</a></li><li role="none"><a href="birthday-countdown.html" role="menuitem">Birthday Countdown</a></li><li role="none"><a href="retirement.html" role="menuitem">Retirement Calculator</a></li><li role="none"><a href="life-timeline.html" role="menuitem">Life Timeline</a></li><li role="none"><a href="pregnancy.html" role="menuitem">Pregnancy Calculator</a></li><li role="none"><a href="work-experience.html" role="menuitem">Work Experience</a></li></ul></li><li><a href="faq.html" class="navbar__link">FAQ</a></li><li><a href="../blog/index.html" class="navbar__link">Blog</a></li></ul><div class="navbar__actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button><button class="navbar__menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav></header>
+<div class="mobile-nav" id="mobileNav" aria-hidden="true"><button class="mobile-nav__close" id="mobileClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button><ul class="mobile-nav__links" role="list"><li><a href="../index.html">Home</a></li><li><a href="calculator.html">Calculator</a></li><li><a href="age-difference.html">Age Difference</a></li><li><a href="birthday-countdown.html">Birthday Countdown</a></li><li><a href="retirement.html">Retirement</a></li><li><a href="life-timeline.html">Life Timeline</a></li><li><a href="pregnancy.html">Pregnancy</a></li><li><a href="work-experience.html">Work Experience</a></li><li><a href="faq.html">FAQ</a></li><li><a href="../blog/index.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<div class="overlay" id="overlay"></div>
+
+<main class="page-main">
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Age Difference</span></nav>
+      <div class="page-hero__tag">Age Difference Calculator</div>
+      <h1 class="page-hero__title">How Far Apart Are You?</h1>
+      <p class="page-hero__subtitle">Find the exact age difference between two people — in years, months, days, and total days.</p>
+    </div>
+  </section>
+
+  <section class="tool-page-section">
+    <div class="container">
+      <div class="tool-layout">
+        <!-- Input -->
+        <div class="tool-card-wrap">
+          <div class="calc-card glass-card">
+            <div class="calc-card__header">
+              <div class="calc-card__icon"><i class="fa-solid fa-arrows-left-right-to-line"></i></div>
+              <h2 class="calc-card__title">Enter Both Dates</h2>
+            </div>
+            <form class="calc-form" id="ageDiffForm" novalidate>
+              <div class="form-group">
+                <label class="form-label" for="person1dob"><i class="fa-solid fa-person"></i> Person 1 — Date of Birth</label>
+                <input type="date" id="person1dob" class="form-input" required aria-required="true" />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="person2dob"><i class="fa-solid fa-person-dress"></i> Person 2 — Date of Birth</label>
+                <input type="date" id="person2dob" class="form-input" required aria-required="true" />
+              </div>
+              <button type="submit" class="btn btn--primary btn--full">
+                <i class="fa-solid fa-bolt"></i> Calculate Difference
+              </button>
+            </form>
+          </div>
+          <div class="info-box">
+            <strong>How it works:</strong> Enter the birth dates of two people and we'll calculate the exact age gap — accounting for leap years and varying month lengths.
+          </div>
+        </div>
+
+        <!-- Result -->
+        <div class="calc-card glass-card tool-result-card" id="ageDiffResult" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="related-tools">
+    <div class="container">
+      <div class="section-header" data-aos="fade-up"><span class="section-tag">More Tools</span><h2 class="section-title">Explore More Calculators</h2></div>
+      <div class="tools-grid">
+        <a href="calculator.html" class="tool-card glass-card" data-aos="fade-up"><div class="tool-card__icon"><i class="fa-solid fa-calculator"></i></div><div class="tool-card__body"><h3 class="tool-card__title">Age Calculator</h3><p class="tool-card__desc">Calculate your exact age.</p></div><i class="fa-solid fa-arrow-right tool-card__arrow"></i></a>
+        <a href="birthday-countdown.html" class="tool-card glass-card" data-aos="fade-up" data-aos-delay="80"><div class="tool-card__icon"><i class="fa-solid fa-party-horn"></i></div><div class="tool-card__body"><h3 class="tool-card__title">Birthday Countdown</h3><p class="tool-card__desc">Live countdown to your birthday.</p></div><i class="fa-solid fa-arrow-right tool-card__arrow"></i></a>
+        <a href="retirement.html" class="tool-card glass-card" data-aos="fade-up" data-aos-delay="160"><div class="tool-card__icon"><i class="fa-solid fa-umbrella-beach"></i></div><div class="tool-card__body"><h3 class="tool-card__title">Retirement</h3><p class="tool-card__desc">When can you retire?</p></div><i class="fa-solid fa-arrow-right tool-card__arrow"></i></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo"><div class="container"><div class="footer__top"><div class="footer__brand"><a href="../index.html" class="footer__logo"><span class="footer__logo-icon">⧖</span><span>AgeVault</span></a><p class="footer__tagline">Measuring time, beautifully.</p><div class="footer__social"><a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a><a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" class="footer__social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></div></div><div class="footer__links"><div class="footer__col"><h4 class="footer__col-title">Tools</h4><ul><li><a href="calculator.html">Age Calculator</a></li><li><a href="age-difference.html">Age Difference</a></li><li><a href="birthday-countdown.html">Birthday Countdown</a></li><li><a href="retirement.html">Retirement</a></li><li><a href="life-timeline.html">Life Timeline</a></li></ul></div><div class="footer__col"><h4 class="footer__col-title">Company</h4><ul><li><a href="about.html">About</a></li><li><a href="faq.html">FAQ</a></li><li><a href="../blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer__col"><h4 class="footer__col-title">Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div></div></div><div class="footer__bottom"><p>&copy; <span id="footerYear"></span> AgeVault. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#EF4444"></i> for time explorers.</p></div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

@@ -26,12 +26,15 @@ import { SectionReveal } from "@/components/motion/SectionReveal";
 import { useGymStore } from "@/store/useGymStore";
 import { useAuthStore } from "@/store/useAuthStore";
 import { notify } from "@/lib/notify";
+import { CountUp } from "@/components/reactbits";
+import { useReducedMotion } from "@/utils/motion";
 
 export default function MemberProgressPage() {
   const progress = useGymStore((s) => s.progress);
   const addProgressEntry = useGymStore((s) => s.addProgressEntry);
   const { user } = useAuthStore();
   const [modalOpen, setModalOpen] = useState(false);
+  const prefersReduced = useReducedMotion();
 
   // Form states with fallback to latest recorded or typical starter baseline
   const latestEntry = progress[progress.length - 1];
@@ -129,7 +132,7 @@ export default function MemberProgressPage() {
               <Scale className="w-3.5 h-3.5 text-[#a1a1aa]" aria-hidden="true" />
             </div>
             <div className="text-xl sm:text-2xl font-black font-mono text-white">
-              {currentWeight > 0 ? `${currentWeight} kg` : "--"}
+              {currentWeight > 0 ? <><CountUp end={currentWeight} decimals={1} /> kg</> : "--"}
             </div>
             <p className="text-[10px] text-[#71717a] font-mono">Latest weigh-in</p>
           </div>
@@ -140,7 +143,7 @@ export default function MemberProgressPage() {
               <Dumbbell className="w-3.5 h-3.5 text-[#dfff00]" aria-hidden="true" />
             </div>
             <div className="text-xl sm:text-2xl font-black font-mono text-[#dfff00]">
-              {maxDeadlift > 0 ? `${maxDeadlift} kg` : "--"}
+              {maxDeadlift > 0 ? <><CountUp end={maxDeadlift} decimals={1} /> kg</> : "--"}
             </div>
             <p className="text-[10px] text-[#71717a] font-mono">Peak 1RM recorded</p>
           </div>
@@ -151,7 +154,7 @@ export default function MemberProgressPage() {
               <TrendingUp className="w-3.5 h-3.5 text-[#a1a1aa]" aria-hidden="true" />
             </div>
             <div className="text-xl sm:text-2xl font-black font-mono text-white">
-              {maxSquat > 0 ? `${maxSquat} kg` : "--"}
+              {maxSquat > 0 ? <><CountUp end={maxSquat} decimals={1} /> kg</> : "--"}
             </div>
             <p className="text-[10px] text-[#71717a] font-mono">Peak 1RM recorded</p>
           </div>
@@ -162,7 +165,7 @@ export default function MemberProgressPage() {
               <TrendingUp className="w-3.5 h-3.5 text-[#a1a1aa]" aria-hidden="true" />
             </div>
             <div className="text-xl sm:text-2xl font-black font-mono text-white">
-              {maxBench > 0 ? `${maxBench} kg` : "--"}
+              {maxBench > 0 ? <><CountUp end={maxBench} decimals={1} /> kg</> : "--"}
             </div>
             <p className="text-[10px] text-[#71717a] font-mono">Peak 1RM recorded</p>
           </div>
@@ -233,6 +236,7 @@ export default function MemberProgressPage() {
                       strokeWidth={2.5}
                       dot={{ r: 3, fill: "#dfff00", strokeWidth: 0 }}
                       activeDot={{ r: 5, fill: "#dfff00" }}
+                      isAnimationActive={!prefersReduced}
                     />
                     <Line
                       type="monotone"
@@ -242,6 +246,7 @@ export default function MemberProgressPage() {
                       strokeWidth={2}
                       dot={{ r: 3, fill: "#ffffff", strokeWidth: 0 }}
                       activeDot={{ r: 5, fill: "#ffffff" }}
+                      isAnimationActive={!prefersReduced}
                     />
                     <Line
                       type="monotone"
@@ -251,6 +256,7 @@ export default function MemberProgressPage() {
                       strokeWidth={2}
                       dot={{ r: 3, fill: "#a1a1aa", strokeWidth: 0 }}
                       activeDot={{ r: 5, fill: "#a1a1aa" }}
+                      isAnimationActive={!prefersReduced}
                     />
                   </LineChart>
                 </ResponsiveContainer>
@@ -268,12 +274,20 @@ export default function MemberProgressPage() {
                   </h2>
                   <p className="text-xs text-[#71717a] font-mono">Calibrated scale measurements logged chronologically</p>
                 </div>
-                <Badge variant="volt" className="text-[10px] font-mono self-start sm:self-auto">SCALE TREND</Badge>
+                <Badge variant="outline" className="text-[10px] font-mono self-start sm:self-auto border-[#4f9dff]/40 text-[#4f9dff] bg-[#4f9dff]/10">
+                  SCALE TELEMETRY
+                </Badge>
               </div>
 
               <div className="h-64 sm:h-72 w-full pt-2">
                 <ResponsiveContainer width="100%" height="100%">
                   <AreaChart data={progress}>
+                    <defs>
+                      <linearGradient id="bodyweightGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="5%" stopColor="#4f9dff" stopOpacity={0.25} />
+                        <stop offset="95%" stopColor="#4f9dff" stopOpacity={0.0} />
+                      </linearGradient>
+                    </defs>
                     <CartesianGrid strokeDasharray="3 3" stroke="#1f1f26" vertical={false} />
                     <XAxis dataKey="date" stroke="#71717a" fontSize={10} tickLine={false} />
                     <YAxis stroke="#71717a" fontSize={10} tickLine={false} domain={['dataMin - 2', 'dataMax + 2']} />
@@ -291,10 +305,10 @@ export default function MemberProgressPage() {
                       type="monotone"
                       dataKey="weightKg"
                       name="Bodyweight"
-                      stroke="#dfff00"
+                      stroke="#4f9dff"
                       strokeWidth={2}
-                      fill="#16161b"
-                      fillOpacity={0.6}
+                      fill="url(#bodyweightGradient)"
+                      isAnimationActive={!prefersReduced}
                     />
                   </AreaChart>
                 </ResponsiveContainer>

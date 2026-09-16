@@ -176,13 +176,13 @@ export default function ClassesPage() {
               return (
                 <div
                   key={item.id}
-                  className="rounded-2xl border border-[#1f1f26] bg-[#121217] overflow-hidden flex flex-col justify-between hover:border-[#2e2e38] transition-all duration-300 group"
+                  className="rounded-2xl border border-[#1f1f26] bg-[#121217] overflow-hidden flex flex-col justify-between hover:border-[#2e2e38] transition-all duration-400 md:hover:-translate-y-1.5 md:hover:shadow-[0_12px_40px_-10px_rgba(223,255,0,0.15)] group"
                 >
                   <div className="relative h-52 overflow-hidden bg-[#08080a]">
                     <img
                       src={item.imageUrl}
                       alt={item.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-500 md:group-hover:scale-[1.04] md:group-hover:translate-x-[1px] md:group-hover:translate-y-[1px]"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#121217] via-transparent to-transparent" />
                     <div className="absolute top-3 left-3 flex gap-2 flex-wrap">

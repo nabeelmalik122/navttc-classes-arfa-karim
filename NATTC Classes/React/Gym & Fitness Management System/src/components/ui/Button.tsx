@@ -9,19 +9,21 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[var(--color-surface-elevated)] text-[var(--color-text-primary)] border border-[var(--color-border-subtle)] hover:bg-[var(--color-surface-card)] hover:border-[var(--color-border-active)] shadow-sm",
+          "bg-[var(--color-surface-elevated)] text-[var(--color-text-primary)] border border-[var(--color-border-subtle)] hover:bg-[var(--color-surface-interactive)] hover:border-[var(--color-border-active)] hover:-translate-y-[1px] shadow-sm",
         volt:
-          "bg-[#dfff00] text-[#08080a] hover:bg-[#ebff33] font-bold tracking-tight shadow-[0_0_20px_rgba(223,255,0,0.25)] hover:shadow-[0_0_30px_rgba(223,255,0,0.4)]",
+          "bg-[#dfff00] text-[#08080a] hover:bg-[#ebff33] hover:-translate-y-[1px] font-bold tracking-tight shadow-[0_0_20px_rgba(223,255,0,0.22)] hover:shadow-[0_0_26px_rgba(223,255,0,0.35)]",
+        blue:
+          "bg-[#4f9dff] text-[#08080a] hover:bg-[#6baeff] hover:-translate-y-[1px] font-bold tracking-tight shadow-[0_0_18px_rgba(79,157,255,0.22)] hover:shadow-[0_0_24px_rgba(79,157,255,0.35)]",
         secondary:
-          "bg-[var(--color-surface-card)] text-[var(--color-text-primary)] border border-[var(--color-border-subtle)] hover:bg-[var(--color-surface-elevated)] hover:border-[var(--color-border-active)]",
+          "bg-[var(--color-surface-card)] text-[var(--color-text-primary)] border border-[var(--color-border-subtle)] hover:bg-[var(--color-surface-elevated)] hover:border-[var(--color-border-active)] hover:-translate-y-[1px]",
         outline:
-          "border border-[var(--color-border-subtle)] bg-transparent text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card)] hover:border-[var(--color-border-active)]",
+          "border border-[var(--color-border-subtle)] bg-transparent text-[var(--color-text-primary)] hover:bg-[var(--color-surface-card)] hover:border-[var(--color-border-active)] hover:-translate-y-[1px]",
         ghost:
           "hover:bg-[var(--color-surface-card)] text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)]",
         destructive:
-          "bg-red-950/80 text-[#ef4444] border border-red-900/60 hover:bg-red-900/80 hover:text-red-300",
+          "bg-red-950/80 text-[#ef4444] border border-red-900/60 hover:bg-red-900/80 hover:text-red-300 hover:-translate-y-[1px]",
         glass:
-          "glass-panel text-[var(--color-text-primary)] hover:bg-white/10 border-white/10 hover:border-white/20",
+          "glass-panel text-[var(--color-text-primary)] hover:bg-white/10 border-white/10 hover:border-white/20 hover:-translate-y-[1px]",
       },
       size: {
         default: "h-11 min-h-[44px] px-5 py-2.5",

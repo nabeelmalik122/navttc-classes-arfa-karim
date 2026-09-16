@@ -1,0 +1,35 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+
+    function isImageBelowLimit(maxMb) {
+      return request.resource.size < maxMb * 1024 * 1024
+          && request.resource.contentType.matches('image/.*');
+    }
+
+    // User Profile Pictures
+    match /users/{userId}/avatar/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && request.auth.uid == userId && isImageBelowLimit(5);
+    }
+
+    // Tenant Branding Assets (logos, banners)
+    match /tenants/{tenantId}/branding/{fileName} {
+      allow read: if true;
+      allow write: if isAuthenticated() && request.auth.token.tenantId == tenantId 
+                   && (request.auth.token.role == 'super_admin' || request.auth.token.role == 'branch_manager');
+    }
+
+    // Exercise Library Media (instructional videos, photos)
+    match /tenants/{tenantId}/exercises/{fileName} {
+      allow read: if isAuthenticated();
+      allow write: if isAuthenticated() && request.auth.token.tenantId == tenantId 
+                   && (request.auth.token.role == 'super_admin' || request.auth.token.role == 'trainer');
+    }
+  }
+}

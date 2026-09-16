@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FAQ — Frequently Asked Questions | AgeVault</title>
+  <meta name="description" content="Answers to common questions about age calculation, zodiac signs, leap years, privacy, and how AgeVault works." />
+  <link rel="canonical" href="https://agevault.app/pages/faq.html" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {"@type":"Question","name":"How is my exact age calculated?","acceptedAnswer":{"@type":"Answer","text":"We calculate the difference between your birth date and the selected date using precise calendar arithmetic, accounting for leap years and varying month lengths."}},
+      {"@type":"Question","name":"Is my data stored or shared?","acceptedAnswer":{"@type":"Answer","text":"No. All calculations happen entirely in your browser. We never store, transmit, or share your date of birth."}},
+      {"@type":"Question","name":"Can I calculate age for a past or future date?","acceptedAnswer":{"@type":"Answer","text":"Yes! Use the Calculate Age On field to pick any date — past or future."}},
+      {"@type":"Question","name":"How are zodiac signs determined?","acceptedAnswer":{"@type":"Answer","text":"Western zodiac signs are based on your birth month and day. Chinese zodiac follows a 12-year animal cycle."}},
+      {"@type":"Question","name":"What is a leap year?","acceptedAnswer":{"@type":"Answer","text":"A leap year has 366 days instead of 365. It occurs every 4 years, except for years divisible by 100 unless also divisible by 400."}}
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
+</head>
+<body>
+<div id="loader" class="loader" aria-hidden="true"><div class="loader__inner"><div class="loader__logo"><span class="loader__logo-icon">⧖</span><span class="loader__logo-text">AgeVault</span></div><div class="loader__bar-wrap"><div class="loader__bar"></div></div><p class="loader__tagline">Measuring time beautifully</p></div></div>
+<header class="navbar" id="navbar" role="banner"><nav class="navbar__inner container" aria-label="Main navigation"><a href="../index.html" class="navbar__brand"><span class="navbar__brand-icon">⧖</span><span class="navbar__brand-name">AgeVault</span></a><ul class="navbar__links" role="list"><li><a href="../index.html" class="navbar__link">Home</a></li><li><a href="calculator.html" class="navbar__link">Calculator</a></li><li class="navbar__dropdown"><button class="navbar__link navbar__dropdown-btn" aria-haspopup="true" aria-expanded="false">Tools <i class="fa-solid fa-chevron-down navbar__chevron"></i></button><ul class="navbar__dropdown-menu" role="menu"><li role="none"><a href="age-difference.html" role="menuitem">Age Difference</a></li><li role="none"><a href="birthday-countdown.html" role="menuitem">Birthday Countdown</a></li><li role="none"><a href="retirement.html" role="menuitem">Retirement Calculator</a></li><li role="none"><a href="life-timeline.html" role="menuitem">Life Timeline</a></li><li role="none"><a href="pregnancy.html" role="menuitem">Pregnancy Calculator</a></li><li role="none"><a href="work-experience.html" role="menuitem">Work Experience</a></li></ul></li><li><a href="faq.html" class="navbar__link active">FAQ</a></li><li><a href="../blog/index.html" class="navbar__link">Blog</a></li></ul><div class="navbar__actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button><button class="navbar__menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav></header>
+<div class="mobile-nav" id="mobileNav" aria-hidden="true"><button class="mobile-nav__close" id="mobileClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button><ul class="mobile-nav__links" role="list"><li><a href="../index.html">Home</a></li><li><a href="calculator.html">Calculator</a></li><li><a href="age-difference.html">Age Difference</a></li><li><a href="birthday-countdown.html">Birthday Countdown</a></li><li><a href="retirement.html">Retirement</a></li><li><a href="life-timeline.html">Life Timeline</a></li><li><a href="pregnancy.html">Pregnancy</a></li><li><a href="work-experience.html">Work Experience</a></li><li><a href="faq.html">FAQ</a></li><li><a href="../blog/index.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<div class="overlay" id="overlay"></div>
+
+<main class="page-main">
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>FAQ</span></nav>
+      <div class="page-hero__tag">FAQ</div>
+      <h1 class="page-hero__title">Frequently Asked Questions</h1>
+      <p class="page-hero__subtitle">Everything you need to know about AgeVault and how age calculation works.</p>
+    </div>
+  </section>
+
+  <section class="faq-full">
+    <div class="container" style="max-width:820px">
+
+      <div class="faq-category" data-aos="fade-up">
+        <h2 class="faq-category__title"><span>🧮 Calculator</span></h2>
+        <div class="faq-list" style="margin-bottom:0">
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>How is my exact age calculated?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>We calculate the difference between your birth date and the selected date using precise calendar arithmetic — accounting for leap years, varying month lengths, and timezone-safe date handling. The result includes years, months, days, hours, minutes, and seconds.</p></div>
+          </details>
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>Can I calculate age for a past or future date?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>Absolutely. Use the "Calculate Age On" field to select any date — past or future — and AgeVault will compute the age as of that specific date. This is useful for historical research, planning, or curiosity.</p></div>
+          </details>
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>Why do the months and days sometimes seem off by one?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>This is due to the different lengths of months. For example, February has 28 or 29 days. When calculating "days remaining" within a partial month, we always use the actual number of days in that specific month, which is the most accurate method.</p></div>
+          </details>
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>What is the most accurate way to calculate age?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>The most accurate method is to count calendar years completed, then remaining calendar months, then remaining days — which is exactly what AgeVault does. For total days or hours, we use Unix timestamp difference in milliseconds.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="faq-category" data-aos="fade-up">
+        <h2 class="faq-category__title"><span>🔒 Privacy & Data</span></h2>
+        <div class="faq-list" style="margin-bottom:0">
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>Is my date of birth stored or shared?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>No. All calculations run 100% in your browser using JavaScript. Your date of birth never leaves your device. We do not use servers to process calculations, and we do not collect or transmit any personal data.</p></div>
+          </details>
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>Do you use cookies?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>We use only essential cookies — specifically localStorage to remember your dark/light mode preference. We do not use tracking cookies, advertising cookies, or third-party analytics that identify you personally.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="faq-category" data-aos="fade-up">
+        <h2 class="faq-category__title"><span>♈ Zodiac & Astrology</span></h2>
+        <div class="faq-list" style="margin-bottom:0">
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>How are Western zodiac signs determined?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>Western zodiac signs are based on the position of the Sun at the time of birth, divided into 12 roughly equal segments of the ecliptic. Each sign corresponds to a date range — for example, Aries covers March 21 to April 19.</p></div>
+          </details>
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>How is the Chinese Zodiac determined?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>The Chinese Zodiac follows a 12-year cycle, with each year represented by an animal. The cycle runs: Rat, Ox, Tiger, Rabbit, Dragon, Snake, Horse, Goat, Monkey, Rooster, Dog, Pig. Your sign is determined by your birth year.</p></div>
+          </details>
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>What is a birthstone?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>A birthstone is a gemstone traditionally associated with each calendar month. For example, January's birthstone is Garnet, July's is Ruby, and December's is Turquoise. These associations vary slightly by tradition; AgeVault uses the modern Western list.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="faq-category" data-aos="fade-up">
+        <h2 class="faq-category__title"><span>📅 Leap Years</span></h2>
+        <div class="faq-list" style="margin-bottom:0">
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>What is a leap year?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>A leap year has 366 days instead of 365 — adding February 29th. A year is a leap year if: it is divisible by 4, AND (not divisible by 100, OR divisible by 400). So 2000 was a leap year, but 1900 was not.</p></div>
+          </details>
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>What happens if I was born on February 29?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>If you were born on February 29 (a leap day), AgeVault detects this and highlights it. In non-leap years, your birthday is typically celebrated on either February 28 or March 1 depending on convention. The calculator uses the actual birth date as entered.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="faq-category" data-aos="fade-up">
+        <h2 class="faq-category__title"><span>🪐 Planet Ages</span></h2>
+        <div class="faq-list" style="margin-bottom:0">
+          <details class="faq-item glass-card">
+            <summary class="faq-item__q"><span>How are planet ages calculated?</span><i class="fa-solid fa-plus faq-item__icon"></i></summary>
+            <div class="faq-item__a"><p>Each planet orbits the Sun at a different speed. Your age in "planet years" = your age in Earth years ÷ that planet's orbital period in Earth years. For example, Mars has an orbital period of ~1.88 Earth years, so a 30-year-old Earth person is about 15.96 Mars years old.</p></div>
+          </details>
+        </div>
+      </div>
+
+      <div class="faq-cta" data-aos="fade-up" style="margin-top:var(--space-10);text-align:center">
+        <p style="color:var(--text-3);margin-bottom:var(--space-4)">Still have a question?</p>
+        <a href="contact.html" class="btn btn--primary">Contact Us <i class="fa-solid fa-arrow-right"></i></a>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo"><div class="container"><div class="footer__top"><div class="footer__brand"><a href="../index.html" class="footer__logo"><span class="footer__logo-icon">⧖</span><span>AgeVault</span></a><p class="footer__tagline">Measuring time, beautifully.</p><div class="footer__social"><a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a><a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" class="footer__social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></div></div><div class="footer__links"><div class="footer__col"><h4 class="footer__col-title">Tools</h4><ul><li><a href="calculator.html">Age Calculator</a></li><li><a href="age-difference.html">Age Difference</a></li><li><a href="birthday-countdown.html">Birthday Countdown</a></li><li><a href="retirement.html">Retirement</a></li><li><a href="life-timeline.html">Life Timeline</a></li></ul></div><div class="footer__col"><h4 class="footer__col-title">Company</h4><ul><li><a href="about.html">About</a></li><li><a href="faq.html">FAQ</a></li><li><a href="../blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer__col"><h4 class="footer__col-title">Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div></div></div><div class="footer__bottom"><p>&copy; <span id="footerYear"></span> AgeVault. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#EF4444"></i> for time explorers.</p></div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+<script src="../assets/js/main.js" defer></script>
+</body>
+</html>

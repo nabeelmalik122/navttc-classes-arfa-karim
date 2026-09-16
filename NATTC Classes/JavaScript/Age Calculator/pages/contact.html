@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact AgeVault — Get in Touch</title>
+  <meta name="description" content="Contact the AgeVault team with questions, feedback, bug reports, or partnership inquiries." />
+  <link rel="canonical" href="https://agevault.app/pages/contact.html" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <link rel="stylesheet" href="../assets/css/pages.css" />
+</head>
+<body>
+<div id="loader" class="loader" aria-hidden="true"><div class="loader__inner"><div class="loader__logo"><span class="loader__logo-icon">⧖</span><span class="loader__logo-text">AgeVault</span></div><div class="loader__bar-wrap"><div class="loader__bar"></div></div><p class="loader__tagline">Measuring time beautifully</p></div></div>
+<header class="navbar" id="navbar" role="banner"><nav class="navbar__inner container" aria-label="Main navigation"><a href="../index.html" class="navbar__brand"><span class="navbar__brand-icon">⧖</span><span class="navbar__brand-name">AgeVault</span></a><ul class="navbar__links" role="list"><li><a href="../index.html" class="navbar__link">Home</a></li><li><a href="calculator.html" class="navbar__link">Calculator</a></li><li class="navbar__dropdown"><button class="navbar__link navbar__dropdown-btn" aria-haspopup="true" aria-expanded="false">Tools <i class="fa-solid fa-chevron-down navbar__chevron"></i></button><ul class="navbar__dropdown-menu" role="menu"><li role="none"><a href="age-difference.html" role="menuitem">Age Difference</a></li><li role="none"><a href="birthday-countdown.html" role="menuitem">Birthday Countdown</a></li><li role="none"><a href="retirement.html" role="menuitem">Retirement Calculator</a></li><li role="none"><a href="life-timeline.html" role="menuitem">Life Timeline</a></li><li role="none"><a href="pregnancy.html" role="menuitem">Pregnancy Calculator</a></li><li role="none"><a href="work-experience.html" role="menuitem">Work Experience</a></li></ul></li><li><a href="faq.html" class="navbar__link">FAQ</a></li><li><a href="../blog/index.html" class="navbar__link">Blog</a></li></ul><div class="navbar__actions"><button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"><i class="fa-solid fa-moon"></i></button><button class="navbar__menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button></div></nav></header>
+<div class="mobile-nav" id="mobileNav" aria-hidden="true"><button class="mobile-nav__close" id="mobileClose" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button><ul class="mobile-nav__links" role="list"><li><a href="../index.html">Home</a></li><li><a href="calculator.html">Calculator</a></li><li><a href="faq.html">FAQ</a></li><li><a href="../blog/index.html">Blog</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+<div class="overlay" id="overlay"></div>
+
+<main class="page-main">
+  <section class="page-hero">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="../index.html">Home</a><i class="fa-solid fa-chevron-right"></i><span>Contact</span></nav>
+      <div class="page-hero__tag">Contact</div>
+      <h1 class="page-hero__title">Get in Touch</h1>
+      <p class="page-hero__subtitle">Questions, feedback, bug reports, or just want to say hello — we'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <section class="tool-page-section">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- Info -->
+        <div class="contact-info" data-aos="fade-up">
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <div class="contact-item__label">Email</div>
+              <div class="contact-item__val">hello@agevault.app</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="fa-brands fa-twitter"></i></div>
+            <div>
+              <div class="contact-item__label">Twitter / X</div>
+              <div class="contact-item__val">@AgeVaultApp</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item__icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <div class="contact-item__label">Response Time</div>
+              <div class="contact-item__val">Within 24–48 hours</div>
+            </div>
+          </div>
+          <div class="info-box">
+            <strong>Before contacting us,</strong> please check our <a href="faq.html" style="color:var(--primary);font-weight:600">FAQ page</a> — your question may already be answered there.
+          </div>
+        </div>
+
+        <!-- Form -->
+        <form class="contact-form glass-card" id="contactForm" novalidate aria-label="Contact form" data-aos="fade-up" data-aos-delay="100">
+          <h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:800;color:var(--text)">Send a Message</h2>
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="contactName"><i class="fa-solid fa-user"></i> Your Name</label>
+              <input type="text" id="contactName" class="form-input" placeholder="Jane Smith" required aria-required="true" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="contactEmail"><i class="fa-solid fa-envelope"></i> Email Address</label>
+              <input type="email" id="contactEmail" class="form-input" placeholder="jane@example.com" required aria-required="true" autocomplete="email" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactSubject"><i class="fa-solid fa-tag"></i> Subject</label>
+            <select id="contactSubject" class="form-select">
+              <option value="">Select a topic…</option>
+              <option value="feedback">General Feedback</option>
+              <option value="bug">Bug Report</option>
+              <option value="feature">Feature Request</option>
+              <option value="partnership">Partnership / Business</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="contactMessage"><i class="fa-solid fa-comment"></i> Message</label>
+            <textarea id="contactMessage" class="form-textarea" placeholder="Tell us what's on your mind…" required aria-required="true" rows="5"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full" id="contactSubmitBtn">
+            <i class="fa-solid fa-paper-plane"></i> Send Message
+          </button>
+          <p style="font-size:0.78rem;color:var(--text-3);text-align:center">We respect your privacy. Your message is never shared with third parties.</p>
+        </form>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer" role="contentinfo"><div class="container"><div class="footer__top"><div class="footer__brand"><a href="../index.html" class="footer__logo"><span class="footer__logo-icon">⧖</span><span>AgeVault</span></a><p class="footer__tagline">Measuring time, beautifully.</p><div class="footer__social"><a href="#" class="footer__social-link" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a><a href="#" class="footer__social-link" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a><a href="#" class="footer__social-link" aria-label="GitHub"><i class="fa-brands fa-github"></i></a></div></div><div class="footer__links"><div class="footer__col"><h4 class="footer__col-title">Tools</h4><ul><li><a href="calculator.html">Age Calculator</a></li><li><a href="age-difference.html">Age Difference</a></li><li><a href="birthday-countdown.html">Birthday Countdown</a></li></ul></div><div class="footer__col"><h4 class="footer__col-title">Company</h4><ul><li><a href="about.html">About</a></li><li><a href="faq.html">FAQ</a></li><li><a href="../blog/index.html">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></div><div class="footer__col"><h4 class="footer__col-title">Legal</h4><ul><li><a href="privacy.html">Privacy Policy</a></li><li><a href="terms.html">Terms of Service</a></li></ul></div></div></div><div class="footer__bottom"><p>&copy; <span id="footerYear"></span> AgeVault. All rights reserved.</p><p>Made with <i class="fa-solid fa-heart" style="color:#EF4444"></i> for time explorers.</p></div></div></footer>
+<div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+<script src="../assets/js/main.js" defer></script>
+<script>
+  document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('contactSubmitBtn');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending…';
+    setTimeout(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+      this.reset();
+      // showToast is defined in main.js
+      if (typeof showToast === 'function') showToast('Message sent! We\'ll be in touch soon.', 'success');
+    }, 1200);
+  });
+</script>
+</body>
+</html>

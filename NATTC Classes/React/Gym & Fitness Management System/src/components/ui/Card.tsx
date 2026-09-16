@@ -1,19 +1,30 @@
 import * as React from "react";
 import { cn } from "@/utils/cn";
 
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "rounded-2xl border border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] text-[var(--color-text-primary)] shadow-xl transition-all duration-300",
-      className
-    )}
-    {...props}
-  />
-));
+export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
+  variant?: "standard" | "elevated" | "metric" | "interactive";
+}
+
+const variantStyles: Record<NonNullable<CardProps["variant"]>, string> = {
+  standard: "border-[var(--color-border-subtle)] bg-[var(--color-surface-card)]",
+  elevated: "border-[var(--color-border-subtle)] bg-[var(--color-surface-elevated)] shadow-2xl",
+  metric: "border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] hover:border-[var(--color-border-strong)] transition-colors",
+  interactive: "border-[var(--color-border-subtle)] bg-[var(--color-surface-card)] hover:border-[var(--color-border-strong)] hover:bg-[var(--color-surface-interactive)] hover:-translate-y-[1px] hover:shadow-2xl cursor-pointer",
+};
+
+const Card = React.forwardRef<HTMLDivElement, CardProps>(
+  ({ className, variant = "standard", ...props }, ref) => (
+    <div
+      ref={ref}
+      className={cn(
+        "rounded-2xl border text-[var(--color-text-primary)] shadow-xl transition-all duration-300",
+        variantStyles[variant],
+        className
+      )}
+      {...props}
+    />
+  )
+);
 Card.displayName = "Card";
 
 const CardHeader = React.forwardRef<
